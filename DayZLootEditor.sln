@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DayZLootEditor", "DayZLootEditor\DayZLootEditor.csproj", "{903600AA-6EBA-40F3-A0B7-C7B98493D85E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{903600AA-6EBA-40F3-A0B7-C7B98493D85E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{903600AA-6EBA-40F3-A0B7-C7B98493D85E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{903600AA-6EBA-40F3-A0B7-C7B98493D85E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{903600AA-6EBA-40F3-A0B7-C7B98493D85E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1753F1C2-2AE0-4B64-8F18-3DAAAE19A1F0}
+	EndGlobalSection
+EndGlobal
