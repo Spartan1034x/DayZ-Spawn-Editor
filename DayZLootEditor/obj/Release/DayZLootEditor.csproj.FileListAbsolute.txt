@@ -1,0 +1,14 @@
+C:\Users\Spart\Desktop\Dayz\DayZ-Spawn-Editor-Git-Repo\DayZLootEditor\bin\Release\DayZLootEditor.exe.config
+C:\Users\Spart\Desktop\Dayz\DayZ-Spawn-Editor-Git-Repo\DayZLootEditor\bin\Release\DayZLootEditor.exe
+C:\Users\Spart\Desktop\Dayz\DayZ-Spawn-Editor-Git-Repo\DayZLootEditor\bin\Release\DayZLootEditor.pdb
+C:\Users\Spart\Desktop\Dayz\DayZ-Spawn-Editor-Git-Repo\DayZLootEditor\bin\Release\Newtonsoft.Json.dll
+C:\Users\Spart\Desktop\Dayz\DayZ-Spawn-Editor-Git-Repo\DayZLootEditor\bin\Release\Newtonsoft.Json.xml
+C:\Users\Spart\Desktop\Dayz\DayZ-Spawn-Editor-Git-Repo\DayZLootEditor\obj\Release\DayZLootEditor.csproj.AssemblyReference.cache
+C:\Users\Spart\Desktop\Dayz\DayZ-Spawn-Editor-Git-Repo\DayZLootEditor\obj\Release\DayZLootEditor.frmMain.resources
+C:\Users\Spart\Desktop\Dayz\DayZ-Spawn-Editor-Git-Repo\DayZLootEditor\obj\Release\DayZLootEditor.frmEdit.resources
+C:\Users\Spart\Desktop\Dayz\DayZ-Spawn-Editor-Git-Repo\DayZLootEditor\obj\Release\DayZLootEditor.Properties.Resources.resources
+C:\Users\Spart\Desktop\Dayz\DayZ-Spawn-Editor-Git-Repo\DayZLootEditor\obj\Release\DayZLootEditor.csproj.GenerateResource.cache
+C:\Users\Spart\Desktop\Dayz\DayZ-Spawn-Editor-Git-Repo\DayZLootEditor\obj\Release\DayZLootEditor.csproj.CoreCompileInputs.cache
+C:\Users\Spart\Desktop\Dayz\DayZ-Spawn-Editor-Git-Repo\DayZLootEditor\obj\Release\DayZLootEditor.csproj.CopyComplete
+C:\Users\Spart\Desktop\Dayz\DayZ-Spawn-Editor-Git-Repo\DayZLootEditor\obj\Release\DayZLootEditor.exe
+C:\Users\Spart\Desktop\Dayz\DayZ-Spawn-Editor-Git-Repo\DayZLootEditor\obj\Release\DayZLootEditor.pdb
