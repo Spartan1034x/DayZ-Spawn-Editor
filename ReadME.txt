@@ -7,4 +7,4 @@ will not work.
 
 					   **How You Can Help**
 There is still lots of testing to be done, if anybody would like to help contributions are welcome! You can fork 
-my repo and submit changes as you see fit, or message me on discord @spartan1034x
+my repo and submit changes as you see fit, or message me on discord @spartan1034x, or by email spartan1034x@gmail.com.
