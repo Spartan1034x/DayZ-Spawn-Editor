@@ -76,13 +76,14 @@ namespace DayZLootEditor
 "UMP45",
 "Val",
 "VSS",
+"Winchester70",
 "SSG82",
 "Ruger1022"};
         private static string[] weaponLight = { "", "UniversalLight" };
         private static string[] weaponAttachment1 = { "", "AK_FoldingBttstck_Black", "AK_FoldingBttstck_Green", "AK_PlasticBttstck", "AK_PlasticBttstck_Black", "AK_PlasticBttstck_Green", "AK_PlasticHndgrd", "AK_RailHndgrd", "AK_RailHndgrd_Black", "AK_RailHndgrd_Green", "AK_Suppressor", "AK_WoodBttstck", "AK_WoodBttstck_Black", "AK_WoodBttstck_Camo", "AK_WoodHndgrd", "AK_WoodHndgrd_Black", "AK_WoodHndgrd_Camo", "SKS_Bayonet", "PistolSuppressor", "PP19_Bttstck", "MP5_Compensator", "MP5_PlasticHndgrd", "MP5_RailHndgrd", "MP5k_StockBttstck", "M9A1_Bayonet", "M4_CQBBttstck", "M4_MPBttstck", "M4_MPHndgrd", "M4_OEBttstck", "M4_PlasticHndgrd", "M4_RISHndgrd", "M4_RISHndgrd_Black", "M4_RISHndgrd_Green", "M4_Suppressor", "GhillieAtt_Mossy", "GhillieAtt_Tan", "GhillieAtt_Woodland", "Fal_FoldingBttstck", "Fal_OeBttstck" };        
         //parrallel arrays index can be matched to give proper code names when creating object, and seperate ones to display
-        //private static string[] weaponMags = { "", "1911_7Rnd", "AK101_30Rnd", "AK74_30Rnd", "AK74_45Rnd", "AKM_30Rnd", "AKM_Drum75Rnd", "AKM_Palm30Rnd", "Aug_30Rnd", "CMAG_10Rnd", "CMAG_20Rnd", "CMAG_30Rnd", "CMAG_40Rnd", "CZ527_5rnd", "CZ550_10Rnd", "CZ61_20Rnd", "CZ75_15Rnd", "Deagle_9rnd", "FAL_20Rnd", "FAMAS_25Rnd", "FNX45_15Rnd", "Glock_15Rnd", "IJ70_8Rnd", "M14_10Rnd", "M14_20Rnd", "MKII_10Rnd", "MP5_15Rnd", "MP5_30Rnd", "P1_8Rnd", "PP19_64Rnd", "Ruger1022_15Rnd", "Ruger1022_30Rnd", "SSG82_5rnd", "STANAG_30Rnd", "STANAG_60Rnd", "SVD_10Rnd", "Saiga_5Rnd", "Saiga_8Rnd", "Saiga_Drum20Rnd", "Scout_5Rnd", "UMP_25Rnd", "VAL_20Rnd", "VSS_10Rnd" };
-        private static string[] weaponMags = {"", "Mag_1911_7Rnd",
+        private static string[] weaponMags = { "", "1911_7Rnd", "AK101_30Rnd", "AK74_30Rnd", "AK74_45Rnd", "AKM_30Rnd", "AKM_Drum75Rnd", "AKM_Palm30Rnd", "Aug_30Rnd", "CMAG_10Rnd", "CMAG_20Rnd", "CMAG_30Rnd", "CMAG_40Rnd", "CZ527_5rnd", "CZ550_10Rnd", "CZ61_20Rnd", "CZ75_15Rnd", "Deagle_9rnd", "FAL_20Rnd", "FAMAS_25Rnd", "FNX45_15Rnd", "Glock_15Rnd", "IJ70_8Rnd", "M14_10Rnd", "M14_20Rnd", "MKII_10Rnd", "MP5_15Rnd", "MP5_30Rnd", "P1_8Rnd", "PP19_64Rnd", "Ruger1022_15Rnd", "Ruger1022_30Rnd", "SSG82_5rnd", "STANAG_30Rnd", "STANAG_60Rnd", "SVD_10Rnd", "Saiga_5Rnd", "Saiga_8Rnd", "Saiga_Drum20Rnd", "Scout_5Rnd", "UMP_25Rnd", "VAL_20Rnd", "VSS_10Rnd" };
+        private static string[] mags = {"", "Mag_1911_7Rnd",
 "Mag_AK101_30Rnd",
 "Mag_AK74_30Rnd",
 "Mag_AK74_45Rnd",
@@ -719,12 +720,27 @@ namespace DayZLootEditor
         //Sets all combo box to first index which is blank, and all nuds to default
         private void btnReset_Click(object sender, EventArgs e)
         {
+            Reset();
+            radWest.Checked = false;
+            radEast.Checked = false;
+            radBlack.Checked = false;
+            radCamo.Checked = false;
+        }
+
+        private void Reset()
+        {
+            
             foreach (System.Windows.Forms.ComboBox comboBox in Controls.OfType<System.Windows.Forms.ComboBox>())
-            { if (comboBox.Items.Count > 0)
-                comboBox.SelectedIndex = 0; 
+            {
+                if (comboBox.Items.Count > 0)
+                    comboBox.SelectedIndex = 0;
             }
-            txtLoadoutName.Text = "";
+            txtLoadoutName.Text = "Loadout1";
             nudSpawnChance.Value = 1;
+            lblInventoryBuilt.Visible = false;
+            picCheckMark.Visible = false;
+            userInventoryListComplexChildren.Clear();
+            userInventoryListSimpleChildren.Clear();
         }
 
         //Opens Edit form, creates new userInventoryListComplexChildren by calling ftn in editForm, changes some control properties
@@ -1375,7 +1391,10 @@ namespace DayZLootEditor
             // Magazine
             if (cmbRSMag.SelectedIndex != 0)
             {
-                string item = cmbRSMag.Text;
+                //selects string from parralel array so proper mag name is entered into object
+                int arrayNum = cmbRSMag.SelectedIndex;
+                string item = mags[arrayNum].ToString();
+
                 ComplexChildrenType mag = new ComplexChildrenType(item);
                 RSAttachmentComplexList.Add(mag);
             }
@@ -1441,7 +1460,10 @@ namespace DayZLootEditor
             // Magazine
             if (cmbLS3.SelectedIndex != 0)
             {
-                string item = cmbLS3.Text;
+                //selects string from parralel array so proper mag name is entered into object
+                int arrayNum = cmbLS3.SelectedIndex;
+                string item = mags[arrayNum].ToString();
+
                 ComplexChildrenType mag = new ComplexChildrenType(item);
                 LSAttachmentComplexList.Add(mag);
             }
@@ -1507,7 +1529,10 @@ namespace DayZLootEditor
             // Magazine
             if (cmbHandMag.SelectedIndex != 0)
             {
-                string item = cmbHandMag.Text;
+                //selects string from parralel array so proper mag name is entered into object
+                int arrayNum = cmbHandMag.SelectedIndex;
+                string item = mags[arrayNum].ToString();
+
                 ComplexChildrenType mag = new ComplexChildrenType(item);
                 handAttachmentComplexList.Add(mag);
             }
@@ -1967,6 +1992,223 @@ namespace DayZLootEditor
 
             return Hips;
 
+        }
+
+        //Description: Creates default selections for East rad
+        private void radEast_CheckedChanged(object sender, EventArgs e)
+        {
+            //Resets all
+            Reset();
+
+            if (radEast.Checked)
+            {
+                //LS 
+                cmbLSMain.SelectedIndex = 8;
+                nudHSLeftShoulder.Value = 0;
+                cmbLSSight.SelectedIndex = 7;
+                cmbLSLight.SelectedIndex = 1;
+                cmbLS3.SelectedIndex = 6;
+                cmbLS4.SelectedIndex = 3;
+                cmbLS5.SelectedIndex = 7;
+                cmbLS6.SelectedIndex = 10;
+                //RS
+                cmbRSMain.SelectedIndex = 51;
+                nudHSRightShoulder.Value = 1;
+                cmbRSSight.SelectedIndex = 11;
+                cmbRSMag.SelectedIndex = 35;
+                cmbRS4.SelectedIndex = 10;
+                //Hands
+                cmbHandMain.SelectedIndex = 24;
+                nudHSHands.Value = 2;
+                //Vest
+                cmbVestMain.SelectedIndex = 2;
+                cmbVest2.SelectedIndex = 2;
+                cmbVest3.SelectedIndex = 2;
+                //Shirt
+                cmbShirtMain.SelectedIndex = 36;
+                //Hips
+                cmbBeltMain.SelectedIndex = 5;
+                cmbBeltKnife.SelectedIndex = 2;
+                nudHSBeltKnife.Value = 3;
+                cmbBeltHolster.SelectedIndex = 2;
+                cmbBeltPistol.SelectedIndex = 9;
+                nudHSBeltPistol.Value = 4;
+                chkBeltMag.Checked = true;
+                chkBeltSup.Checked = true;
+                //Pants
+                cmbPantsMain.SelectedIndex = 13;
+                //Back
+                cmbBackMain.SelectedIndex = 4;
+                radRadio.Checked = true;
+                //Face
+                cmbFaceMain.SelectedIndex = 2;
+                //Eyewear
+                cmbEyeWearMain.SelectedIndex = 3;
+                //Gloves
+                cmbGlovesMain.SelectedIndex = 17;
+                //Feet
+                cmbFeetMain.SelectedIndex = 7;
+                //Armband
+                cmbArmbandMain.SelectedIndex = 17;
+                //Helmet
+                cmbHelmetMain.SelectedIndex = 29;
+                //Loadout Name
+                txtLoadoutName.Text = "EasternLoadout";
+            }
+        }
+
+        //Description: Creates default selections for West rad
+        private void radWest_CheckedChanged(object sender, EventArgs e)
+        {
+            Reset();
+
+
+            if (radWest.Checked)
+            {
+                //LS M4
+                cmbLSMain.SelectedIndex = 26;
+                nudHSLeftShoulder.Value = 0;
+                cmbLSSight.SelectedIndex = 9;
+                cmbLSLight.SelectedIndex = 1;
+                cmbLS3.SelectedIndex = 34;
+                cmbLS4.SelectedIndex = 27;
+                cmbLS5.SelectedIndex = 25;
+                cmbLS6.SelectedIndex = 30;
+                //RS M14
+                cmbRSMain.SelectedIndex = 25;
+                nudHSRightShoulder.Value = 1;
+                cmbRSSight.SelectedIndex = 1;
+                cmbRSMag.SelectedIndex = 24;
+                //Hands
+                cmbHandMain.SelectedIndex = 24;
+                nudHSHands.Value = 2;
+                //Vest
+                cmbVestMain.SelectedIndex = 4;
+                cmbVest2.SelectedIndex = 4;
+                cmbVest3.SelectedIndex = 4;
+                //Shirt
+                cmbShirtMain.SelectedIndex = 95;
+                //Hips
+                cmbBeltMain.SelectedIndex = 5;
+                cmbBeltKnife.SelectedIndex = 2;
+                nudHSBeltKnife.Value = 3;
+                cmbBeltHolster.SelectedIndex = 4;
+                cmbBeltPistol.SelectedIndex = 4;
+                nudHSBeltPistol.Value = 4;
+                chkBeltRDS.Checked = true;
+                chkBeltMag.Checked = true;
+                chkBeltSup.Checked = true;
+                //Pants
+                cmbPantsMain.SelectedIndex = 62;
+                //Back
+                cmbBackMain.SelectedIndex = 5;
+                radRadio.Checked = true;
+                //Face
+                cmbFaceMain.SelectedIndex = 9;
+                //Eyes
+                cmbEyeWearMain.SelectedIndex = 1;
+                //Gloves
+                cmbGlovesMain.SelectedIndex = 18;
+                //Feet
+                cmbFeetMain.SelectedIndex = 38;
+                cmbFeetKnife.SelectedIndex = 3;
+                //Armband
+                cmbArmbandMain.SelectedIndex = 6;
+                //Helmet
+                cmbHelmetMain.SelectedIndex = 34;
+                //Names loadout
+                txtLoadoutName.Text = "WesternLoadout";
+            }
+        }
+
+        //Description: Creates default selections for Black rad
+        private void radBlack_CheckedChanged(object sender, EventArgs e)
+        {
+            Reset();
+
+            if (radBlack.Checked)
+            {
+                //Vest
+                cmbVestMain.SelectedIndex = 2;
+                cmbVest2.SelectedIndex = 2;
+                cmbVest3.SelectedIndex = 2;
+                //Shirt
+                cmbShirtMain.SelectedIndex = 36;
+                //Hips
+                cmbBeltMain.SelectedIndex = 5;
+                cmbBeltKnife.SelectedIndex = 2;
+                nudHSBeltKnife.Value = 3;
+                cmbBeltHolster.SelectedIndex = 2;
+                cmbBeltPistol.SelectedIndex = 1;
+                nudHSBeltPistol.Value = 4;
+                chkBeltMag.Checked = true;
+                chkBeltSup.Checked = true;
+                chkBeltRDS.Checked = true;
+                chkBeltLight.Checked = true;
+                //Pants
+                cmbPantsMain.SelectedIndex = 13;
+                //Back
+                cmbBackMain.SelectedIndex = 4;
+                radRadio.Checked = true;
+                //Face
+                cmbFaceMain.SelectedIndex = 6;
+                //Gloves
+                cmbGlovesMain.SelectedIndex = 17;
+                //Feet
+                cmbFeetMain.SelectedIndex = 7;
+                //Armband
+                cmbArmbandMain.SelectedIndex = 5;
+                //Helmet
+                cmbHelmetMain.SelectedIndex = 34;
+                //Name
+                txtLoadoutName.Text = "BlackOut";
+            }
+        }
+
+        //Description: Creates default selections for Camo rad
+        private void radCamo_CheckedChanged(object sender, EventArgs e)
+        {
+            Reset();
+
+            if (radCamo.Checked ) 
+            {
+                //Vest
+                cmbVestMain.SelectedIndex = 3;
+                cmbVest2.SelectedIndex = 3;
+                cmbVest3.SelectedIndex = 3;
+                //Shirt
+                cmbShirtMain.SelectedIndex = 82;
+                //Hips
+                cmbBeltMain.SelectedIndex = 5;
+                cmbBeltKnife.SelectedIndex = 2;
+                nudHSBeltKnife.Value = 3;
+                cmbBeltHolster.SelectedIndex = 3;
+                cmbBeltPistol.SelectedIndex = 6;
+                nudHSBeltPistol.Value = 4;
+                chkBeltMag.Checked = true;
+                chkBeltSup.Checked = true;
+                chkBeltRDS.Checked = true;
+                chkBeltLight.Checked = true;
+                //Pants
+                cmbPantsMain.SelectedIndex = 55;
+                //Back
+                cmbBackMain.SelectedIndex = 6;
+                radRadio.Checked = true;
+                //Face
+                cmbFaceMain.SelectedIndex = 13;
+                //Gloves
+                cmbGlovesMain.SelectedIndex = 18;
+                //Feet
+                cmbFeetMain.SelectedIndex = 7;
+                //Armband
+                cmbArmbandMain.SelectedIndex = 17;
+                //Helmet
+                cmbHelmetMain.SelectedIndex = 34;
+                //Name
+                txtLoadoutName.Text = "Camo";
+
+
+            }
         }
     }
 }

@@ -32,11 +32,6 @@
             this.btnCreateJSON = new System.Windows.Forms.Button();
             this.grpBottom = new System.Windows.Forms.GroupBox();
             this.btnReset = new System.Windows.Forms.Button();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.nudSpawnChance = new System.Windows.Forms.NumericUpDown();
@@ -141,6 +136,10 @@
             this.radGPS = new System.Windows.Forms.RadioButton();
             this.radRadio = new System.Windows.Forms.RadioButton();
             this.chkBeltRopeKnife = new System.Windows.Forms.CheckBox();
+            this.radWest = new System.Windows.Forms.RadioButton();
+            this.radEast = new System.Windows.Forms.RadioButton();
+            this.radCamo = new System.Windows.Forms.RadioButton();
+            this.radBlack = new System.Windows.Forms.RadioButton();
             this.grpBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudSpawnChance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHSLeftShoulder)).BeginInit();
@@ -167,18 +166,17 @@
             // 
             // grpBottom
             // 
+            this.grpBottom.Controls.Add(this.radBlack);
+            this.grpBottom.Controls.Add(this.radCamo);
+            this.grpBottom.Controls.Add(this.radEast);
+            this.grpBottom.Controls.Add(this.radWest);
             this.grpBottom.Controls.Add(this.btnReset);
-            this.grpBottom.Controls.Add(this.checkBox5);
-            this.grpBottom.Controls.Add(this.checkBox4);
-            this.grpBottom.Controls.Add(this.checkBox3);
-            this.grpBottom.Controls.Add(this.checkBox2);
-            this.grpBottom.Controls.Add(this.checkBox1);
             this.grpBottom.Controls.Add(this.label1);
             this.grpBottom.Controls.Add(this.btnCreateJSON);
             this.grpBottom.Location = new System.Drawing.Point(12, 867);
             this.grpBottom.Name = "grpBottom";
             this.grpBottom.Size = new System.Drawing.Size(1758, 74);
-            this.grpBottom.TabIndex = 90;
+            this.grpBottom.TabIndex = 56;
             this.grpBottom.TabStop = false;
             // 
             // btnReset
@@ -188,65 +186,10 @@
             this.btnReset.Location = new System.Drawing.Point(1503, 17);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(183, 49);
-            this.btnReset.TabIndex = 9;
+            this.btnReset.TabIndex = 1;
             this.btnReset.Text = "&Reset";
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
-            // checkBox5
-            // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox5.Location = new System.Drawing.Point(953, 33);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(91, 24);
-            this.checkBox5.TabIndex = 7;
-            this.checkBox5.Text = "Lodout5";
-            this.checkBox5.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox4.Location = new System.Drawing.Point(783, 33);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(91, 24);
-            this.checkBox4.TabIndex = 6;
-            this.checkBox4.Text = "Lodout4";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox3.Location = new System.Drawing.Point(613, 33);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(91, 24);
-            this.checkBox3.TabIndex = 5;
-            this.checkBox3.Text = "Lodout3";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox2.Location = new System.Drawing.Point(443, 33);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(91, 24);
-            this.checkBox2.TabIndex = 4;
-            this.checkBox2.Text = "Lodout2";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(273, 33);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(91, 24);
-            this.checkBox1.TabIndex = 3;
-            this.checkBox1.Text = "Lodout1";
-            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -284,7 +227,7 @@
             0});
             this.nudSpawnChance.Name = "nudSpawnChance";
             this.nudSpawnChance.Size = new System.Drawing.Size(56, 27);
-            this.nudSpawnChance.TabIndex = 11;
+            this.nudSpawnChance.TabIndex = 54;
             this.nudSpawnChance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudSpawnChance.Value = new decimal(new int[] {
             1,
@@ -308,7 +251,7 @@
             this.txtLoadoutName.Location = new System.Drawing.Point(573, 830);
             this.txtLoadoutName.Name = "txtLoadoutName";
             this.txtLoadoutName.Size = new System.Drawing.Size(348, 27);
-            this.txtLoadoutName.TabIndex = 13;
+            this.txtLoadoutName.TabIndex = 55;
             this.txtLoadoutName.Text = "Loadout1";
             // 
             // label4
@@ -610,7 +553,6 @@
             this.cmbLS3.Location = new System.Drawing.Point(25, 283);
             this.cmbLS3.Name = "cmbLS3";
             this.cmbLS3.Size = new System.Drawing.Size(175, 28);
-            this.cmbLS3.Sorted = true;
             this.cmbLS3.TabIndex = 4;
             // 
             // label20
@@ -663,7 +605,7 @@
             -2147483648});
             this.nudHSRightShoulder.Name = "nudHSRightShoulder";
             this.nudHSRightShoulder.Size = new System.Drawing.Size(75, 22);
-            this.nudHSRightShoulder.TabIndex = 55;
+            this.nudHSRightShoulder.TabIndex = 10;
             this.nudHSRightShoulder.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudHSRightShoulder.Value = new decimal(new int[] {
             1,
@@ -692,7 +634,7 @@
             this.cmbRSMag.Location = new System.Drawing.Point(246, 283);
             this.cmbRSMag.Name = "cmbRSMag";
             this.cmbRSMag.Size = new System.Drawing.Size(175, 28);
-            this.cmbRSMag.TabIndex = 53;
+            this.cmbRSMag.TabIndex = 13;
             // 
             // chkRSLight
             // 
@@ -718,7 +660,7 @@
             this.cmbRS4.Location = new System.Drawing.Point(246, 328);
             this.cmbRS4.Name = "cmbRS4";
             this.cmbRS4.Size = new System.Drawing.Size(175, 28);
-            this.cmbRS4.TabIndex = 51;
+            this.cmbRS4.TabIndex = 14;
             // 
             // cmbRSLight
             // 
@@ -730,7 +672,7 @@
             this.cmbRSLight.Location = new System.Drawing.Point(246, 226);
             this.cmbRSLight.Name = "cmbRSLight";
             this.cmbRSLight.Size = new System.Drawing.Size(175, 28);
-            this.cmbRSLight.TabIndex = 50;
+            this.cmbRSLight.TabIndex = 12;
             this.cmbRSLight.SelectedIndexChanged += new System.EventHandler(this.cmbRSLight_SelectedIndexChanged);
             // 
             // chkRSSight
@@ -757,7 +699,7 @@
             this.cmbRS5.Location = new System.Drawing.Point(246, 373);
             this.cmbRS5.Name = "cmbRS5";
             this.cmbRS5.Size = new System.Drawing.Size(175, 28);
-            this.cmbRS5.TabIndex = 48;
+            this.cmbRS5.TabIndex = 15;
             // 
             // cmbRS6
             // 
@@ -772,7 +714,7 @@
             this.cmbRS6.Location = new System.Drawing.Point(246, 418);
             this.cmbRS6.Name = "cmbRS6";
             this.cmbRS6.Size = new System.Drawing.Size(175, 28);
-            this.cmbRS6.TabIndex = 47;
+            this.cmbRS6.TabIndex = 16;
             // 
             // cmbRS7
             // 
@@ -787,7 +729,7 @@
             this.cmbRS7.Location = new System.Drawing.Point(246, 463);
             this.cmbRS7.Name = "cmbRS7";
             this.cmbRS7.Size = new System.Drawing.Size(175, 28);
-            this.cmbRS7.TabIndex = 46;
+            this.cmbRS7.TabIndex = 17;
             // 
             // cmbRSSight
             // 
@@ -799,7 +741,7 @@
             this.cmbRSSight.Location = new System.Drawing.Point(246, 168);
             this.cmbRSSight.Name = "cmbRSSight";
             this.cmbRSSight.Size = new System.Drawing.Size(175, 28);
-            this.cmbRSSight.TabIndex = 45;
+            this.cmbRSSight.TabIndex = 11;
             this.cmbRSSight.SelectedIndexChanged += new System.EventHandler(this.cmbRSSight_SelectedIndexChanged);
             // 
             // label22
@@ -822,7 +764,7 @@
             this.cmbRSMain.Location = new System.Drawing.Point(246, 57);
             this.cmbRSMain.Name = "cmbRSMain";
             this.cmbRSMain.Size = new System.Drawing.Size(175, 28);
-            this.cmbRSMain.TabIndex = 43;
+            this.cmbRSMain.TabIndex = 9;
             this.cmbRSMain.SelectedIndexChanged += new System.EventHandler(this.cmbRSMain_SelectedIndexChanged);
             // 
             // nudHSHands
@@ -841,7 +783,7 @@
             -2147483648});
             this.nudHSHands.Name = "nudHSHands";
             this.nudHSHands.Size = new System.Drawing.Size(75, 22);
-            this.nudHSHands.TabIndex = 68;
+            this.nudHSHands.TabIndex = 19;
             this.nudHSHands.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudHSHands.Value = new decimal(new int[] {
             1,
@@ -870,7 +812,7 @@
             this.cmbHandMag.Location = new System.Drawing.Point(467, 283);
             this.cmbHandMag.Name = "cmbHandMag";
             this.cmbHandMag.Size = new System.Drawing.Size(175, 28);
-            this.cmbHandMag.TabIndex = 66;
+            this.cmbHandMag.TabIndex = 22;
             // 
             // chkHandsLight
             // 
@@ -896,7 +838,7 @@
             this.cmbHand4.Location = new System.Drawing.Point(467, 328);
             this.cmbHand4.Name = "cmbHand4";
             this.cmbHand4.Size = new System.Drawing.Size(175, 28);
-            this.cmbHand4.TabIndex = 64;
+            this.cmbHand4.TabIndex = 23;
             // 
             // cmbHandLight
             // 
@@ -908,7 +850,7 @@
             this.cmbHandLight.Location = new System.Drawing.Point(467, 223);
             this.cmbHandLight.Name = "cmbHandLight";
             this.cmbHandLight.Size = new System.Drawing.Size(175, 28);
-            this.cmbHandLight.TabIndex = 63;
+            this.cmbHandLight.TabIndex = 21;
             this.cmbHandLight.SelectedIndexChanged += new System.EventHandler(this.cmbHandLight_SelectedIndexChanged);
             // 
             // chkHandsSight
@@ -935,7 +877,7 @@
             this.cmbHand5.Location = new System.Drawing.Point(467, 373);
             this.cmbHand5.Name = "cmbHand5";
             this.cmbHand5.Size = new System.Drawing.Size(175, 28);
-            this.cmbHand5.TabIndex = 61;
+            this.cmbHand5.TabIndex = 24;
             // 
             // cmbHand6
             // 
@@ -950,7 +892,7 @@
             this.cmbHand6.Location = new System.Drawing.Point(467, 418);
             this.cmbHand6.Name = "cmbHand6";
             this.cmbHand6.Size = new System.Drawing.Size(175, 28);
-            this.cmbHand6.TabIndex = 60;
+            this.cmbHand6.TabIndex = 25;
             // 
             // cmbHand7
             // 
@@ -965,7 +907,7 @@
             this.cmbHand7.Location = new System.Drawing.Point(467, 463);
             this.cmbHand7.Name = "cmbHand7";
             this.cmbHand7.Size = new System.Drawing.Size(175, 28);
-            this.cmbHand7.TabIndex = 59;
+            this.cmbHand7.TabIndex = 26;
             // 
             // cmbHandSight
             // 
@@ -977,7 +919,7 @@
             this.cmbHandSight.Location = new System.Drawing.Point(467, 168);
             this.cmbHandSight.Name = "cmbHandSight";
             this.cmbHandSight.Size = new System.Drawing.Size(175, 28);
-            this.cmbHandSight.TabIndex = 58;
+            this.cmbHandSight.TabIndex = 20;
             this.cmbHandSight.SelectedIndexChanged += new System.EventHandler(this.cmbHandSight_SelectedIndexChanged);
             // 
             // label24
@@ -1000,7 +942,7 @@
             this.cmbHandMain.Location = new System.Drawing.Point(467, 57);
             this.cmbHandMain.Name = "cmbHandMain";
             this.cmbHandMain.Size = new System.Drawing.Size(175, 28);
-            this.cmbHandMain.TabIndex = 56;
+            this.cmbHandMain.TabIndex = 18;
             this.cmbHandMain.SelectedIndexChanged += new System.EventHandler(this.cmbHandMain_SelectedIndexChanged);
             // 
             // cmbVest2
@@ -1014,7 +956,7 @@
             this.cmbVest2.Location = new System.Drawing.Point(688, 165);
             this.cmbVest2.Name = "cmbVest2";
             this.cmbVest2.Size = new System.Drawing.Size(175, 28);
-            this.cmbVest2.TabIndex = 70;
+            this.cmbVest2.TabIndex = 28;
             // 
             // label25
             // 
@@ -1036,7 +978,7 @@
             this.cmbVestMain.Location = new System.Drawing.Point(688, 57);
             this.cmbVestMain.Name = "cmbVestMain";
             this.cmbVestMain.Size = new System.Drawing.Size(175, 28);
-            this.cmbVestMain.TabIndex = 71;
+            this.cmbVestMain.TabIndex = 27;
             this.cmbVestMain.SelectedIndexChanged += new System.EventHandler(this.cmbVestMain_SelectedIndexChanged);
             // 
             // cmbVest3
@@ -1050,7 +992,7 @@
             this.cmbVest3.Location = new System.Drawing.Point(688, 223);
             this.cmbVest3.Name = "cmbVest3";
             this.cmbVest3.Size = new System.Drawing.Size(175, 28);
-            this.cmbVest3.TabIndex = 72;
+            this.cmbVest3.TabIndex = 29;
             // 
             // cmbShirtMain
             // 
@@ -1062,7 +1004,7 @@
             this.cmbShirtMain.Location = new System.Drawing.Point(909, 57);
             this.cmbShirtMain.Name = "cmbShirtMain";
             this.cmbShirtMain.Size = new System.Drawing.Size(175, 28);
-            this.cmbShirtMain.TabIndex = 73;
+            this.cmbShirtMain.TabIndex = 30;
             // 
             // cmbBeltHolster
             // 
@@ -1075,7 +1017,7 @@
             this.cmbBeltHolster.Location = new System.Drawing.Point(1130, 267);
             this.cmbBeltHolster.Name = "cmbBeltHolster";
             this.cmbBeltHolster.Size = new System.Drawing.Size(175, 28);
-            this.cmbBeltHolster.TabIndex = 77;
+            this.cmbBeltHolster.TabIndex = 34;
             this.cmbBeltHolster.SelectedIndexChanged += new System.EventHandler(this.cmbBeltHolster_SelectedIndexChanged);
             // 
             // cmbBeltMain
@@ -1087,7 +1029,7 @@
             this.cmbBeltMain.Location = new System.Drawing.Point(1130, 57);
             this.cmbBeltMain.Name = "cmbBeltMain";
             this.cmbBeltMain.Size = new System.Drawing.Size(175, 28);
-            this.cmbBeltMain.TabIndex = 76;
+            this.cmbBeltMain.TabIndex = 31;
             this.cmbBeltMain.SelectedIndexChanged += new System.EventHandler(this.cmbBeltMain_SelectedIndexChanged);
             // 
             // cmbBeltKnife
@@ -1100,7 +1042,7 @@
             this.cmbBeltKnife.Location = new System.Drawing.Point(1130, 133);
             this.cmbBeltKnife.Name = "cmbBeltKnife";
             this.cmbBeltKnife.Size = new System.Drawing.Size(175, 28);
-            this.cmbBeltKnife.TabIndex = 75;
+            this.cmbBeltKnife.TabIndex = 32;
             this.cmbBeltKnife.SelectedIndexChanged += new System.EventHandler(this.cmbBeltKnife_SelectedIndexChanged);
             // 
             // label26
@@ -1133,7 +1075,7 @@
             this.cmbBeltPistol.Location = new System.Drawing.Point(1130, 333);
             this.cmbBeltPistol.Name = "cmbBeltPistol";
             this.cmbBeltPistol.Size = new System.Drawing.Size(175, 28);
-            this.cmbBeltPistol.TabIndex = 79;
+            this.cmbBeltPistol.TabIndex = 35;
             this.cmbBeltPistol.SelectedIndexChanged += new System.EventHandler(this.cmbBeltPistol_SelectedIndexChanged);
             // 
             // chkBeltCanteen
@@ -1164,7 +1106,7 @@
             -2147483648});
             this.nudHSBeltKnife.Name = "nudHSBeltKnife";
             this.nudHSBeltKnife.Size = new System.Drawing.Size(52, 22);
-            this.nudHSBeltKnife.TabIndex = 85;
+            this.nudHSBeltKnife.TabIndex = 33;
             this.nudHSBeltKnife.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudHSBeltKnife.Value = new decimal(new int[] {
             1,
@@ -1190,7 +1132,7 @@
             this.chkBeltRDS.Location = new System.Drawing.Point(1167, 369);
             this.chkBeltRDS.Name = "chkBeltRDS";
             this.chkBeltRDS.Size = new System.Drawing.Size(103, 24);
-            this.chkBeltRDS.TabIndex = 87;
+            this.chkBeltRDS.TabIndex = 37;
             this.chkBeltRDS.Text = "RDS Mini";
             this.chkBeltRDS.UseVisualStyleBackColor = true;
             // 
@@ -1212,7 +1154,7 @@
             this.chkBeltSup.Location = new System.Drawing.Point(1167, 435);
             this.chkBeltSup.Name = "chkBeltSup";
             this.chkBeltSup.Size = new System.Drawing.Size(117, 24);
-            this.chkBeltSup.TabIndex = 89;
+            this.chkBeltSup.TabIndex = 39;
             this.chkBeltSup.Text = "Suppressor";
             this.chkBeltSup.UseVisualStyleBackColor = true;
             // 
@@ -1242,7 +1184,7 @@
             -2147483648});
             this.nudHSBeltPistol.Name = "nudHSBeltPistol";
             this.nudHSBeltPistol.Size = new System.Drawing.Size(52, 22);
-            this.nudHSBeltPistol.TabIndex = 92;
+            this.nudHSBeltPistol.TabIndex = 36;
             this.nudHSBeltPistol.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudHSBeltPistol.Value = new decimal(new int[] {
             1,
@@ -1258,7 +1200,7 @@
             this.cmbPantsMain.Location = new System.Drawing.Point(1351, 57);
             this.cmbPantsMain.Name = "cmbPantsMain";
             this.cmbPantsMain.Size = new System.Drawing.Size(175, 28);
-            this.cmbPantsMain.TabIndex = 94;
+            this.cmbPantsMain.TabIndex = 41;
             // 
             // cmbBackMain
             // 
@@ -1268,7 +1210,7 @@
             this.cmbBackMain.Location = new System.Drawing.Point(1572, 57);
             this.cmbBackMain.Name = "cmbBackMain";
             this.cmbBackMain.Size = new System.Drawing.Size(175, 28);
-            this.cmbBackMain.TabIndex = 95;
+            this.cmbBackMain.TabIndex = 42;
             this.cmbBackMain.SelectedIndexChanged += new System.EventHandler(this.cmbBackMain_SelectedIndexChanged);
             // 
             // cmbFaceMain
@@ -1276,20 +1218,20 @@
             this.cmbFaceMain.DropDownWidth = 185;
             this.cmbFaceMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbFaceMain.FormattingEnabled = true;
-            this.cmbFaceMain.Location = new System.Drawing.Point(25, 632);
+            this.cmbFaceMain.Location = new System.Drawing.Point(12, 632);
             this.cmbFaceMain.Name = "cmbFaceMain";
-            this.cmbFaceMain.Size = new System.Drawing.Size(175, 28);
-            this.cmbFaceMain.TabIndex = 96;
+            this.cmbFaceMain.Size = new System.Drawing.Size(201, 28);
+            this.cmbFaceMain.TabIndex = 43;
             // 
             // cmbEyeWearMain
             // 
             this.cmbEyeWearMain.DropDownWidth = 160;
             this.cmbEyeWearMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEyeWearMain.FormattingEnabled = true;
-            this.cmbEyeWearMain.Location = new System.Drawing.Point(278, 632);
+            this.cmbEyeWearMain.Location = new System.Drawing.Point(265, 632);
             this.cmbEyeWearMain.Name = "cmbEyeWearMain";
-            this.cmbEyeWearMain.Size = new System.Drawing.Size(175, 28);
-            this.cmbEyeWearMain.TabIndex = 97;
+            this.cmbEyeWearMain.Size = new System.Drawing.Size(201, 28);
+            this.cmbEyeWearMain.TabIndex = 44;
             this.cmbEyeWearMain.SelectedIndexChanged += new System.EventHandler(this.cmbEyeWearMain_SelectedIndexChanged);
             // 
             // cmbGlovesMain
@@ -1297,20 +1239,20 @@
             this.cmbGlovesMain.DropDownWidth = 270;
             this.cmbGlovesMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbGlovesMain.FormattingEnabled = true;
-            this.cmbGlovesMain.Location = new System.Drawing.Point(531, 632);
+            this.cmbGlovesMain.Location = new System.Drawing.Point(518, 632);
             this.cmbGlovesMain.Name = "cmbGlovesMain";
-            this.cmbGlovesMain.Size = new System.Drawing.Size(175, 28);
-            this.cmbGlovesMain.TabIndex = 98;
+            this.cmbGlovesMain.Size = new System.Drawing.Size(201, 28);
+            this.cmbGlovesMain.TabIndex = 45;
             // 
             // cmbFeetMain
             // 
             this.cmbFeetMain.DropDownWidth = 180;
             this.cmbFeetMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbFeetMain.FormattingEnabled = true;
-            this.cmbFeetMain.Location = new System.Drawing.Point(784, 632);
+            this.cmbFeetMain.Location = new System.Drawing.Point(771, 632);
             this.cmbFeetMain.Name = "cmbFeetMain";
-            this.cmbFeetMain.Size = new System.Drawing.Size(175, 28);
-            this.cmbFeetMain.TabIndex = 99;
+            this.cmbFeetMain.Size = new System.Drawing.Size(201, 28);
+            this.cmbFeetMain.TabIndex = 46;
             this.cmbFeetMain.SelectedIndexChanged += new System.EventHandler(this.cmbFeetMain_SelectedIndexChanged);
             // 
             // label28
@@ -1339,7 +1281,7 @@
             -2147483648});
             this.nudHSFeetKnife.Name = "nudHSFeetKnife";
             this.nudHSFeetKnife.Size = new System.Drawing.Size(52, 22);
-            this.nudHSFeetKnife.TabIndex = 102;
+            this.nudHSFeetKnife.TabIndex = 48;
             this.nudHSFeetKnife.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudHSFeetKnife.Value = new decimal(new int[] {
             1,
@@ -1355,7 +1297,7 @@
             this.cmbFeetKnife.Location = new System.Drawing.Point(784, 707);
             this.cmbFeetKnife.Name = "cmbFeetKnife";
             this.cmbFeetKnife.Size = new System.Drawing.Size(175, 28);
-            this.cmbFeetKnife.TabIndex = 101;
+            this.cmbFeetKnife.TabIndex = 47;
             this.cmbFeetKnife.SelectedIndexChanged += new System.EventHandler(this.cmbFeetKnife_SelectedIndexChanged);
             // 
             // label29
@@ -1373,20 +1315,20 @@
             this.cmbArmbandMain.DropDownWidth = 180;
             this.cmbArmbandMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbArmbandMain.FormattingEnabled = true;
-            this.cmbArmbandMain.Location = new System.Drawing.Point(1037, 632);
+            this.cmbArmbandMain.Location = new System.Drawing.Point(1024, 632);
             this.cmbArmbandMain.Name = "cmbArmbandMain";
-            this.cmbArmbandMain.Size = new System.Drawing.Size(175, 28);
-            this.cmbArmbandMain.TabIndex = 104;
+            this.cmbArmbandMain.Size = new System.Drawing.Size(201, 28);
+            this.cmbArmbandMain.TabIndex = 49;
             // 
             // cmbHelmetMain
             // 
             this.cmbHelmetMain.DropDownWidth = 240;
             this.cmbHelmetMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbHelmetMain.FormattingEnabled = true;
-            this.cmbHelmetMain.Location = new System.Drawing.Point(1290, 632);
+            this.cmbHelmetMain.Location = new System.Drawing.Point(1277, 632);
             this.cmbHelmetMain.Name = "cmbHelmetMain";
-            this.cmbHelmetMain.Size = new System.Drawing.Size(175, 28);
-            this.cmbHelmetMain.TabIndex = 105;
+            this.cmbHelmetMain.Size = new System.Drawing.Size(201, 28);
+            this.cmbHelmetMain.TabIndex = 50;
             this.cmbHelmetMain.SelectedIndexChanged += new System.EventHandler(this.cmbHelmetMain_SelectedIndexChanged);
             // 
             // label33
@@ -1406,7 +1348,7 @@
             this.chkHelmetNods.Location = new System.Drawing.Point(1337, 679);
             this.chkHelmetNods.Name = "chkHelmetNods";
             this.chkHelmetNods.Size = new System.Drawing.Size(80, 29);
-            this.chkHelmetNods.TabIndex = 108;
+            this.chkHelmetNods.TabIndex = 51;
             this.chkHelmetNods.Text = "Nods";
             this.chkHelmetNods.UseVisualStyleBackColor = true;
             // 
@@ -1417,7 +1359,7 @@
             this.btnInventory.Location = new System.Drawing.Point(1542, 623);
             this.btnInventory.Name = "btnInventory";
             this.btnInventory.Size = new System.Drawing.Size(202, 56);
-            this.btnInventory.TabIndex = 10;
+            this.btnInventory.TabIndex = 53;
             this.btnInventory.Text = "&Build Inventory";
             this.btnInventory.UseVisualStyleBackColor = false;
             this.btnInventory.Click += new System.EventHandler(this.btnInventory_Click);
@@ -1442,7 +1384,7 @@
             this.chkHelmetLight.Location = new System.Drawing.Point(1337, 724);
             this.chkHelmetLight.Name = "chkHelmetLight";
             this.chkHelmetLight.Size = new System.Drawing.Size(115, 29);
-            this.chkHelmetLight.TabIndex = 110;
+            this.chkHelmetLight.TabIndex = 52;
             this.chkHelmetLight.Text = "Tac Light";
             this.chkHelmetLight.UseVisualStyleBackColor = true;
             // 
@@ -1454,7 +1396,7 @@
             this.chkBeltMag.Location = new System.Drawing.Point(1167, 402);
             this.chkBeltMag.Name = "chkBeltMag";
             this.chkBeltMag.Size = new System.Drawing.Size(103, 24);
-            this.chkBeltMag.TabIndex = 111;
+            this.chkBeltMag.TabIndex = 38;
             this.chkBeltMag.Text = "Magazine";
             this.chkBeltMag.UseVisualStyleBackColor = true;
             // 
@@ -1466,7 +1408,7 @@
             this.chkBeltLight.Location = new System.Drawing.Point(1167, 465);
             this.chkBeltLight.Name = "chkBeltLight";
             this.chkBeltLight.Size = new System.Drawing.Size(101, 24);
-            this.chkBeltLight.TabIndex = 112;
+            this.chkBeltLight.TabIndex = 40;
             this.chkBeltLight.Text = "Tac Light";
             this.chkBeltLight.UseVisualStyleBackColor = true;
             // 
@@ -1551,6 +1493,58 @@
             this.chkBeltRopeKnife.Text = "Add Combat Knife to rope belt";
             this.chkBeltRopeKnife.UseVisualStyleBackColor = true;
             this.chkBeltRopeKnife.Visible = false;
+            // 
+            // radWest
+            // 
+            this.radWest.AutoSize = true;
+            this.radWest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radWest.Location = new System.Drawing.Point(263, 30);
+            this.radWest.Name = "radWest";
+            this.radWest.Size = new System.Drawing.Size(135, 29);
+            this.radWest.TabIndex = 8;
+            this.radWest.TabStop = true;
+            this.radWest.Text = "Western Kit";
+            this.radWest.UseVisualStyleBackColor = true;
+            this.radWest.CheckedChanged += new System.EventHandler(this.radWest_CheckedChanged);
+            // 
+            // radEast
+            // 
+            this.radEast.AutoSize = true;
+            this.radEast.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radEast.Location = new System.Drawing.Point(475, 30);
+            this.radEast.Name = "radEast";
+            this.radEast.Size = new System.Drawing.Size(128, 29);
+            this.radEast.TabIndex = 9;
+            this.radEast.TabStop = true;
+            this.radEast.Text = "Eastern Kit";
+            this.radEast.UseVisualStyleBackColor = true;
+            this.radEast.CheckedChanged += new System.EventHandler(this.radEast_CheckedChanged);
+            // 
+            // radCamo
+            // 
+            this.radCamo.AutoSize = true;
+            this.radCamo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radCamo.Location = new System.Drawing.Point(926, 30);
+            this.radCamo.Name = "radCamo";
+            this.radCamo.Size = new System.Drawing.Size(114, 29);
+            this.radCamo.TabIndex = 10;
+            this.radCamo.TabStop = true;
+            this.radCamo.Text = "Camo Kit";
+            this.radCamo.UseVisualStyleBackColor = true;
+            this.radCamo.CheckedChanged += new System.EventHandler(this.radCamo_CheckedChanged);
+            // 
+            // radBlack
+            // 
+            this.radBlack.AutoSize = true;
+            this.radBlack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radBlack.Location = new System.Drawing.Point(740, 30);
+            this.radBlack.Name = "radBlack";
+            this.radBlack.Size = new System.Drawing.Size(109, 29);
+            this.radBlack.TabIndex = 12;
+            this.radBlack.TabStop = true;
+            this.radBlack.Text = "Black Kit";
+            this.radBlack.UseVisualStyleBackColor = true;
+            this.radBlack.CheckedChanged += new System.EventHandler(this.radBlack_CheckedChanged);
             // 
             // frmMain
             // 
@@ -1687,11 +1681,6 @@
         private System.Windows.Forms.Button btnCreateJSON;
         private System.Windows.Forms.GroupBox grpBottom;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown nudSpawnChance;
@@ -1796,6 +1785,10 @@
         private System.Windows.Forms.RadioButton radGPS;
         private System.Windows.Forms.RadioButton radRadio;
         private System.Windows.Forms.CheckBox chkBeltRopeKnife;
+        private System.Windows.Forms.RadioButton radEast;
+        private System.Windows.Forms.RadioButton radWest;
+        private System.Windows.Forms.RadioButton radBlack;
+        private System.Windows.Forms.RadioButton radCamo;
     }
 }
 
