@@ -8,3 +8,15 @@ will not work.
 					   **How You Can Help**
 There is still lots of testing to be done, if anybody would like to help contributions are welcome! You can fork 
 my repo and submit changes as you see fit, or message me on discord @spartan1034x, or by email spartan1034x@gmail.com.
+
+							
+					        **Licensing**
+
+					Copyright (c) 2024 Rafe-NBCC
+		THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+		IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+		FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+		AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+		LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+		OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+		SOFTWARE.
