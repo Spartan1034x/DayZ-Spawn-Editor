@@ -1,4 +1,7 @@
-				     DayZ Spawn Editor by: Spartan1034x
+				*****Version 1.0.0-beta.1 is now live!*****
+		     Download: https://mega.nz/folder/s2s1xbaI#FVZ61y_otxMG7v6tfbYaUA
+
+				    DayZ Spawn Editor by: Spartan1034x
 
 				        **Features and Limitations**
 This spawn editor was created to expidite the creation of .json for spawnGearPresetFiles. There is currently 
