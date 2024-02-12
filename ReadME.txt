@@ -15,7 +15,7 @@ my repo and submit changes as you see fit, or message me on discord @spartan1034
 							
 					        **Licensing**
 
-					Copyright (c) 2024 Rafe-NBCC
+					Copyright (c) 2024 Spartan1034x
 		THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 		IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 		FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
