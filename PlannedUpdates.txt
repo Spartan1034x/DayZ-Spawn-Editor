@@ -1,0 +1,23 @@
+**Higher Priority**
+
+1. Add a message to user when file has been saved sucsessfully.
+
+2. Add an input on edit form that allows user to enter a complexchild into inventory, allows multiple of the same item to be assigned to multiple hot slots.
+
+3. With that reformat UI for edit form page, try and find root of display bug.
+
+4. Fix restriction on hotslot assignment in edit form (-1) the lowest allowable.
+
+5. Fix AKBayonet showing up in first combo box, (unsure why).
+
+
+*Lower Priority*
+
+1. Create parralell arrays for all item names, display in game item name to user.
+
+2. Restrict combo box selection in weapon slots to only allow attachments on guns that are accepted.
+
+
+*Ongoing*
+
+1. Update arrays with new items added.
