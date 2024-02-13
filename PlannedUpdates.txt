@@ -10,6 +10,8 @@
 
 5. Fix AKBayonet showing up in first combo box, (unsure why).
 
+6. Read in arrays from external files.
+
 
 *Lower Priority*
 
