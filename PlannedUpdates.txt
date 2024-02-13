@@ -17,6 +17,8 @@
 
 2. Restrict combo box selection in weapon slots to only allow attachments on guns that are accepted.
 
+3. Allow users to upload pre built .json file and have it population UI, and display any errors in population.
+
 
 *Ongoing*
 
