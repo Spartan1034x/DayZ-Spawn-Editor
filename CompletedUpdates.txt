@@ -4,11 +4,12 @@
 1. Added the ability to add custom item to inventory in edit form, with custom hotslot.
 2. Selecting premade loadout no longer deletes user inventory selection.
 3. Mag names now shortened, initial "mag_" removed from display in combo box.
+4. Edit form no longer deletes selection when going back to edit inventory.
 
 
 
 				  **BugFixes**
 1. Fixed bug that distorts edit form when form is loaded.
-2. Fixed bug that alowwed user to enter numbers below -1.
+2. Fixed bug that alowed user to enter numbers below -1.
 3. Fixed bug that reject backspace inputs in edit form data grid view.
 
