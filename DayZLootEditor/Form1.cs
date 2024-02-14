@@ -720,14 +720,14 @@ namespace DayZLootEditor
         //Sets all combo box to first index which is blank, and all nuds to default
         private void btnReset_Click(object sender, EventArgs e)
         {
-            Reset();
+            ResetAll();
             radWest.Checked = false;
             radEast.Checked = false;
             radBlack.Checked = false;
             radCamo.Checked = false;
         }
 
-        private void Reset()
+        private void ResetAll()
         {
             
             foreach (System.Windows.Forms.ComboBox comboBox in Controls.OfType<System.Windows.Forms.ComboBox>())
@@ -743,33 +743,36 @@ namespace DayZLootEditor
             userInventoryListSimpleChildren.Clear();
         }
 
+        frmEdit frmEdit = new frmEdit();
+
         //Opens Edit form, creates new userInventoryListComplexChildren by calling ftn in editForm, changes some control properties
         private void btnInventory_Click(object sender, EventArgs e)
         {
-            lblInventoryBuilt.Visible = false;
-            picCheckMark.Visible = false;
-
-            frmEdit frmEdit = new frmEdit();
 
             //if ok was clicked then excute this code
             if (frmEdit.ShowDialog() == DialogResult.OK)
             {
+                //Receives lists from edit form and places them in list in this form
                 userInventoryListComplexChildren = frmEdit.UserEditedComplexChildrenList();
                 userInventoryListSimpleChildren = frmEdit.UserEditedSimpleChildrenList();
 
-                /*
-                foreach (ComplexChildrenType item in userInventoryListComplexChildren)
-                {
-                    MessageBox.Show($"ItemName: {item.itemType}, HotSlot: {item.quickBarSlot}");
-                    // Add other properties as needed
-                }
-                foreach (string item in userInventoryListSimpleChildren)
-                {
-                    MessageBox.Show(item);
-                } */
+                //Shows checkmark, and changes button text to edit
                 lblInventoryBuilt.Visible = true;
                 picCheckMark.Visible = true;
-                btnInventory.Text = "Rebuild Inventory";
+                btnInventory.Visible = false;
+                btnEdit.Visible = true;
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            frmEdit.Visible = true;
+
+            if (frmEdit.DialogResult==DialogResult.OK)
+            {
+                //Receives lists from edit form and places them in list in this form
+                userInventoryListComplexChildren = frmEdit.UserEditedComplexChildrenList();
+                userInventoryListSimpleChildren = frmEdit.UserEditedSimpleChildrenList();
             }
         }
 
@@ -2009,7 +2012,7 @@ namespace DayZLootEditor
         private void radEast_CheckedChanged(object sender, EventArgs e)
         {
             //Resets all
-            Reset();
+            ResetRads();
 
             if (radEast.Checked)
             {
@@ -2071,7 +2074,7 @@ namespace DayZLootEditor
         //Description: Creates default selections for West rad
         private void radWest_CheckedChanged(object sender, EventArgs e)
         {
-            Reset();
+            ResetRads();
 
 
             if (radWest.Checked)
@@ -2135,7 +2138,7 @@ namespace DayZLootEditor
         //Description: Creates default selections for Black rad
         private void radBlack_CheckedChanged(object sender, EventArgs e)
         {
-            Reset();
+            ResetRads();
 
             if (radBlack.Checked)
             {
@@ -2179,7 +2182,7 @@ namespace DayZLootEditor
         //Description: Creates default selections for Camo rad
         private void radCamo_CheckedChanged(object sender, EventArgs e)
         {
-            Reset();
+            ResetRads();
 
             if (radCamo.Checked ) 
             {
@@ -2221,5 +2224,17 @@ namespace DayZLootEditor
 
             }
         }
+
+        //Resets all cmbs, keeps the inventory lists made by user
+        private void ResetRads()
+        {
+            foreach (System.Windows.Forms.ComboBox comboBox in Controls.OfType<System.Windows.Forms.ComboBox>())
+            {
+                if (comboBox.Items.Count > 0)
+                    comboBox.SelectedIndex = 0;
+            }
+            nudSpawnChance.Value = 1;
+        }
+
     }
 }
