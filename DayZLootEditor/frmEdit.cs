@@ -1533,6 +1533,8 @@ namespace DayZLootEditor
             DataGridPopulation();
             userComplexList.Clear();
             userSimpleChildrenList.Clear();
+            txtAddItem.Text = string.Empty;
+            nudHSAddItem.Value = -1;
         }
 
 

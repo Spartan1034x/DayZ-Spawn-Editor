@@ -767,6 +767,13 @@ namespace DayZLootEditor
         private void btnEdit_Click(object sender, EventArgs e)
         {
             frmEdit.Visible = true;
+
+            if (frmEdit.DialogResult==DialogResult.OK)
+            {
+                //Receives lists from edit form and places them in list in this form
+                userInventoryListComplexChildren = frmEdit.UserEditedComplexChildrenList();
+                userInventoryListSimpleChildren = frmEdit.UserEditedSimpleChildrenList();
+            }
         }
 
         //only allows placement of plate car attatchments on plat car
