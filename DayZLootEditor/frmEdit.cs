@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
+
 namespace DayZLootEditor
 {
     public partial class frmEdit : Form
@@ -1404,14 +1406,11 @@ namespace DayZLootEditor
             InitializeComponent();
         }
 
+
         //Calls 2 ftn, one to create a ComplexChild list of objects from the item string list, the other to populate dgv with info
         //Also assigns 2 events to ftns so they are called when event is triggered
         private void frmEdit_Load(object sender, EventArgs e)
         {
-            //Clears lists so user can come back and rebuild list
-            userComplexList.Clear();
-            userSimpleChildrenList.Clear();
-
             ComplexChildrenListCreation();
 
             DataGridPopulation();
@@ -1445,37 +1444,35 @@ namespace DayZLootEditor
 
             TextBox textBox = (TextBox)sender;
 
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '-')
+            // Allow backspace
+            if (e.KeyChar == (char)Keys.Back)
+                return;
+
+            // Only allow digits, '-' at the beginning, and control keys
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && !(e.KeyChar == '-' && textBox.SelectionStart == 0 && !textBox.Text.Contains('-')))
             {
-                e.Handled = true;  // Cancels input if it's not a digit, '-', or a control key
+                e.Handled = true;
+                return;
             }
 
-            string newText;
+            // Get the current text without the selected portion
+            string newText = textBox.Text.Remove(textBox.SelectionStart, textBox.SelectionLength);
 
-            // Check if the pressed key is a '-' and handle it separately
-            if (e.KeyChar == '-')
-            {
-                //Allow only one '-' character at the beginning or when the text is empty
-                if (textBox.Text.Contains('-') || textBox.SelectionStart > 0 || textBox.Text.Length == 0)
-                {
-                    e.Handled = true;
-                    return;  // Exit the method early if it's a '-' and doesn't meet the conditions
-               }
+            // Insert the new character at the correct position
+            newText = newText.Insert(textBox.SelectionStart, e.KeyChar.ToString());
 
-                // If the conditions are met, set newText to the modified text with the '-'
-                newText = e.KeyChar + textBox.Text.Substring(textBox.SelectionStart + textBox.SelectionLength);
-            }
-            else
+            // Check if it's a valid integer or '-' at the beginning
+            if (!int.TryParse(newText, out int value) && !(e.KeyChar == '-' && textBox.SelectionStart == 0 && !textBox.Text.Contains('-')))
             {
-                // For other characters, handle them as usual
-                newText = textBox.Text.Substring(0, textBox.SelectionStart) + e.KeyChar + textBox.Text.Substring(textBox.SelectionStart + textBox.SelectionLength);
+                e.Handled = true;
+                return;
             }
 
-            // Try to parse the modified text, replacing the "-" with 0
-            //Cases issues in validation when "-" is entered because it treats it as 0 not negative so it treats input as a positive number
-            if (!int.TryParse(newText.Replace("-", "0").Trim(), out int value) || value < minValue || value > maxValue)
+            // Check if it's within the range
+            if (value < minValue || value > maxValue)
             {
-                e.Handled = true;  // Cancels input if it exceeds the specified range
+                e.Handled = true;
+                return;
             }
         }
 
@@ -1529,10 +1526,13 @@ namespace DayZLootEditor
         }
 
         //Resets all values to default by calling population ftn, repopulates the dgv with og list
+        //Also clears all lists
         private void btnReset_Click(object sender, EventArgs e)
         {
             dgvItems.Rows.Clear();
             DataGridPopulation();
+            userComplexList.Clear();
+            userSimpleChildrenList.Clear();
         }
 
 
@@ -1571,8 +1571,13 @@ namespace DayZLootEditor
             //assigns the dialog result ok to this button click
             this.DialogResult = DialogResult.OK;
 
+            //clears lists so duplicates arent added
+            userComplexList.Clear();
+            userSimpleChildrenList.Clear();
+
             foreach (DataGridViewRow row in dgvItems.Rows)
             {
+
                 //creates variables from converted data from dgv
                 string itemName = row.Cells["ItemCol"].Value.ToString();
                 int hotSlot = Convert.ToInt32(row.Cells["HSCol"].Value);
@@ -1610,8 +1615,8 @@ namespace DayZLootEditor
             {
                 MessageBox.Show(itemName);
             } */
-
-            this.Close();
+      
+            this.Visible = false;
         }
 
         //searches through dgv if text in txt matches highlights and hides non matches, searchs in real time
@@ -1713,5 +1718,6 @@ namespace DayZLootEditor
             picCheckMark.Visible=false;
             lblAdded.Visible=false;
         }
+
     }
 }

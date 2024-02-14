@@ -31,6 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.btnCreateJSON = new System.Windows.Forms.Button();
             this.grpBottom = new System.Windows.Forms.GroupBox();
+            this.radBlack = new System.Windows.Forms.RadioButton();
+            this.radCamo = new System.Windows.Forms.RadioButton();
+            this.radEast = new System.Windows.Forms.RadioButton();
+            this.radWest = new System.Windows.Forms.RadioButton();
             this.btnReset = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -136,10 +140,7 @@
             this.radGPS = new System.Windows.Forms.RadioButton();
             this.radRadio = new System.Windows.Forms.RadioButton();
             this.chkBeltRopeKnife = new System.Windows.Forms.CheckBox();
-            this.radWest = new System.Windows.Forms.RadioButton();
-            this.radEast = new System.Windows.Forms.RadioButton();
-            this.radCamo = new System.Windows.Forms.RadioButton();
-            this.radBlack = new System.Windows.Forms.RadioButton();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.grpBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudSpawnChance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHSLeftShoulder)).BeginInit();
@@ -179,6 +180,58 @@
             this.grpBottom.TabIndex = 56;
             this.grpBottom.TabStop = false;
             // 
+            // radBlack
+            // 
+            this.radBlack.AutoSize = true;
+            this.radBlack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radBlack.Location = new System.Drawing.Point(740, 30);
+            this.radBlack.Name = "radBlack";
+            this.radBlack.Size = new System.Drawing.Size(109, 29);
+            this.radBlack.TabIndex = 12;
+            this.radBlack.TabStop = true;
+            this.radBlack.Text = "Black Kit";
+            this.radBlack.UseVisualStyleBackColor = true;
+            this.radBlack.CheckedChanged += new System.EventHandler(this.radBlack_CheckedChanged);
+            // 
+            // radCamo
+            // 
+            this.radCamo.AutoSize = true;
+            this.radCamo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radCamo.Location = new System.Drawing.Point(926, 30);
+            this.radCamo.Name = "radCamo";
+            this.radCamo.Size = new System.Drawing.Size(114, 29);
+            this.radCamo.TabIndex = 10;
+            this.radCamo.TabStop = true;
+            this.radCamo.Text = "Camo Kit";
+            this.radCamo.UseVisualStyleBackColor = true;
+            this.radCamo.CheckedChanged += new System.EventHandler(this.radCamo_CheckedChanged);
+            // 
+            // radEast
+            // 
+            this.radEast.AutoSize = true;
+            this.radEast.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radEast.Location = new System.Drawing.Point(475, 30);
+            this.radEast.Name = "radEast";
+            this.radEast.Size = new System.Drawing.Size(128, 29);
+            this.radEast.TabIndex = 9;
+            this.radEast.TabStop = true;
+            this.radEast.Text = "Eastern Kit";
+            this.radEast.UseVisualStyleBackColor = true;
+            this.radEast.CheckedChanged += new System.EventHandler(this.radEast_CheckedChanged);
+            // 
+            // radWest
+            // 
+            this.radWest.AutoSize = true;
+            this.radWest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radWest.Location = new System.Drawing.Point(263, 30);
+            this.radWest.Name = "radWest";
+            this.radWest.Size = new System.Drawing.Size(135, 29);
+            this.radWest.TabIndex = 8;
+            this.radWest.TabStop = true;
+            this.radWest.Text = "Western Kit";
+            this.radWest.UseVisualStyleBackColor = true;
+            this.radWest.CheckedChanged += new System.EventHandler(this.radWest_CheckedChanged);
+            // 
             // btnReset
             // 
             this.btnReset.BackColor = System.Drawing.SystemColors.ControlDark;
@@ -187,7 +240,7 @@
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(183, 49);
             this.btnReset.TabIndex = 1;
-            this.btnReset.Text = "&Reset";
+            this.btnReset.Text = "&ResetAll";
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
@@ -1418,7 +1471,7 @@
             this.lblInventoryBuilt.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblInventoryBuilt.Enabled = false;
             this.lblInventoryBuilt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInventoryBuilt.Location = new System.Drawing.Point(1582, 697);
+            this.lblInventoryBuilt.Location = new System.Drawing.Point(1582, 702);
             this.lblInventoryBuilt.Name = "lblInventoryBuilt";
             this.lblInventoryBuilt.Size = new System.Drawing.Size(149, 25);
             this.lblInventoryBuilt.TabIndex = 117;
@@ -1428,7 +1481,7 @@
             // picCheckMark
             // 
             this.picCheckMark.Image = ((System.Drawing.Image)(resources.GetObject("picCheckMark.Image")));
-            this.picCheckMark.Location = new System.Drawing.Point(1530, 692);
+            this.picCheckMark.Location = new System.Drawing.Point(1530, 697);
             this.picCheckMark.Name = "picCheckMark";
             this.picCheckMark.Size = new System.Drawing.Size(51, 34);
             this.picCheckMark.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1494,57 +1547,18 @@
             this.chkBeltRopeKnife.UseVisualStyleBackColor = true;
             this.chkBeltRopeKnife.Visible = false;
             // 
-            // radWest
+            // btnEdit
             // 
-            this.radWest.AutoSize = true;
-            this.radWest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radWest.Location = new System.Drawing.Point(263, 30);
-            this.radWest.Name = "radWest";
-            this.radWest.Size = new System.Drawing.Size(135, 29);
-            this.radWest.TabIndex = 8;
-            this.radWest.TabStop = true;
-            this.radWest.Text = "Western Kit";
-            this.radWest.UseVisualStyleBackColor = true;
-            this.radWest.CheckedChanged += new System.EventHandler(this.radWest_CheckedChanged);
-            // 
-            // radEast
-            // 
-            this.radEast.AutoSize = true;
-            this.radEast.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radEast.Location = new System.Drawing.Point(475, 30);
-            this.radEast.Name = "radEast";
-            this.radEast.Size = new System.Drawing.Size(128, 29);
-            this.radEast.TabIndex = 9;
-            this.radEast.TabStop = true;
-            this.radEast.Text = "Eastern Kit";
-            this.radEast.UseVisualStyleBackColor = true;
-            this.radEast.CheckedChanged += new System.EventHandler(this.radEast_CheckedChanged);
-            // 
-            // radCamo
-            // 
-            this.radCamo.AutoSize = true;
-            this.radCamo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radCamo.Location = new System.Drawing.Point(926, 30);
-            this.radCamo.Name = "radCamo";
-            this.radCamo.Size = new System.Drawing.Size(114, 29);
-            this.radCamo.TabIndex = 10;
-            this.radCamo.TabStop = true;
-            this.radCamo.Text = "Camo Kit";
-            this.radCamo.UseVisualStyleBackColor = true;
-            this.radCamo.CheckedChanged += new System.EventHandler(this.radCamo_CheckedChanged);
-            // 
-            // radBlack
-            // 
-            this.radBlack.AutoSize = true;
-            this.radBlack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radBlack.Location = new System.Drawing.Point(740, 30);
-            this.radBlack.Name = "radBlack";
-            this.radBlack.Size = new System.Drawing.Size(109, 29);
-            this.radBlack.TabIndex = 12;
-            this.radBlack.TabStop = true;
-            this.radBlack.Text = "Black Kit";
-            this.radBlack.UseVisualStyleBackColor = true;
-            this.radBlack.CheckedChanged += new System.EventHandler(this.radBlack_CheckedChanged);
+            this.btnEdit.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Location = new System.Drawing.Point(1542, 623);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(202, 56);
+            this.btnEdit.TabIndex = 121;
+            this.btnEdit.Text = "&Edit Inventory";
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Visible = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // frmMain
             // 
@@ -1553,6 +1567,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1782, 953);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.chkBeltRopeKnife);
             this.Controls.Add(this.grpRad);
             this.Controls.Add(this.picCheckMark);
@@ -1789,6 +1804,7 @@
         private System.Windows.Forms.RadioButton radWest;
         private System.Windows.Forms.RadioButton radBlack;
         private System.Windows.Forms.RadioButton radCamo;
+        private System.Windows.Forms.Button btnEdit;
     }
 }
 
