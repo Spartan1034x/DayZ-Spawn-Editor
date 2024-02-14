@@ -1668,5 +1668,50 @@ namespace DayZLootEditor
         {
             txtSearch.Text = string.Empty;
         }
+
+        //Adds custom user item to dgv for placement into inventory list, allows user to place multiple of same item into 
+        //different hot slots
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            string itemName = txtAddItem.Text.Trim();
+            int hotslot = Convert.ToInt32(nudHSAddItem.Value);
+
+            //Creates new row for dgv
+            DataGridViewRow row = new DataGridViewRow();
+
+            // Use a CheckBox cell for the boolean column
+            DataGridViewCheckBoxCell checkBoxCell = new DataGridViewCheckBoxCell();
+            checkBoxCell.Value = true; // Set the checkbox to be checked by default
+            row.Cells.Add(checkBoxCell);
+
+            // Creates and populates the ItemType cell
+            row.Cells.Add(new DataGridViewTextBoxCell { Value = itemName });
+
+            //Creates quantity cell and sets to 1
+            DataGridViewTextBoxCell quantityCell = new DataGridViewTextBoxCell();
+            quantityCell.Value = 1;
+            row.Cells.Add(quantityCell);
+
+            // Creates and populates HS cell
+            row.Cells.Add(new DataGridViewTextBoxCell { Value = hotslot });
+
+            // Add the row to the DataGridView
+            dgvItems.Rows.Add(row);
+
+            //Shows pic and lbl the calls ftn to start timer
+            picCheckMark.Visible = true;
+            lblAdded.Visible = true;
+            timer1.Start();
+
+        }
+
+        //Stops the timer and hides the lbl and pic
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            timer1.Stop();
+
+            picCheckMark.Visible=false;
+            lblAdded.Visible=false;
+        }
     }
 }

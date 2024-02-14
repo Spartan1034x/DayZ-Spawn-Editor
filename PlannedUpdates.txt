@@ -1,16 +1,14 @@
 **Higher Priority**
 
-1. Add a message to user when file has been saved sucsessfully.
+1. Add an input on edit form that allows user to enter a complexchild into inventory, allows multiple of the same item to be assigned to multiple hot slots.
 
-2. Add an input on edit form that allows user to enter a complexchild into inventory, allows multiple of the same item to be assigned to multiple hot slots.
+2. With that reformat UI for edit form page, try and find root of display bug.
 
-3. With that reformat UI for edit form page, try and find root of display bug.
+3. Fix restriction on hotslot assignment in edit form (-1) the lowest allowable.
 
-4. Fix restriction on hotslot assignment in edit form (-1) the lowest allowable.
+4. Fix AKBayonet showing up in first combo box, (unsure why).
 
-5. Fix AKBayonet showing up in first combo box, (unsure why).
-
-6. Read in arrays from external files.
+5. Read in arrays from external files.
 
 
 *Lower Priority*
