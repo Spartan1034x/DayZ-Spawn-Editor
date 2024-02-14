@@ -1338,9 +1338,20 @@ namespace DayZLootEditor
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string path = saveFileDialog.FileName;
-                StreamWriter file = new StreamWriter(path);
-                file.Write(loadoutString);
-                file.Close();
+
+                try
+                {
+                    using (StreamWriter file = new StreamWriter(path))
+                    {
+                        file.Write(loadoutString);
+                    }
+
+                    MessageBox.Show("File saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error saving file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
