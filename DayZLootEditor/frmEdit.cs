@@ -16,7 +16,7 @@ namespace DayZLootEditor
     public partial class frmEdit : Form
     {
         //Created a list of strings with all itemType names
-       private static List<string> list = new List<string> {"ACOGOptic",
+        private static List<string> list = new List<string> {"ACOGOptic",
 "ACOGOptic_6x",
 "AK101",
 "AK101_Black",
@@ -1385,13 +1385,13 @@ namespace DayZLootEditor
  };
 
         //creates a list of complexchildrentypes
-       private static List<ComplexChildrenType> children = new List<ComplexChildrenType>();
+        private static List<ComplexChildrenType> children = new List<ComplexChildrenType>();
 
         //creates an update list of objects based on user slection
-       private static List<ComplexChildrenType> userComplexList = new List<ComplexChildrenType>();
+        private List<ComplexChildrenType> userComplexList = new List<ComplexChildrenType>();
 
         //Creates a list for simplechildren items
-        private static List<String> userSimpleChildrenList = new List<String>();
+        private List<String> userSimpleChildrenList = new List<String>();
 
         //Creates a method that when called retuns the updated user list
         public List<ComplexChildrenType> UserEditedComplexChildrenList()
