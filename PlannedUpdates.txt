@@ -4,6 +4,11 @@
 
 2. Read in arrays from external files.
 
+3. Write data grid view selection data to external file, then read when loading form so user selection is saved
+   cleaner.
+
+4. Add "Save" button that saves all selection in cmbs to external file, and then load button that allows user to load a previous selection.
+
 
 *Lower Priority*
 
