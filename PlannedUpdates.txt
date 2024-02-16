@@ -4,6 +4,8 @@
 
 2. Read in arrays from external files.
 
+3. Save all data to external file in main and edit form so loadouts can be saved.
+
 
 *Lower Priority*
 
