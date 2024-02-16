@@ -140,7 +140,8 @@
             this.radGPS = new System.Windows.Forms.RadioButton();
             this.radRadio = new System.Windows.Forms.RadioButton();
             this.chkBeltRopeKnife = new System.Windows.Forms.CheckBox();
-            this.btnEdit = new System.Windows.Forms.Button();
+            this.lblWarning = new System.Windows.Forms.Label();
+            this.picWarning = new System.Windows.Forms.PictureBox();
             this.grpBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudSpawnChance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHSLeftShoulder)).BeginInit();
@@ -151,6 +152,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudHSFeetKnife)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCheckMark)).BeginInit();
             this.grpRad.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picWarning)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCreateJSON
@@ -1547,18 +1549,28 @@
             this.chkBeltRopeKnife.UseVisualStyleBackColor = true;
             this.chkBeltRopeKnife.Visible = false;
             // 
-            // btnEdit
+            // lblWarning
             // 
-            this.btnEdit.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Location = new System.Drawing.Point(1542, 623);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(202, 56);
-            this.btnEdit.TabIndex = 121;
-            this.btnEdit.Text = "&Edit Inventory";
-            this.btnEdit.UseVisualStyleBackColor = false;
-            this.btnEdit.Visible = false;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            this.lblWarning.AutoSize = true;
+            this.lblWarning.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lblWarning.Enabled = false;
+            this.lblWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWarning.Location = new System.Drawing.Point(1576, 705);
+            this.lblWarning.Name = "lblWarning";
+            this.lblWarning.Size = new System.Drawing.Size(174, 25);
+            this.lblWarning.TabIndex = 122;
+            this.lblWarning.Text = "Inventory Empty!";
+            // 
+            // picWarning
+            // 
+            this.picWarning.Image = ((System.Drawing.Image)(resources.GetObject("picWarning.Image")));
+            this.picWarning.InitialImage = null;
+            this.picWarning.Location = new System.Drawing.Point(1524, 690);
+            this.picWarning.Name = "picWarning";
+            this.picWarning.Size = new System.Drawing.Size(51, 51);
+            this.picWarning.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picWarning.TabIndex = 123;
+            this.picWarning.TabStop = false;
             // 
             // frmMain
             // 
@@ -1567,7 +1579,8 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1782, 953);
-            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.picWarning);
+            this.Controls.Add(this.lblWarning);
             this.Controls.Add(this.chkBeltRopeKnife);
             this.Controls.Add(this.grpRad);
             this.Controls.Add(this.picCheckMark);
@@ -1686,6 +1699,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picCheckMark)).EndInit();
             this.grpRad.ResumeLayout(false);
             this.grpRad.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picWarning)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1804,7 +1818,8 @@
         private System.Windows.Forms.RadioButton radWest;
         private System.Windows.Forms.RadioButton radBlack;
         private System.Windows.Forms.RadioButton radCamo;
-        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Label lblWarning;
+        private System.Windows.Forms.PictureBox picWarning;
     }
 }
 

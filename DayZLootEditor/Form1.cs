@@ -704,6 +704,9 @@ namespace DayZLootEditor
 
         }
 
+        //Creates new instance of edit form so edit form ftns can be called throughout
+        frmEdit frmEdit = new frmEdit();
+
         private void frmMain_Load(object sender, EventArgs e)
         {
             //initializes combo boxes with lists
@@ -717,19 +720,9 @@ namespace DayZLootEditor
             
         }
 
-        //Sets all combo box to first index which is blank, and all nuds to default
+        //Sets all combo box to first index which is blank, and all nuds to default, hides all inventory displays, unchecks all rads
         private void btnReset_Click(object sender, EventArgs e)
         {
-            ResetAll();
-            radWest.Checked = false;
-            radEast.Checked = false;
-            radBlack.Checked = false;
-            radCamo.Checked = false;
-        }
-
-        private void ResetAll()
-        {
-            
             foreach (System.Windows.Forms.ComboBox comboBox in Controls.OfType<System.Windows.Forms.ComboBox>())
             {
                 if (comboBox.Items.Count > 0)
@@ -739,42 +732,61 @@ namespace DayZLootEditor
             nudSpawnChance.Value = 1;
             lblInventoryBuilt.Visible = false;
             picCheckMark.Visible = false;
-            userInventoryListComplexChildren.Clear();
-            userInventoryListSimpleChildren.Clear();
+            lblWarning.Visible = true;
+            picWarning.Visible = true;
+            userInventoryListComplexChildren.Clear();//clears user list
+            userInventoryListSimpleChildren.Clear();//clears user list
+            frmEdit.TriggerResetButtonClick();//triggers reset btn click event in edit form
+            radWest.Checked = false;
+            radEast.Checked = false;
+            radBlack.Checked = false;
+            radCamo.Checked = false;
         }
-
-        frmEdit frmEdit = new frmEdit();
 
         //Opens Edit form, creates new userInventoryListComplexChildren by calling ftn in editForm, changes some control properties
         private void btnInventory_Click(object sender, EventArgs e)
         {
+            //clears all indicators
+            lblWarning.Visible = false;
+            picWarning.Visible = false;
+            lblInventoryBuilt.Visible = false;
+            picCheckMark.Visible = false;
 
             //if ok was clicked then excute this code
             if (frmEdit.ShowDialog() == DialogResult.OK)
             {
-                //Receives lists from edit form and places them in list in this form
-                userInventoryListComplexChildren = frmEdit.UserEditedComplexChildrenList();
-                userInventoryListSimpleChildren = frmEdit.UserEditedSimpleChildrenList();
+                ReceiveEditFormData();
+            }
+            else
+            {
+                ReceiveEditFormData();
+            }
+        }
 
-                //Shows checkmark, and changes button text to edit
+        private void ReceiveEditFormData()
+        {
+            //Receives lists from edit form and places them in list in this form (inherently clears the lists first so no worry of double lists)
+            userInventoryListComplexChildren = frmEdit.UserEditedComplexChildrenList();
+            userInventoryListSimpleChildren = frmEdit.UserEditedSimpleChildrenList();
+
+            //If lists have items shows checkmark, and changes button text to edit
+            if (userInventoryListComplexChildren.Count > 0 || userInventoryListSimpleChildren.Count > 0)
+            {
+                lblWarning.Visible = false;
+                picWarning.Visible = false;
                 lblInventoryBuilt.Visible = true;
                 picCheckMark.Visible = true;
-                btnInventory.Visible = false;
-                btnEdit.Visible = true;
             }
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            frmEdit.Visible = true;
-
-            if (frmEdit.DialogResult==DialogResult.OK)
+            else
             {
-                //Receives lists from edit form and places them in list in this form
-                userInventoryListComplexChildren = frmEdit.UserEditedComplexChildrenList();
-                userInventoryListSimpleChildren = frmEdit.UserEditedSimpleChildrenList();
+                lblInventoryBuilt.Visible = false;
+                picCheckMark.Visible = false;
+                lblWarning.Visible = true;
+                picWarning.Visible = true;
             }
         }
+
+
 
         //only allows placement of plate car attatchments on plat car
         private void cmbVestMain_SelectedIndexChanged(object sender, EventArgs e)
