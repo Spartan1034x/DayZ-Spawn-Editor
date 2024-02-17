@@ -6,6 +6,7 @@
 3. Mag names now shortened, initial "mag_" removed from display in combo box.
 4. Edit form no longer deletes selection when going back to edit inventory.
 5. Warning now display when attempting to create .json with an empty inventory.
+6. Added display in edit form that displays custom items added.
 
 
 

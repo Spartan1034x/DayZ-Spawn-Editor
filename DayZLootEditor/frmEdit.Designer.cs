@@ -52,10 +52,15 @@
             this.label4 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnExit = new System.Windows.Forms.Button();
+            this.dgvAddedItems = new System.Windows.Forms.DataGridView();
+            this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HotSlot = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHSAddItem)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCheckMark)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAddedItems)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAccept
@@ -180,15 +185,15 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(851, 12);
+            this.label1.Location = new System.Drawing.Point(821, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 32);
+            this.label1.Size = new System.Drawing.Size(183, 32);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Add Item";
+            this.label1.Text = "Custom Item";
             // 
             // txtAddItem
             // 
-            this.txtAddItem.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.txtAddItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtAddItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddItem.Location = new System.Drawing.Point(873, 47);
             this.txtAddItem.Name = "txtAddItem";
@@ -197,7 +202,7 @@
             // 
             // label2
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(767, 50);
@@ -208,7 +213,7 @@
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(792, 119);
@@ -219,7 +224,7 @@
             // 
             // nudHSAddItem
             // 
-            this.nudHSAddItem.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.nudHSAddItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.nudHSAddItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudHSAddItem.Location = new System.Drawing.Point(873, 114);
             this.nudHSAddItem.Minimum = new decimal(new int[] {
@@ -238,7 +243,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Location = new System.Drawing.Point(873, 173);
             this.btnAdd.MaximumSize = new System.Drawing.Size(101, 34);
@@ -264,6 +269,7 @@
             // 
             // picCheckMark
             // 
+            this.picCheckMark.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.picCheckMark.Image = ((System.Drawing.Image)(resources.GetObject("picCheckMark.Image")));
             this.picCheckMark.Location = new System.Drawing.Point(83, 224);
             this.picCheckMark.Name = "picCheckMark";
@@ -275,6 +281,7 @@
             // 
             // lblAdded
             // 
+            this.lblAdded.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblAdded.AutoSize = true;
             this.lblAdded.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblAdded.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -314,12 +321,62 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // dgvAddedItems
+            // 
+            this.dgvAddedItems.AllowUserToAddRows = false;
+            this.dgvAddedItems.AllowUserToDeleteRows = false;
+            this.dgvAddedItems.AllowUserToResizeColumns = false;
+            this.dgvAddedItems.AllowUserToResizeRows = false;
+            this.dgvAddedItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvAddedItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAddedItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Item,
+            this.HotSlot});
+            this.dgvAddedItems.Location = new System.Drawing.Point(771, 305);
+            this.dgvAddedItems.Name = "dgvAddedItems";
+            this.dgvAddedItems.RowHeadersVisible = false;
+            this.dgvAddedItems.RowHeadersWidth = 51;
+            this.dgvAddedItems.RowTemplate.Height = 24;
+            this.dgvAddedItems.Size = new System.Drawing.Size(305, 368);
+            this.dgvAddedItems.TabIndex = 16;
+            // 
+            // Item
+            // 
+            this.Item.HeaderText = "Item";
+            this.Item.MinimumWidth = 6;
+            this.Item.Name = "Item";
+            this.Item.ReadOnly = true;
+            this.Item.Width = 150;
+            // 
+            // HotSlot
+            // 
+            this.HotSlot.HeaderText = "HotSlot";
+            this.HotSlot.MinimumWidth = 6;
+            this.HotSlot.Name = "HotSlot";
+            this.HotSlot.ReadOnly = true;
+            this.HotSlot.Width = 76;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(792, 270);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(254, 29);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Custom Items Added";
+            // 
             // frmEdit
             // 
             this.AcceptButton = this.btnAccept;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1082, 823);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.dgvAddedItems);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnAdd);
@@ -346,6 +403,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCheckMark)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAddedItems)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -374,5 +432,9 @@
         private System.Windows.Forms.Label lblAdded;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.DataGridView dgvAddedItems;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Item;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HotSlot;
+        private System.Windows.Forms.Label label5;
     }
 }

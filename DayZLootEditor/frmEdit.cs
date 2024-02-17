@@ -30,7 +30,7 @@ namespace DayZLootEditor
 
         //Creates a method that when called retuns the updated user list
         public List<ComplexChildrenType> UserEditedComplexChildrenList()
-        {  return userComplexList; }
+        { return userComplexList; }
 
         //method that returns simplechildren list
         public List<String> UserEditedSimpleChildrenList()
@@ -66,20 +66,20 @@ namespace DayZLootEditor
         private void ReadItemList()
         {
             string filePath = "ItemSets/InventoryItems.txt";
-            
-                if (File.Exists(filePath))
-                {
-                    string[] lines = File.ReadAllLines(filePath);
 
-                    foreach (string line in lines)
-                    {
-                        list.Add(line);
-                    }
-                }
-                else
+            if (File.Exists(filePath))
+            {
+                string[] lines = File.ReadAllLines(filePath);
+
+                foreach (string line in lines)
                 {
-                    MessageBox.Show("File path for InventoryItems.txt not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }        
+                    list.Add(line);
+                }
+            }
+            else
+            {
+                MessageBox.Show("File path for InventoryItems.txt not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void DataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
@@ -190,6 +190,7 @@ namespace DayZLootEditor
         //Also clears all lists
         private void btnReset_Click(object sender, EventArgs e)
         {
+            dgvAddedItems.Rows.Clear();
             dgvItems.Rows.Clear();
             DataGridPopulation();
             userComplexList.Clear();
@@ -273,7 +274,7 @@ namespace DayZLootEditor
                     }
                 }
             }
-                     
+
             /*Tests updated list
             foreach (ComplexChildrenType item in userComplexList)
             {
@@ -284,7 +285,7 @@ namespace DayZLootEditor
             {
                 MessageBox.Show(itemName);
             } */
-      
+
             this.Close();
         }
 
@@ -295,39 +296,39 @@ namespace DayZLootEditor
             int columnIndex = 1;
 
 
-                // Clear any previous selections
-                dgvItems.ClearSelection();
+            // Clear any previous selections
+            dgvItems.ClearSelection();
 
-                // Loop through each row in the DataGridView
-                foreach (DataGridViewRow row in dgvItems.Rows)
+            // Loop through each row in the DataGridView
+            foreach (DataGridViewRow row in dgvItems.Rows)
+            {
+
+                if (row.Cells[columnIndex].Value is string cellValue)
                 {
-
-                    if (row.Cells[columnIndex].Value is string cellValue)
+                    // Check if the cell value matches the search term
+                    if (!string.IsNullOrEmpty(searchTerm) && cellValue.ToLower().Contains(searchTerm))
                     {
-                        // Check if the cell value matches the search term
-                        if (!string.IsNullOrEmpty(searchTerm) && cellValue.ToLower().Contains(searchTerm))
-                        {
-                            // Highlight the matching row
-                            row.Selected = true;
-                            row.Visible = true;
-                        }
-                        //if empty display all results
-                        else if (string.IsNullOrEmpty(searchTerm)) 
-                        {
+                        // Highlight the matching row
+                        row.Selected = true;
                         row.Visible = true;
-                        }
-                        //if it does not match not vidible in dgv
-                        else
-                        {
-                            row.Visible=false;
-                        }
                     }
+                    //if empty display all results
+                    else if (string.IsNullOrEmpty(searchTerm))
+                    {
+                        row.Visible = true;
+                    }
+                    //if it does not match not vidible in dgv
                     else
                     {
-                        MessageBox.Show("Cell value is not a string.");
+                        row.Visible = false;
                     }
                 }
-            
+                else
+                {
+                    MessageBox.Show("Cell value is not a string.");
+                }
+            }
+
 
         }
 
@@ -350,7 +351,23 @@ namespace DayZLootEditor
             string itemName = txtAddItem.Text.Trim();
             int hotslot = Convert.ToInt32(nudHSAddItem.Value);
 
-            //Creates new row for dgv
+            //Creates new row for addeditem dgv
+            DataGridViewRow rowAddedItems = new DataGridViewRow();
+
+            //add user item input into text column in item column
+            DataGridViewTextBoxCell itemCell = new DataGridViewTextBoxCell();
+            itemCell.Value = itemName;
+            rowAddedItems.Cells.Add(itemCell);
+
+            //add user hotslot into text column
+            DataGridViewTextBoxCell hotslotCell = new DataGridViewTextBoxCell();
+            hotslotCell.Value = hotslot;
+            rowAddedItems.Cells.Add(hotslotCell);
+
+            //add row to dgv
+            dgvAddedItems.Rows.Add(rowAddedItems);  
+
+            //Creates new row for main dgv
             DataGridViewRow row = new DataGridViewRow();
 
             // Use a CheckBox cell for the boolean column
@@ -384,8 +401,8 @@ namespace DayZLootEditor
         {
             timer1.Stop();
 
-            picCheckMark.Visible=false;
-            lblAdded.Visible=false;
+            picCheckMark.Visible = false;
+            lblAdded.Visible = false;
         }
 
         //resets everything then closes form, empty lists passed back
@@ -393,5 +410,6 @@ namespace DayZLootEditor
         {
             this.Close();
         }
+
     }
 }

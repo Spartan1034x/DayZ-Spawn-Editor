@@ -1,0 +1,16 @@
+
+ACOGOptic
+ACOGOptic_6x
+BUISOptic
+HuntingOptic
+KashtanOptic
+KazuarOptic
+KobraOptic
+M4_CarryHandleOptic
+M4_T3NRDSOptic
+M68Optic
+PSO1Optic
+PSO11Optic
+PUScopeOptic
+ReflexOptic
+StarlightOptic
