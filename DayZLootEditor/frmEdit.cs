@@ -45,7 +45,7 @@ namespace DayZLootEditor
             if (firstLoad)
             {
                 //Populates item list with external file 
-                PopulateItemList();
+                ReadItemList();
 
                 ComplexChildrenListCreation();
 
@@ -63,7 +63,7 @@ namespace DayZLootEditor
 
 
         //Reads inventory item txt file from folder, then places into list
-        private void PopulateItemList()
+        private void ReadItemList()
         {
             string filePath = "ItemSets/InventoryItems.txt";
             
