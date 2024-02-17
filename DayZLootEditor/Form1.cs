@@ -21,606 +21,69 @@ namespace DayZLootEditor
         private static List<String> userInventoryListSimpleChildren = new List<String>();
 
         //Weapon Arrays
-        private static string[] sights = { "", "ACOGOptic", "ACOGOptic_6x", "BUISOptic", "HuntingOptic", "KashtanOptic", "KazuarOptic", "KobraOptic", "M4_CarryHandleOptic", "M4_T3NRDSOptic", "M68Optic", "PSO1Optic", "PSO11Optic", "PUScopeOptic", "ReflexOptic", "StarlightOptic" };
-        private static string[] weaponBack = {"", "AK101",
-"AK101_Black",
-"AK101_Green",
-"AK74",
-"AK74_Black",
-"AK74_Green",
-"AKM",
-"AKS74U",
-"AKS74U_Black",
-"AKS74U_Green",
-"AK_Bayonet",
-"ASVAL",
-"Aug",
-"AugShort",
-"B95",
-"CZ527",
-"CZ550",
-"CZ61",
-"FAL",
-"FAMAS",
-"Izh18",
-"Izh18Shotgun",
-"Izh43Shotgun",
-"M79",
-"M14",
-"M16A2",
-"M4A1",
-"M4A1_Black",
-"M4A1_Green",
-"MKII",
-"MP5K",
-"Mosin9130",
-"Mosin9130_Black",
-"Mosin9130_Camo",
-"Mosin9130_Green",
-"MP133Shotgun",
-"PP19",
-"SawedoffB95",
-"SawedoffFAMAS",
-"SawedoffIzh18",
-"SawedoffIzh18Shotgun",
-"SawedoffIzh43Shotgun",
-"SawedoffMagnum",
-"SawedoffMosin9130",
-"SawedoffMosin9130_Black",
-"SawedoffMosin9130_Camo",
-"SawedoffMosin9130_Green",
-"SaigaIJ70",
-"Scout",
-"SKS",
-"SVD",
-"UMP45",
-"Val",
-"VSS",
-"Winchester70",
-"SSG82",
-"Ruger1022"};
+        private static string[] sights = PopulateArray("Sights.txt");
+        private static string[] weaponBack = PopulateArray("Weapons.txt");
         private static string[] weaponLight = { "", "UniversalLight" };
-        private static string[] weaponAttachment1 = { "", "AK_FoldingBttstck_Black", "AK_FoldingBttstck_Green", "AK_PlasticBttstck", "AK_PlasticBttstck_Black", "AK_PlasticBttstck_Green", "AK_PlasticHndgrd", "AK_RailHndgrd", "AK_RailHndgrd_Black", "AK_RailHndgrd_Green", "AK_Suppressor", "AK_WoodBttstck", "AK_WoodBttstck_Black", "AK_WoodBttstck_Camo", "AK_WoodHndgrd", "AK_WoodHndgrd_Black", "AK_WoodHndgrd_Camo", "SKS_Bayonet", "PistolSuppressor", "PP19_Bttstck", "MP5_Compensator", "MP5_PlasticHndgrd", "MP5_RailHndgrd", "MP5k_StockBttstck", "M9A1_Bayonet", "M4_CQBBttstck", "M4_MPBttstck", "M4_MPHndgrd", "M4_OEBttstck", "M4_PlasticHndgrd", "M4_RISHndgrd", "M4_RISHndgrd_Black", "M4_RISHndgrd_Green", "M4_Suppressor", "GhillieAtt_Mossy", "GhillieAtt_Tan", "GhillieAtt_Woodland", "Fal_FoldingBttstck", "Fal_OeBttstck" };        
-        //parrallel arrays index can be matched to give proper code names when creating object, and seperate ones to display
-        private static string[] weaponMags = { "", "1911_7Rnd", "AK101_30Rnd", "AK74_30Rnd", "AK74_45Rnd", "AKM_30Rnd", "AKM_Drum75Rnd", "AKM_Palm30Rnd", "Aug_30Rnd", "CMAG_10Rnd", "CMAG_20Rnd", "CMAG_30Rnd", "CMAG_40Rnd", "CZ527_5rnd", "CZ550_10Rnd", "CZ61_20Rnd", "CZ75_15Rnd", "Deagle_9rnd", "FAL_20Rnd", "FAMAS_25Rnd", "FNX45_15Rnd", "Glock_15Rnd", "IJ70_8Rnd", "M14_10Rnd", "M14_20Rnd", "MKII_10Rnd", "MP5_15Rnd", "MP5_30Rnd", "P1_8Rnd", "PP19_64Rnd", "Ruger1022_15Rnd", "Ruger1022_30Rnd", "SSG82_5rnd", "STANAG_30Rnd", "STANAG_60Rnd", "SVD_10Rnd", "Saiga_5Rnd", "Saiga_8Rnd", "Saiga_Drum20Rnd", "Scout_5Rnd", "UMP_25Rnd", "VAL_20Rnd", "VSS_10Rnd" };
-        private static string[] mags = {"", "Mag_1911_7Rnd",
-"Mag_AK101_30Rnd",
-"Mag_AK74_30Rnd",
-"Mag_AK74_45Rnd",
-"Mag_AKM_30Rnd",
-"Mag_AKM_Drum75Rnd",
-"Mag_AKM_Palm30Rnd",
-"Mag_Aug_30Rnd",
-"Mag_CMAG_10Rnd",
-"Mag_CMAG_20Rnd",
-"Mag_CMAG_30Rnd",
-"Mag_CMAG_40Rnd",
-"Mag_CZ527_5rnd",
-"Mag_CZ550_10Rnd",
-"Mag_CZ61_20Rnd",
-"Mag_CZ75_15Rnd",
-"Mag_Deagle_9rnd",
-"Mag_FAL_20Rnd",
-"Mag_FAMAS_25Rnd",
-"Mag_FNX45_15Rnd",
-"Mag_Glock_15Rnd",
-"Mag_IJ70_8Rnd",
-"Mag_M14_10Rnd",
-"Mag_M14_20Rnd",
-"Mag_MKII_10Rnd",
-"Mag_MP5_15Rnd",
-"Mag_MP5_30Rnd",
-"Mag_P1_8Rnd",
-"Mag_PP19_64Rnd",
-"Mag_Ruger1022_15Rnd",
-"Mag_Ruger1022_30Rnd",
-"Mag_SSG82_5rnd",
-"Mag_STANAG_30Rnd",
-"Mag_STANAG_60Rnd",
-"Mag_SVD_10Rnd",
-"Mag_Saiga_5Rnd",
-"Mag_Saiga_8Rnd",
-"Mag_Saiga_Drum20Rnd",
-"Mag_Scout_5Rnd",
-"Mag_UMP_25Rnd",
-"Mag_VAL_20Rnd",
-"Mag_VSS_10Rnd"
- }; //Confirmed size is the same originally weaponMagsCode switched for testing
+        private static string[] weaponAttachment = PopulateArray("Attachments.txt");
+        private static string[] magDisplay = PopulateArray("MagsDisplay.txt");//parrallel arrays index can be matched to give proper code names when creating object, and seperate ones to display
+        private static string[] magCode = PopulateArray("Mags.txt"); //Confirmed size is the same originally weaponMagsCode switched for testing
 
         //Vest Arrays
-        private static string[] vests = {"", "PlateCarrierVest",
-"PlateCarrierVest_Black",
-"PlateCarrierVest_Camo",
-"PlateCarrierVest_Green",
-"PressVest_Blue",
-"PressVest_LightBlue",
-"UKAssVest_Black",
-"UKAssVest_Camo",
-"UKAssVest_Khaki",
-"UKAssVest_Olive",
-"HighCapacityVest_Black",
-"HighCapacityVest_Olive",
-"HuntingVest",
-"LeatherStorageVest_Beige",
-"LeatherStorageVest_Black",
-"LeatherStorageVest_Brown",
-"LeatherStorageVest_Natural"};
-        private static string[] pouches = {"", "PlateCarrierPouches",
-"PlateCarrierPouches_Black",
-"PlateCarrierPouches_Camo",
-"PlateCarrierPouches_Green"};
-        private static string[] holsters = { "", "PlateCarrierHolster",
-"PlateCarrierHolster_Black",
-"PlateCarrierHolster_Camo",
-"PlateCarrierHolster_Green" };
+        private static string[] vests = PopulateArray("Vests.txt");
+        private static string[] pouches = PopulateArray("Pouches.txt");
+        private static string[] holsters = PopulateArray("Holsters.txt");
 
         //Shirts array
-        private static string[] shirts = { "", "BDUJacket",
-"BomberJacket_Black",
-"BomberJacket_Blue",
-"BomberJacket_Brown",
-"BomberJacket_Grey",
-"BomberJacket_Maroon",
-"BomberJacket_Olive",
-"BomberJacket_SkyBlue",
-"ChernarusSportShirt",
-"DenimJacket",
-"FirefighterJacket_Beige",
-"FirefighterJacket_Black",
-"GorkaEJacket_Autumn",
-"GorkaEJacket_Flat",
-"GorkaEJacket_PautRev",
-"GorkaEJacket_Summer",
-"HikingJacket_Black",
-"HikingJacket_Blue",
-"HikingJacket_Green",
-"HikingJacket_Red",
-"HuntingJacket_Autumn",
-"HuntingJacket_Brown",
-"HuntingJacket_Spring",
-"HuntingJacket_Summer",
-"HuntingJacket_Winter",
-"JumpsuitJacket_Blue",
-"JumpsuitJacket_Gray",
-"JumpsuitJacket_Green",
-"JumpsuitJacket_Red",
-"LabCoat",
-"LeatherJacket_Beige",
-"LeatherJacket_Black",
-"LeatherJacket_Brown",
-"LeatherJacket_Natural",
-"LeatherShirt_Natural",
-"M65Jacket_Black",
-"M65Jacket_Khaki",
-"M65Jacket_Olive",
-"M65Jacket_Tan",
-"MedicalScrubsShirt_Blue",
-"MedicalScrubsShirt_Green",
-"MedicalScrubsShirt_White",
-"NBCJacketGray",
-"NBCJacketYellow",
-"ParamedicJacket_Blue",
-"ParamedicJacket_Crimson",
-"ParamedicJacket_Green",
-"PoliceJacket",
-"PoliceJacketOrel",
-"PrisonUniformJacket",
-"QuiltedJacket_Black",
-"QuiltedJacket_Blue",
-"QuiltedJacket_Green",
-"QuiltedJacket_Grey",
-"QuiltedJacket_Orange",
-"QuiltedJacket_Red",
-"QuiltedJacket_Violet",
-"QuiltedJacket_Yellow",
-"Raincoat_Black",
-"Raincoat_Blue",
-"Raincoat_Green",
-"Raincoat_Orange",
-"Raincoat_Pink",
-"Raincoat_Red",
-"Raincoat_Yellow",
-"RidersJacket_Black",
-"Shirt_BlueCheck",
-"Shirt_BlueCheckBright",
-"Shirt_GreenCheck",
-"Shirt_PlaneBlack",
-"Shirt_RedCheck",
-"Shirt_WhiteCheck",
-"TShirt_Beige",
-"TShirt_Black",
-"TShirt_Blue",
-"TShirt_Green",
-"TShirt_Grey",
-"TShirt_OrangeWhiteStripes",
-"TShirt_Red",
-"TShirt_RedBlackStripes",
-"TShirt_White",
-"TTsKOJacket_Camo",
-"TacticalShirt_Black",
-"TacticalShirt_Grey",
-"TacticalShirt_Olive",
-"TacticalShirt_Tan",
-"TelnyashkaShirt",
-"TrackSuitJacket_Black",
-"TrackSuitJacket_Blue",
-"TrackSuitJacket_Green",
-"TrackSuitJacket_LightBlue",
-"TrackSuitJacket_Red",
-"Tshirt_10thAnniversary",
-"USMCJacket_Desert",
-"USMCJacket_Woodland",
-"WoolCoat_Beige",
-"WoolCoat_Black",
-"WoolCoat_BlackCheck",
-"WoolCoat_Blue",
-"WoolCoat_BlueCheck",
-"WoolCoat_BrownCheck",
-"WoolCoat_Green",
-"WoolCoat_GreyCheck",
-"WoolCoat_Red",
-"WoolCoat_RedCheck",
- };
+        private static string[] shirts = PopulateArray("Shirts.txt");
 
         //Belt arrays
-        private static string[] belts = { "", "LeatherBelt_Beige",
-"LeatherBelt_Black",
-"LeatherBelt_Brown",
-"LeatherBelt_Natural",
-       "MilitaryBelt", "RopeBelt"};
-        private static string[] knives = { "", "BoneKnife",
-"CombatKnife",
-"FangeKnife",
-"HuntingKnife",
-"KitchenKnife",
-"SteakKnife",
-"StoneKnife"
- };
-        private static string[] pistols = { "", "CZ75",
-"Colt1911",
-"Deagle",
-"Deagle_Gold",
-"Engraved1911",
-"FNX45",
-"Glock19",
-"Magnum",
-"MakarovIJ70","P1",
-"MKII"
-};
+        private static string[] belts = PopulateArray("Belts.txt");
+        private static string[] knives = PopulateArray("Knives.txt");
+        private static string[] pistols = PopulateArray("Pistol.txt");
 
         //Pants array
-        private static string[] pants = { "", "BDUPants",
-"CanvasPantsMidi_Beige",
-"CanvasPantsMidi_Blue",
-"CanvasPantsMidi_Grey",
-"CanvasPantsMidi_Red",
-"CanvasPantsMidi_Violet",
-"CanvasPants_Beige",
-"CanvasPants_Blue",
-"CanvasPants_Grey",
-"CanvasPants_Red",
-"CanvasPants_Violet",
-"CargoPants_Beige",
-"CargoPants_Black",
-"CargoPants_Blue",
-"CargoPants_Green",
-"CargoPants_Grey",
-"FirefightersPants_Beige",
-"FirefightersPants_Black",
-"GorkaPants_Autumn",
-"GorkaPants_Flat",
-"GorkaPants_PautRev",
-"GorkaPants_Summer",
-"HunterPants_Autumn",
-"HunterPants_Brown",
-"HunterPants_Spring",
-"HunterPants_Summer",
-"HunterPants_Winter",
-"JumpsuitPants_Blue",
-"JumpsuitPants_Green",
-"JumpsuitPants_Grey",
-"JumpsuitPants_Red",
-"LeatherPants_Beige",
-"LeatherPants_Black",
-"LeatherPants_Brown",
-"LeatherPants_Natural",
-"MedicalScrubsPants_Blue",
-"MedicalScrubsPants_Green",
-"MedicalScrubsPants_White",
-"NBCPantsGray",
-"NBCPantsYellow",
-"ParamedicPants_Blue",
-"ParamedicPants_Crimson",
-"ParamedicPants_Green",
-"PolicePants",
-"PolicePantsOrel",
-"PrisonUniformPants",
-"SlacksPants_Beige",
-"SlacksPants_Black",
-"SlacksPants_Blue",
-"SlacksPants_Brown",
-"SlacksPants_DarkGrey",
-"SlacksPants_Khaki",
-"SlacksPants_LightGrey",
-"SlacksPants_White",
-"TTSKOPants",
-"TrackSuitPants_Black",
-"TrackSuitPants_Blue",
-"TrackSuitPants_Green",
-"TrackSuitPants_LightBlue",
-"TrackSuitPants_Red",
-"USMCPants_Desert",
-"USMCPants_Woodland"
-};
+        private static string[] pants = PopulateArray("Pants.txt");
 
         //Bags array
-        private static string[] bags = {"", "AliceBag_Black",
-"AliceBag_Camo",
-"AliceBag_Green",
-"AssaultBag_Black",
-"AssaultBag_Green",
-"AssaultBag_Ttsko",
-"CanvasBag_Medical",
-"CanvasBag_Olive",
-"ChildBag_Blue",
-"ChildBag_Green",
-"ChildBag_Red",
-"CourierBag",
-"CoyoteBag_Brown",
-"CoyoteBag_Green",
-"DryBag_Black",
-"DryBag_Blue",
-"DryBag_Green",
-"DryBag_Orange",
-"DryBag_Red",
-"DryBag_Yellow",
-"DrysackBag_Green",
-"DrysackBag_Orange",
-"DrysackBag_Yellow",
-"DuffelBagSmall_Camo",
-"DuffelBagSmall_Green",
-"DuffelBagSmall_Medical",
-"FurCourierBag",
-"FurImprovisedBag",
-"HuntingBag",
-"HuntingBag_Hannah",
-"ImprovisedBag",
-"MountainBag_Blue",
-"MountainBag_Green",
-"MountainBag_Orange",
-"MountainBag_Red",
-"Slingbag_Black",
-"Slingbag_Brown",
-"Slingbag_Gray",
-"SmershBag",
-"TaloonBag_Blue",
-"TaloonBag_Green",
-"TaloonBag_Orange",
-"TaloonBag_Violet",
-"WaterproofBag_Green",
-"WaterproofBag_Orange",
-"WaterproofBag_Yellow",
-};
+        private static string[] bags = PopulateArray("Bags.txt");
 
         //face array
-        private static string[] face = { "", "Balaclava3Holes_Beige",
-"Balaclava3Holes_Black",
-"Balaclava3Holes_Blue",
-"Balaclava3Holes_Green",
-"BalaclavaMask_Beige",
-"BalaclavaMask_Black",
-"BalaclavaMask_Blackskull",
-"BalaclavaMask_Blue",
-"BalaclavaMask_Green",
-"BalaclavaMask_Pink",
-"BalaclavaMask_White",
-"Bandana_Blackpattern",
-"Bandana_Camopattern",
-"Bandana_Greenpattern",
-"Bandana_Polkapattern",
-"Bandana_Redpattern",
-"FaceCover_Improvised",
-"NioshFaceMask"
-};
+        private static string[] face = PopulateArray("Face.txt");
 
         //eyewear array
-        private static string[] eyes = { "", "AviatorGlasses",
-"DesignerGlasses",
-"NVGHeadstrap",
-"SportGlasses_Black",
-"SportGlasses_Blue",
-"SportGlasses_Green",
-"SportGlasses_Orange",
-"TacticalGoggles",
-"ThickFramesGlasses",
-"ThinFramesGlasses",
- };
+        private static string[] eyes = PopulateArray("Eyes.txt");
 
         //hands array
-        private static string[] gloves = {"", "LeatherGloves_Beige",
-"LeatherGloves_Black",
-"LeatherGloves_Brown",
-"LeatherGloves_Natural",
-"NBCGlovesGray",
-"NBCGlovesYellow",
-"OMNOGloves_Brown",
-"OMNOGloves_Gray",
-"PaddedGloves_Beige",
-"PaddedGloves_Brown",
-"PaddedGloves_Threat",
-"SurgicalGloves_Blue",
-"SurgicalGloves_Green",
-"SurgicalGloves_LightBlue",
-"SurgicalGloves_White",
-"TacticalGloves_Beige",
-"TacticalGloves_Black",
-"TacticalGloves_Green",
-"WoolGlovesFingerless_Black",
-"WoolGlovesFingerless_ChristmasBlue",
-"WoolGlovesFingerless_ChristmasRed",
-"WoolGlovesFingerless_Green",
-"WoolGlovesFingerless_Tan",
-"WoolGlovesFingerless_White",
-"WoolGloves_Black",
-"WoolGloves_ChristmasBlue",
-"WoolGloves_ChristmasRed",
-"WoolGloves_Green",
-"WoolGloves_Tan",
-"WoolGloves_White",
-"WorkingGloves_Beige",
-"WorkingGloves_Black",
-"WorkingGloves_Brown",
-"WorkingGloves_Yellow"
-};
+        private static string[] gloves = PopulateArray("Hands.txt");
 
         //boots array
-        private static string[] boots = {"", "AthleticShoes_Black",
-"AthleticShoes_Blue",
-"AthleticShoes_Brown",
-"AthleticShoes_Green",
-"AthleticShoes_Grey",
-"CombatBoots_Beige",
-"CombatBoots_Black",
-"CombatBoots_Brown",
-"CombatBoots_Green",
-"CombatBoots_Grey",
-"DressShoes_Beige",
-"DressShoes_Black",
-"DressShoes_Brown",
-"DressShoes_Sunburst",
-"DressShoes_White",
-"HikingBootsLow_Beige",
-"HikingBootsLow_Black",
-"HikingBootsLow_Blue",
-"HikingBootsLow_Grey",
-"HikingBoots_Black",
-"HikingBoots_Brown",
-"JoggingShoes_Black",
-"JoggingShoes_Blue",
-"JoggingShoes_Red",
-"JoggingShoes_Violet",
-"JoggingShoes_White",
-"JungleBoots_Beige",
-"JungleBoots_Black",
-"JungleBoots_Brown",
-"JungleBoots_Green",
-"JungleBoots_Olive",
-"LeatherShoes_Beige",
-"LeatherShoes_Black",
-"LeatherShoes_Brown",
-"LeatherShoes_Natural",
-"MedievalBoots",
-"MilitaryBoots_Beige",
-"MilitaryBoots_Black",
-"MilitaryBoots_Bluerock",
-"MilitaryBoots_Brown",
-"MilitaryBoots_Redpunk",
-"NBCBootsGray",
-"NBCBootsYellow",
-"TTSKOBoots",
-"WorkingBoots_Beige",
-"WorkingBoots_Brown",
-"WorkingBoots_Green",
-"WorkingBoots_Grey",
-"WorkingBoots_Yellow"
-};
+        private string[] boots = PopulateArray("Boots.txt");
 
-        //armband array
-        private static string[] armbands = {"", "Armband_APA",
-"Armband_Altis",
-"Armband_BabyDeer",
-"Armband_Bear",
-"Armband_Black",
-"Armband_Blue",
-"Armband_Bohemia",
-"Armband_BrainZ",
-"Armband_CDF",
-"Armband_CHEL",
-"Armband_CMC",
-"Armband_Cannibals",
-"Armband_Chedaki",
-"Armband_Chernarus",
-"Armband_Crook",
-"Armband_DayZ",
-"Armband_Green",
-"Armband_HunterZ",
-"Armband_Livonia",
-"Armband_LivoniaArmy",
-"Armband_LivoniaPolice",
-"Armband_NAPA",
-"Armband_NSahrani",
-"Armband_Orange",
-"Armband_Pink",
-"Armband_Pirates",
-"Armband_RSTA",
-"Armband_Red",
-"Armband_Refuge",
-"Armband_Rex",
-"Armband_Rooster",
-"Armband_SSahrani",
-"Armband_Snake",
-"Armband_TEC",
-"Armband_UEC",
-"Armband_White",
-"Armband_Wolf",
-"Armband_Yellow",
-"Armband_Zagorky",
-"Armband_Zenit"
-};
+        //Calls ftn to populate armband array
+        private string[] armbands = PopulateArray("Armbands.txt");
 
-        //helmets array 
-        private static string[] helmets = {"", "BallisticHelmet_Black",
-"BallisticHelmet_Green",
-"BallisticHelmet_UN",
-"ConstructionHelmet_Blue",
-"ConstructionHelmet_Lime",
-"ConstructionHelmet_Orange",
-"ConstructionHelmet_Red",
-"ConstructionHelmet_White",
-"ConstructionHelmet_Yellow",
-"DarkMotoHelmet_Black",
-"DarkMotoHelmet_Blue",
-"DarkMotoHelmet_Green",
-"DarkMotoHelmet_Grey",
-"DarkMotoHelmet_Lime",
-"DarkMotoHelmet_Red",
-"DarkMotoHelmet_White",
-"DarkMotoHelmet_Yellow",
-"DarkMotoHelmet_YellowScarred",
-"DirtBikeHelmet_Black",
-"DirtBikeHelmet_Blue",
-"DirtBikeHelmet_Chernarus",
-"DirtBikeHelmet_Green",
-"DirtBikeHelmet_Khaki",
-"DirtBikeHelmet_Police",
-"DirtBikeHelmet_Red",
-"FirefightersHelmet_Red",
-"FirefightersHelmet_White",
-"FirefightersHelmet_Yellow",
-"GorkaHelmet",
-"HockeyHelmet_Black",
-"HockeyHelmet_Blue",
-"HockeyHelmet_Red",
-"HockeyHelmet_White",
-"Mich2001Helmet",
-"MotoHelmet_Black",
-"MotoHelmet_Blue",
-"MotoHelmet_Green",
-"MotoHelmet_Grey",
-"MotoHelmet_Lime",
-"MotoHelmet_Red",
-"MotoHelmet_White",
-"MotoHelmet_Yellow",
-"PumpkinHelmet",
-"SkateHelmet_Black",
-"SkateHelmet_Blue",
-"SkateHelmet_Gray",
-"SkateHelmet_Green",
-"SkateHelmet_Red",
-"Ssh68Helmet",
-"TankerHelmet",
-"ZSh3PilotHelmet"
-};
+        //Calls ftn to populate helmet array
+        private string[] helmets = PopulateArray("Helmets.txt");
+
+        //Sent: String (file name)
+        //Return: String Array of item names
+        //Description: Reads inventory item txt file from folder, then places into array
+        private static string[] PopulateArray(string filePath)
+        {
+            //MessageBox.Show(Convert.ToString(helmets1.Length));
+            string folderPath = "ItemSets/" + filePath;
+            string[] lines;
+            if (File.Exists(folderPath))
+            {
+                lines = File.ReadAllLines(folderPath);
+                return lines;
+            }
+            else
+            {
+                MessageBox.Show("File path for \"" + folderPath + "\" not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return new string[0]; // Return an empty array in case of failure
+            }
+        }
 
         //enters data into all cmb boxes
         private void InitializeComboBox()
@@ -668,32 +131,32 @@ namespace DayZLootEditor
             //sets cmb data for Hands cmbs
             cmbHandMain.Items.AddRange(weaponBack);
             cmbHandSight.Items.AddRange(sights);
-            cmbHandMag.Items.AddRange(weaponMags);
+            cmbHandMag.Items.AddRange(magDisplay);
             cmbHandLight.Items.AddRange(weaponLight);
-            cmbHand4.Items.AddRange(weaponAttachment1);
-            cmbHand5.Items.AddRange(weaponAttachment1);
-            cmbHand6.Items.AddRange(weaponAttachment1);
-            cmbHand7.Items.AddRange(weaponAttachment1);
+            cmbHand4.Items.AddRange(weaponAttachment);
+            cmbHand5.Items.AddRange(weaponAttachment);
+            cmbHand6.Items.AddRange(weaponAttachment);
+            cmbHand7.Items.AddRange(weaponAttachment);
 
             //sets combo data for RS cmbs
             cmbRSMain.Items.AddRange(weaponBack);
             cmbRSSight.Items.AddRange(sights);
-            cmbRSMag.Items.AddRange(weaponMags);
+            cmbRSMag.Items.AddRange(magDisplay);
             cmbRSLight.Items.AddRange(weaponLight);
-            cmbRS4.Items.AddRange(weaponAttachment1);
-            cmbRS5.Items.AddRange(weaponAttachment1);
-            cmbRS6.Items.AddRange(weaponAttachment1);
-            cmbRS7.Items.AddRange(weaponAttachment1);
+            cmbRS4.Items.AddRange(weaponAttachment);
+            cmbRS5.Items.AddRange(weaponAttachment);
+            cmbRS6.Items.AddRange(weaponAttachment);
+            cmbRS7.Items.AddRange(weaponAttachment);
 
             // Set the combo box data source to the list for LS Slot
             cmbLSMain.Items.AddRange(weaponBack);
             cmbLSSight.Items.AddRange(sights);
             cmbLSLight.Items.AddRange(weaponLight);
-            cmbLS3.Items.AddRange(weaponMags);
-            cmbLS4.Items.AddRange(weaponAttachment1);
-            cmbLS5.Items.AddRange(weaponAttachment1);
-            cmbLS6.Items.AddRange(weaponAttachment1);
-            cmbLS7.Items.AddRange(weaponAttachment1);
+            cmbLS3.Items.AddRange(magDisplay);
+            cmbLS4.Items.AddRange(weaponAttachment);
+            cmbLS5.Items.AddRange(weaponAttachment);
+            cmbLS6.Items.AddRange(weaponAttachment);
+            cmbLS7.Items.AddRange(weaponAttachment);
 
 
         }
@@ -703,6 +166,9 @@ namespace DayZLootEditor
             InitializeComponent();
 
         }
+
+        //Creates new instance of edit form so edit form ftns can be called throughout
+        frmEdit frmEdit = new frmEdit();
 
         private void frmMain_Load(object sender, EventArgs e)
         {
@@ -717,19 +183,9 @@ namespace DayZLootEditor
             
         }
 
-        //Sets all combo box to first index which is blank, and all nuds to default
+        //Sets all combo box to first index which is blank, and all nuds to default, hides all inventory displays, unchecks all rads
         private void btnReset_Click(object sender, EventArgs e)
         {
-            ResetAll();
-            radWest.Checked = false;
-            radEast.Checked = false;
-            radBlack.Checked = false;
-            radCamo.Checked = false;
-        }
-
-        private void ResetAll()
-        {
-            
             foreach (System.Windows.Forms.ComboBox comboBox in Controls.OfType<System.Windows.Forms.ComboBox>())
             {
                 if (comboBox.Items.Count > 0)
@@ -739,42 +195,61 @@ namespace DayZLootEditor
             nudSpawnChance.Value = 1;
             lblInventoryBuilt.Visible = false;
             picCheckMark.Visible = false;
-            userInventoryListComplexChildren.Clear();
-            userInventoryListSimpleChildren.Clear();
+            lblWarning.Visible = true;
+            picWarning.Visible = true;
+            userInventoryListComplexChildren.Clear();//clears user list
+            userInventoryListSimpleChildren.Clear();//clears user list
+            frmEdit.TriggerResetButtonClick();//triggers reset btn click event in edit form
+            radWest.Checked = false;
+            radEast.Checked = false;
+            radBlack.Checked = false;
+            radCamo.Checked = false;
         }
-
-        frmEdit frmEdit = new frmEdit();
 
         //Opens Edit form, creates new userInventoryListComplexChildren by calling ftn in editForm, changes some control properties
         private void btnInventory_Click(object sender, EventArgs e)
         {
+            //clears all indicators
+            lblWarning.Visible = false;
+            picWarning.Visible = false;
+            lblInventoryBuilt.Visible = false;
+            picCheckMark.Visible = false;
 
             //if ok was clicked then excute this code
             if (frmEdit.ShowDialog() == DialogResult.OK)
             {
-                //Receives lists from edit form and places them in list in this form
-                userInventoryListComplexChildren = frmEdit.UserEditedComplexChildrenList();
-                userInventoryListSimpleChildren = frmEdit.UserEditedSimpleChildrenList();
+                ReceiveEditFormData();
+            }
+            else
+            {
+                ReceiveEditFormData();
+            }
+        }
 
-                //Shows checkmark, and changes button text to edit
+        private void ReceiveEditFormData()
+        {
+            //Receives lists from edit form and places them in list in this form (inherently clears the lists first so no worry of double lists)
+            userInventoryListComplexChildren = frmEdit.UserEditedComplexChildrenList();
+            userInventoryListSimpleChildren = frmEdit.UserEditedSimpleChildrenList();
+
+            //If lists have items shows checkmark, and changes button text to edit
+            if (userInventoryListComplexChildren.Count > 0 || userInventoryListSimpleChildren.Count > 0)
+            {
+                lblWarning.Visible = false;
+                picWarning.Visible = false;
                 lblInventoryBuilt.Visible = true;
                 picCheckMark.Visible = true;
-                btnInventory.Visible = false;
-                btnEdit.Visible = true;
             }
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            frmEdit.Visible = true;
-
-            if (frmEdit.DialogResult==DialogResult.OK)
+            else
             {
-                //Receives lists from edit form and places them in list in this form
-                userInventoryListComplexChildren = frmEdit.UserEditedComplexChildrenList();
-                userInventoryListSimpleChildren = frmEdit.UserEditedSimpleChildrenList();
+                lblInventoryBuilt.Visible = false;
+                picCheckMark.Visible = false;
+                lblWarning.Visible = true;
+                picWarning.Visible = true;
             }
         }
+
+
 
         //only allows placement of plate car attatchments on plat car
         private void cmbVestMain_SelectedIndexChanged(object sender, EventArgs e)
@@ -1232,6 +707,12 @@ namespace DayZLootEditor
 
         private void btnCreateJSON_Click(object sender, EventArgs e)
         {            
+            //If inventory is empty display a messagebox
+            if (userInventoryListComplexChildren.Count == 0 && userInventoryListSimpleChildren.Count ==0)
+            {
+                MessageBox.Show("Inventory is Empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
             AttachmentSlotItemSet Hips = CreateHips();//Calls create hips function, returns the Hips object for AttachmentSlotItems
 
             AttachmentSlotItemSet Body = CreateBody();//Calls create body function, returns body object for AttachmentSlotItems
@@ -1349,7 +830,7 @@ namespace DayZLootEditor
                         file.Write(loadoutString);
                     }
 
-                    MessageBox.Show("File saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("File saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 catch (Exception ex)
                 {
@@ -1407,7 +888,7 @@ namespace DayZLootEditor
             {
                 //selects string from parralel array so proper mag name is entered into object
                 int arrayNum = cmbRSMag.SelectedIndex;
-                string item = mags[arrayNum].ToString();
+                string item = magCode[arrayNum].ToString();
 
                 ComplexChildrenType mag = new ComplexChildrenType(item);
                 RSAttachmentComplexList.Add(mag);
@@ -1476,7 +957,7 @@ namespace DayZLootEditor
             {
                 //selects string from parralel array so proper mag name is entered into object
                 int arrayNum = cmbLS3.SelectedIndex;
-                string item = mags[arrayNum].ToString();
+                string item = magCode[arrayNum].ToString();
 
                 ComplexChildrenType mag = new ComplexChildrenType(item);
                 LSAttachmentComplexList.Add(mag);
@@ -1545,7 +1026,7 @@ namespace DayZLootEditor
             {
                 //selects string from parralel array so proper mag name is entered into object
                 int arrayNum = cmbHandMag.SelectedIndex;
-                string item = mags[arrayNum].ToString();
+                string item = magCode[arrayNum].ToString();
 
                 ComplexChildrenType mag = new ComplexChildrenType(item);
                 handAttachmentComplexList.Add(mag);
@@ -2017,7 +1498,7 @@ namespace DayZLootEditor
             if (radEast.Checked)
             {
                 //LS 
-                cmbLSMain.SelectedIndex = 8;
+                cmbLSMain.SelectedIndex = 7;
                 nudHSLeftShoulder.Value = 0;
                 cmbLSSight.SelectedIndex = 7;
                 cmbLSLight.SelectedIndex = 1;
@@ -2026,7 +1507,7 @@ namespace DayZLootEditor
                 cmbLS5.SelectedIndex = 7;
                 cmbLS6.SelectedIndex = 10;
                 //RS
-                cmbRSMain.SelectedIndex = 51;
+                cmbRSMain.SelectedIndex = 50;
                 nudHSRightShoulder.Value = 1;
                 cmbRSSight.SelectedIndex = 11;
                 cmbRSMag.SelectedIndex = 35;

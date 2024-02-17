@@ -51,6 +51,7 @@
             this.lblAdded = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHSAddItem)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -61,7 +62,7 @@
             // 
             this.btnAccept.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAccept.Location = new System.Drawing.Point(654, 746);
+            this.btnAccept.Location = new System.Drawing.Point(532, 717);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(162, 48);
             this.btnAccept.TabIndex = 1;
@@ -90,7 +91,7 @@
             this.dgvItems.RowHeadersVisible = false;
             this.dgvItems.RowHeadersWidth = 51;
             this.dgvItems.RowTemplate.Height = 24;
-            this.dgvItems.Size = new System.Drawing.Size(701, 690);
+            this.dgvItems.Size = new System.Drawing.Size(701, 661);
             this.dgvItems.TabIndex = 2;
             // 
             // AddCol
@@ -130,7 +131,7 @@
             // 
             this.btnReset.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReset.Location = new System.Drawing.Point(881, 746);
+            this.btnReset.Location = new System.Drawing.Point(720, 717);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(162, 48);
             this.btnReset.TabIndex = 3;
@@ -143,7 +144,7 @@
             this.txtSearch.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.txtSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(153, 727);
+            this.txtSearch.Location = new System.Drawing.Point(153, 698);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(270, 30);
             this.txtSearch.TabIndex = 4;
@@ -153,7 +154,7 @@
             // 
             this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(153, 773);
+            this.btnSearch.Location = new System.Drawing.Point(153, 744);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(84, 36);
             this.btnSearch.TabIndex = 5;
@@ -166,7 +167,7 @@
             // 
             this.btnClearSearch.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnClearSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClearSearch.Location = new System.Drawing.Point(246, 773);
+            this.btnClearSearch.Location = new System.Drawing.Point(246, 744);
             this.btnClearSearch.Name = "btnClearSearch";
             this.btnClearSearch.Size = new System.Drawing.Size(84, 36);
             this.btnClearSearch.TabIndex = 6;
@@ -189,7 +190,7 @@
             // 
             this.txtAddItem.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.txtAddItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddItem.Location = new System.Drawing.Point(873, 76);
+            this.txtAddItem.Location = new System.Drawing.Point(873, 47);
             this.txtAddItem.Name = "txtAddItem";
             this.txtAddItem.Size = new System.Drawing.Size(197, 27);
             this.txtAddItem.TabIndex = 8;
@@ -199,7 +200,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(767, 79);
+            this.label2.Location = new System.Drawing.Point(767, 50);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 20);
             this.label2.TabIndex = 9;
@@ -210,7 +211,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(792, 148);
+            this.label3.Location = new System.Drawing.Point(792, 119);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 20);
             this.label3.TabIndex = 10;
@@ -220,7 +221,7 @@
             // 
             this.nudHSAddItem.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.nudHSAddItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudHSAddItem.Location = new System.Drawing.Point(873, 143);
+            this.nudHSAddItem.Location = new System.Drawing.Point(873, 114);
             this.nudHSAddItem.Minimum = new decimal(new int[] {
             1,
             0,
@@ -239,7 +240,7 @@
             // 
             this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(873, 202);
+            this.btnAdd.Location = new System.Drawing.Point(873, 173);
             this.btnAdd.MaximumSize = new System.Drawing.Size(101, 34);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(101, 34);
@@ -257,14 +258,14 @@
             this.groupBox1.Controls.Add(this.lblAdded);
             this.groupBox1.Location = new System.Drawing.Point(766, 1);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(310, 295);
+            this.groupBox1.Size = new System.Drawing.Size(310, 266);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             // 
             // picCheckMark
             // 
             this.picCheckMark.Image = ((System.Drawing.Image)(resources.GetObject("picCheckMark.Image")));
-            this.picCheckMark.Location = new System.Drawing.Point(83, 258);
+            this.picCheckMark.Location = new System.Drawing.Point(83, 224);
             this.picCheckMark.Name = "picCheckMark";
             this.picCheckMark.Size = new System.Drawing.Size(38, 29);
             this.picCheckMark.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -277,7 +278,7 @@
             this.lblAdded.AutoSize = true;
             this.lblAdded.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblAdded.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdded.Location = new System.Drawing.Point(121, 262);
+            this.lblAdded.Location = new System.Drawing.Point(121, 227);
             this.lblAdded.Name = "lblAdded";
             this.lblAdded.Size = new System.Drawing.Size(103, 20);
             this.lblAdded.TabIndex = 119;
@@ -289,7 +290,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(65, 730);
+            this.label4.Location = new System.Drawing.Point(65, 701);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(81, 25);
             this.label4.TabIndex = 14;
@@ -301,13 +302,25 @@
             this.timer1.Interval = 3500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Location = new System.Drawing.Point(908, 717);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(162, 48);
+            this.btnExit.TabIndex = 15;
+            this.btnExit.Text = "&Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // frmEdit
             // 
             this.AcceptButton = this.btnAccept;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1082, 823);
-            this.ControlBox = false;
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.nudHSAddItem);
@@ -328,7 +341,6 @@
             this.Name = "frmEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Inventory Editor";
-            this.Load += new System.EventHandler(this.frmEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHSAddItem)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -361,5 +373,6 @@
         private System.Windows.Forms.PictureBox picCheckMark;
         private System.Windows.Forms.Label lblAdded;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button btnExit;
     }
 }
