@@ -1,6 +1,7 @@
 				*****Version 1.0.0-beta.2 is now live!*****
 		     Download: https://mega.nz/folder/4u8WwRYI#1VwX9r8l2lX1SPMTl-i19Q
-		     Instructional Video: https://www.youtube.com/watch?v=GtSBoUnGSvM
+		     Instructional Video: https://youtu.be/3-0FiokXyoM 
+		     Original Video: https://www.youtube.com/watch?v=GtSBoUnGSvM
 
 				    DayZ Spawn Editor by: Spartan1034x
 
