@@ -37,6 +37,6 @@ C:\Users\Spart\Desktop\Dayz\DayZ-Spawn-Editor-Git-Repo\DayZLootEditor\obj\Debug\
 C:\Users\Spart\Desktop\Dayz\DayZ-Spawn-Editor-Git-Repo\DayZLootEditor\obj\Debug\DayZLootEditor.Properties.Resources.resources
 C:\Users\Spart\Desktop\Dayz\DayZ-Spawn-Editor-Git-Repo\DayZLootEditor\obj\Debug\DayZLootEditor.csproj.GenerateResource.cache
 C:\Users\Spart\Desktop\Dayz\DayZ-Spawn-Editor-Git-Repo\DayZLootEditor\obj\Debug\DayZLootEditor.csproj.CoreCompileInputs.cache
-C:\Users\Spart\Desktop\Dayz\DayZ-Spawn-Editor-Git-Repo\DayZLootEditor\obj\Debug\DayZLootEditor.csproj.CopyComplete
 C:\Users\Spart\Desktop\Dayz\DayZ-Spawn-Editor-Git-Repo\DayZLootEditor\obj\Debug\DayZLootEditor.exe
 C:\Users\Spart\Desktop\Dayz\DayZ-Spawn-Editor-Git-Repo\DayZLootEditor\obj\Debug\DayZLootEditor.pdb
+C:\Users\Spart\Desktop\Dayz\DayZ-Spawn-Editor-Git-Repo\DayZLootEditor\obj\Debug\DayZLoot.DB6DFA02.Up2Date
