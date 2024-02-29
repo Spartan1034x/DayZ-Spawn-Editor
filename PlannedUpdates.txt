@@ -5,6 +5,8 @@
 
 2. Save all data to external file in main and edit form so loadouts can be saved.
 
+3. Add pistol selection to plate carrier so users can customize plate carrier holsters.
+
 
 *Lower Priority*
 
