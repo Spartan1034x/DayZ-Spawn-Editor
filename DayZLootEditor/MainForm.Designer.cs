@@ -142,6 +142,15 @@
             this.chkBeltRopeKnife = new System.Windows.Forms.CheckBox();
             this.lblWarning = new System.Windows.Forms.Label();
             this.picWarning = new System.Windows.Forms.PictureBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.chkPlateLight = new System.Windows.Forms.CheckBox();
+            this.chkPlateMag = new System.Windows.Forms.CheckBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.nudHSPlatePistol = new System.Windows.Forms.NumericUpDown();
+            this.chkPlateSup = new System.Windows.Forms.CheckBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.chkPlateRDS = new System.Windows.Forms.CheckBox();
+            this.cmbPlatePistol = new System.Windows.Forms.ComboBox();
             this.grpBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudSpawnChance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHSLeftShoulder)).BeginInit();
@@ -153,6 +162,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picCheckMark)).BeginInit();
             this.grpRad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picWarning)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudHSPlatePistol)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCreateJSON
@@ -1008,7 +1018,7 @@
             this.cmbVest2.Enabled = false;
             this.cmbVest2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbVest2.FormattingEnabled = true;
-            this.cmbVest2.Location = new System.Drawing.Point(688, 165);
+            this.cmbVest2.Location = new System.Drawing.Point(688, 133);
             this.cmbVest2.Name = "cmbVest2";
             this.cmbVest2.Size = new System.Drawing.Size(175, 28);
             this.cmbVest2.TabIndex = 28;
@@ -1017,11 +1027,11 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(712, 141);
+            this.label25.Location = new System.Drawing.Point(728, 99);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(127, 25);
+            this.label25.Size = new System.Drawing.Size(95, 25);
             this.label25.TabIndex = 69;
-            this.label25.Text = "Attachments:";
+            this.label25.Text = "Pouches:";
             // 
             // cmbVestMain
             // 
@@ -1044,10 +1054,11 @@
             this.cmbVest3.Enabled = false;
             this.cmbVest3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbVest3.FormattingEnabled = true;
-            this.cmbVest3.Location = new System.Drawing.Point(688, 223);
+            this.cmbVest3.Location = new System.Drawing.Point(688, 212);
             this.cmbVest3.Name = "cmbVest3";
             this.cmbVest3.Size = new System.Drawing.Size(175, 28);
             this.cmbVest3.TabIndex = 29;
+            this.cmbVest3.SelectedIndexChanged += new System.EventHandler(this.cmbVest3_SelectedIndexChanged);
             // 
             // cmbShirtMain
             // 
@@ -1572,6 +1583,121 @@
             this.picWarning.TabIndex = 123;
             this.picWarning.TabStop = false;
             // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.Location = new System.Drawing.Point(736, 177);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(79, 25);
+            this.label34.TabIndex = 124;
+            this.label34.Text = "Holster:";
+            // 
+            // chkPlateLight
+            // 
+            this.chkPlateLight.AutoSize = true;
+            this.chkPlateLight.Enabled = false;
+            this.chkPlateLight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkPlateLight.Location = new System.Drawing.Point(725, 417);
+            this.chkPlateLight.Name = "chkPlateLight";
+            this.chkPlateLight.Size = new System.Drawing.Size(101, 24);
+            this.chkPlateLight.TabIndex = 130;
+            this.chkPlateLight.Text = "Tac Light";
+            this.chkPlateLight.UseVisualStyleBackColor = true;
+            // 
+            // chkPlateMag
+            // 
+            this.chkPlateMag.AutoSize = true;
+            this.chkPlateMag.Enabled = false;
+            this.chkPlateMag.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkPlateMag.Location = new System.Drawing.Point(725, 354);
+            this.chkPlateMag.Name = "chkPlateMag";
+            this.chkPlateMag.Size = new System.Drawing.Size(103, 24);
+            this.chkPlateMag.TabIndex = 128;
+            this.chkPlateMag.Text = "Magazine";
+            this.chkPlateMag.UseVisualStyleBackColor = true;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Location = new System.Drawing.Point(765, 253);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(46, 25);
+            this.label35.TabIndex = 132;
+            this.label35.Text = "HS:";
+            // 
+            // nudHSPlatePistol
+            // 
+            this.nudHSPlatePistol.Enabled = false;
+            this.nudHSPlatePistol.Location = new System.Drawing.Point(812, 254);
+            this.nudHSPlatePistol.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.nudHSPlatePistol.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.nudHSPlatePistol.Name = "nudHSPlatePistol";
+            this.nudHSPlatePistol.Size = new System.Drawing.Size(52, 22);
+            this.nudHSPlatePistol.TabIndex = 126;
+            this.nudHSPlatePistol.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nudHSPlatePistol.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            // 
+            // chkPlateSup
+            // 
+            this.chkPlateSup.AutoSize = true;
+            this.chkPlateSup.Enabled = false;
+            this.chkPlateSup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkPlateSup.Location = new System.Drawing.Point(725, 387);
+            this.chkPlateSup.Name = "chkPlateSup";
+            this.chkPlateSup.Size = new System.Drawing.Size(117, 24);
+            this.chkPlateSup.TabIndex = 129;
+            this.chkPlateSup.Text = "Suppressor";
+            this.chkPlateSup.UseVisualStyleBackColor = true;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(688, 253);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(65, 25);
+            this.label36.TabIndex = 131;
+            this.label36.Text = "Pistol:";
+            // 
+            // chkPlateRDS
+            // 
+            this.chkPlateRDS.AutoSize = true;
+            this.chkPlateRDS.Enabled = false;
+            this.chkPlateRDS.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkPlateRDS.Location = new System.Drawing.Point(725, 321);
+            this.chkPlateRDS.Name = "chkPlateRDS";
+            this.chkPlateRDS.Size = new System.Drawing.Size(103, 24);
+            this.chkPlateRDS.TabIndex = 127;
+            this.chkPlateRDS.Text = "RDS Mini";
+            this.chkPlateRDS.UseVisualStyleBackColor = true;
+            // 
+            // cmbPlatePistol
+            // 
+            this.cmbPlatePistol.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbPlatePistol.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbPlatePistol.Enabled = false;
+            this.cmbPlatePistol.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbPlatePistol.FormattingEnabled = true;
+            this.cmbPlatePistol.Location = new System.Drawing.Point(688, 285);
+            this.cmbPlatePistol.Name = "cmbPlatePistol";
+            this.cmbPlatePistol.Size = new System.Drawing.Size(175, 28);
+            this.cmbPlatePistol.TabIndex = 125;
+            this.cmbPlatePistol.SelectedIndexChanged += new System.EventHandler(this.cmbPlatePistol_SelectedIndexChanged);
+            // 
             // frmMain
             // 
             this.AcceptButton = this.btnCreateJSON;
@@ -1580,6 +1706,15 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1782, 953);
+            this.Controls.Add(this.chkPlateLight);
+            this.Controls.Add(this.chkPlateMag);
+            this.Controls.Add(this.label35);
+            this.Controls.Add(this.nudHSPlatePistol);
+            this.Controls.Add(this.chkPlateSup);
+            this.Controls.Add(this.label36);
+            this.Controls.Add(this.chkPlateRDS);
+            this.Controls.Add(this.cmbPlatePistol);
+            this.Controls.Add(this.label34);
             this.Controls.Add(this.picWarning);
             this.Controls.Add(this.lblWarning);
             this.Controls.Add(this.chkBeltRopeKnife);
@@ -1702,6 +1837,7 @@
             this.grpRad.ResumeLayout(false);
             this.grpRad.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picWarning)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudHSPlatePistol)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1822,6 +1958,15 @@
         private System.Windows.Forms.RadioButton radCamo;
         private System.Windows.Forms.Label lblWarning;
         private System.Windows.Forms.PictureBox picWarning;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.CheckBox chkPlateLight;
+        private System.Windows.Forms.CheckBox chkPlateMag;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.NumericUpDown nudHSPlatePistol;
+        private System.Windows.Forms.CheckBox chkPlateSup;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.CheckBox chkPlateRDS;
+        private System.Windows.Forms.ComboBox cmbPlatePistol;
     }
 }
 

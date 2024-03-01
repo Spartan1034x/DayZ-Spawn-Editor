@@ -127,6 +127,7 @@ namespace DayZLootEditor
             cmbVestMain.Items.AddRange(vests);
             cmbVest2.Items.AddRange(pouches);
             cmbVest3.Items.AddRange(holsters);
+            cmbPlatePistol.Items.AddRange(pistols);
 
             //sets cmb data for Hands cmbs
             cmbHandMain.Items.AddRange(weaponBack);
@@ -261,8 +262,100 @@ namespace DayZLootEditor
             else 
             {
                 cmbVest2.SelectedIndex = 0; cmbVest3.SelectedIndex = 0;
-                cmbVest2.Enabled = false; cmbVest3.Enabled = false; }
+                cmbVest2.Enabled = false; cmbVest3.Enabled = false;
             }
+        }
+
+        //Enables plate carrier pistol when holster selected
+        private void cmbVest3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbVest3.SelectedIndex != 0)
+            {
+                cmbPlatePistol.Enabled = true;
+            }
+            else
+            { 
+                cmbPlatePistol.SelectedIndex = 0;
+                cmbPlatePistol.Enabled = false; 
+            }
+        }
+
+        private void cmbPlatePistol_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //cz75, fx45, glock
+            if (new[] { 1, 6, 7 }.Contains(cmbPlatePistol.SelectedIndex))
+            {
+                nudHSPlatePistol.Enabled = true;
+                chkPlateMag.Enabled = true;
+                chkPlateLight.Enabled = true;
+                chkPlateRDS.Enabled = true;
+                chkPlateSup.Enabled = true;
+            }
+            //1911
+            else if (new[] { 2, 5 }.Contains(cmbPlatePistol.SelectedIndex))
+            {
+                nudHSPlatePistol.Enabled = true;
+                chkPlateSup.Enabled = true;
+                chkPlateMag.Enabled = true;
+                chkPlateLight.Enabled = true;
+                chkPlateRDS.Enabled = false;
+            }
+            //deagle
+            else if (new[] { 3, 4 }.Contains(cmbPlatePistol.SelectedIndex))
+            {
+                nudHSPlatePistol.Enabled = true;
+                chkPlateRDS.Enabled = true;
+                chkPlateSup.Enabled = true;
+                chkPlateMag.Enabled = true;
+                chkPlateLight.Enabled = false;
+            }
+            //u-70
+            else if (cmbPlatePistol.SelectedIndex == 9)
+            {
+                nudHSPlatePistol.Enabled = true;
+                chkPlateSup.Enabled = true;
+                chkPlateMag.Enabled = true;
+                chkPlateLight.Enabled = false;
+                chkPlateRDS.Enabled = false;
+
+            }
+            //mk11
+            else if (cmbPlatePistol.SelectedIndex == 11 || cmbPlatePistol.SelectedIndex == 10)
+            {
+                nudHSPlatePistol.Enabled = true;
+                chkPlateSup.Enabled = false;
+                chkPlateMag.Enabled = true;
+                chkPlateLight.Enabled = false;
+                chkPlateRDS.Enabled = false;
+            }
+            //if nothing selected HS -1 and disabled chk
+            else if (cmbPlatePistol.SelectedIndex == 0)
+            {
+                nudHSPlatePistol.Value = -1;
+                nudHSPlatePistol.Enabled = false;
+                chkPlateLight.Checked = false;
+                chkPlateRDS.Checked = false;
+                chkPlateMag.Checked = false;
+                chkPlateSup.Checked = false;
+                chkPlateMag.Enabled = false;
+                chkPlateLight.Enabled = false;
+                chkPlateRDS.Enabled = false;
+                chkPlateSup.Enabled = false;
+            }
+            //all others
+            else
+            {
+                nudHSPlatePistol.Enabled = true;
+                chkPlateRDS.Checked = false;
+                chkPlateSup.Checked = false;
+                chkPlateMag.Checked = false;
+                chkPlateLight.Checked = false;
+                chkPlateRDS.Enabled = false;
+                chkPlateSup.Enabled = false;
+                chkPlateMag.Enabled = false;
+                chkPlateLight.Enabled = false;
+            }
+        }
 
         //Allows batterries to only be placed in sights that accept
         private void cmbLSSight_SelectedIndexChanged(object sender, EventArgs e)
