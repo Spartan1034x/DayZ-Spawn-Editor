@@ -279,7 +279,7 @@ namespace DayZLootEditor
                 cmbPlatePistol.Enabled = false; 
             }
         }
-
+        //Enables pistol attachment selection based on pistol selection
         private void cmbPlatePistol_SelectedIndexChanged(object sender, EventArgs e)
         {
             //cz75, fx45, glock
@@ -307,6 +307,7 @@ namespace DayZLootEditor
                 chkPlateRDS.Enabled = true;
                 chkPlateSup.Enabled = true;
                 chkPlateMag.Enabled = true;
+                chkPlateLight.Checked = false;
                 chkPlateLight.Enabled = false;
             }
             //u-70
@@ -574,6 +575,7 @@ namespace DayZLootEditor
                 chkBeltRDS.Enabled = true;
                 chkBeltSup.Enabled = true;
                 chkBeltMag.Enabled = true;
+                chkBeltLight.Checked = false;
                 chkBeltLight.Enabled = false;
             }
             //u-70
@@ -1284,13 +1286,111 @@ namespace DayZLootEditor
                 attachmentList.Add(cmbVest2.Text);
             }
 
-            if (cmbVest3.SelectedIndex != 0)
+            /*if (cmbVest3.SelectedIndex != 0)
             {
                 attachmentList.Add(cmbVest3.Text);
+            }*/
+
+            //created pistolAttachmentSelection list
+            List<ComplexChildrenType> pistolAttachmentSelection = new List<ComplexChildrenType>();
+            if (chkPlateRDS.Checked)
+            {
+                ComplexChildrenType PistolRDS = new ComplexChildrenType("FNP45_MRDSOptic", bat9V);
+                pistolAttachmentSelection.Add(PistolRDS);
+
+            }
+            if (chkPlateSup.Checked)
+            {
+                ComplexChildrenType PistolSup = new ComplexChildrenType("PistolSuppressor");
+                pistolAttachmentSelection.Add(PistolSup);
+            }
+            if (chkPlateLight.Checked)
+            {
+                ComplexChildrenType PistolLight = new ComplexChildrenType("TLRLight", bat9V);
+                pistolAttachmentSelection.Add(PistolLight);
+            }
+            if (chkPlateMag.Checked)
+            {
+                if (cmbPlatePistol.SelectedIndex == 1) //CZ75
+                {
+                    ComplexChildrenType PistolMag = new ComplexChildrenType("Mag_CZ75_15Rnd");
+                    pistolAttachmentSelection.Add(PistolMag);
+                }
+                else if (cmbPlatePistol.SelectedIndex == 2) //1911
+                {
+                    ComplexChildrenType PistolMag = new ComplexChildrenType("Mag_1911_7Rnd");
+                    pistolAttachmentSelection.Add(PistolMag);
+                }
+                else if (cmbPlatePistol.SelectedIndex == 3)//deagle
+                {
+                    ComplexChildrenType PistolMag = new ComplexChildrenType("Mag_Deagle_9rnd");
+                    pistolAttachmentSelection.Add(PistolMag);
+                }
+                else if (cmbPlatePistol.SelectedIndex == 4)//gold deagle
+                {
+                    ComplexChildrenType PistolMag = new ComplexChildrenType("Mag_Deagle_9rnd");
+                    pistolAttachmentSelection.Add(PistolMag);
+                }
+                else if (cmbPlatePistol.SelectedIndex == 5)//engraved 1911
+                {
+                    ComplexChildrenType PistolMag = new ComplexChildrenType("Mag_1911_7Rnd");
+                    pistolAttachmentSelection.Add(PistolMag);
+                }
+                else if (cmbPlatePistol.SelectedIndex == 6)//fx45
+                {
+                    ComplexChildrenType PistolMag = new ComplexChildrenType("Mag_FNX45_15Rnd");
+                    pistolAttachmentSelection.Add(PistolMag);
+                }
+                else if (cmbPlatePistol.SelectedIndex == 7)//glock
+                {
+                    ComplexChildrenType PistolMag = new ComplexChildrenType("Mag_Glock_15Rnd");
+                    pistolAttachmentSelection.Add(PistolMag);
+                }
+                else if (cmbPlatePistol.SelectedIndex == 9)//u-70
+                {
+                    ComplexChildrenType PistolMag = new ComplexChildrenType("Mag_IJ70_8Rnd");
+                    pistolAttachmentSelection.Add(PistolMag);
+                }
+                else if (cmbPlatePistol.SelectedIndex == 10)//P1
+                {
+                    ComplexChildrenType PistolMag = new ComplexChildrenType("Mag_P1_8Rnd");
+                    pistolAttachmentSelection.Add(PistolMag);
+                }
+                else if (cmbPlatePistol.SelectedIndex == 11)//mk11
+                {
+                    ComplexChildrenType PistolMag = new ComplexChildrenType("Mag_MKII_10Rnd");
+                    pistolAttachmentSelection.Add(PistolMag);
+                }
             }
 
+
+            //Creates pistolSelection List
+            List<ComplexChildrenType> pistolSelection = new List<ComplexChildrenType>();
+            if (cmbPlatePistol.SelectedIndex != 0)
+            {
+                string PistolSelection = cmbPlatePistol.Text;
+                int pistolHS = Convert.ToInt32(nudHSPlatePistol.Value);
+                ComplexChildrenType newPistol = new ComplexChildrenType(PistolSelection, pistolHS, pistolAttachmentSelection);
+                pistolSelection.Add(newPistol);
+            }
+            //string testPistol = JsonConvert.SerializeObject(pistolSelection, Formatting.Indented);
+            //MessageBox.Show(testPistol);
+
+
+            //Creates holster list
+            List<ComplexChildrenType> holsterSelection = new List<ComplexChildrenType>();
+            if (cmbVest3.SelectedIndex != 0)
+            {
+                string holster = cmbVest3.Text;
+                ComplexChildrenType HolsterSlection = new ComplexChildrenType(holster, pistolSelection);
+                holsterSelection.Add(HolsterSlection);
+
+            }
+            //string testHolster = JsonConvert.SerializeObject(holsterSelection, Formatting.Indented);
+            //MessageBox.Show(testHolster);
+
             //Creates discreteitemset list from user selection, then an attachmentslotitemset
-            DiscreteItemSet vest = new DiscreteItemSet(vestItemType, attachmentList);
+            DiscreteItemSet vest = new DiscreteItemSet(vestItemType, -1, holsterSelection, attachmentList);
             List<DiscreteItemSet> vestList = new List<DiscreteItemSet> { vest };
             AttachmentSlotItemSet vestAttachmentItem = new AttachmentSlotItemSet("Vest", vestList);
 
