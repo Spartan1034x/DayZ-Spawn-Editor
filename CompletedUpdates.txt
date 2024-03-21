@@ -29,3 +29,11 @@
 7. Main form calls ftn to read from txt file to populate arrays instead of hard coding arrays.
 8. Weapon combo boxes set to unsorted (sorting rearranges items in cmb boxes can cause errors when referencing
    selected index for validation purposes).
+
+
+
+
+				**v1.0.0-beta.3**
+
+				  **Changelog**
+1. Added selection for custom pistols in the plate carriewr holster slot.

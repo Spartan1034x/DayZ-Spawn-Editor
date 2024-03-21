@@ -40,7 +40,7 @@
               "RelativeDocumentMoniker": "DayZLootEditor\\MainForm.cs",
               "ToolTip": "C:\\Users\\Spart\\Desktop\\Dayz\\DayZ-Spawn-Editor-Git-Repo\\DayZLootEditor\\MainForm.cs",
               "RelativeToolTip": "DayZLootEditor\\MainForm.cs",
-              "ViewState": "AQIAACIBAAAAAAAAAAAowDUBAAAtAAAA",
+              "ViewState": "AQIAAJYGAAAAAAAAAAAuwDUBAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-01T11:55:55.427Z",
               "EditorCaption": ""
@@ -54,8 +54,7 @@
               "ToolTip": "C:\\Users\\Spart\\Desktop\\Dayz\\DayZ-Spawn-Editor-Git-Repo\\DayZLootEditor\\MainForm.cs [Design]",
               "RelativeToolTip": "DayZLootEditor\\MainForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-28T21:26:57.653Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-02-28T21:26:57.653Z"
             },
             {
               "$type": "Document",
@@ -67,8 +66,7 @@
               "RelativeToolTip": "DayZLootEditor\\frmEdit.cs",
               "ViewState": "AQIAAAwAAAAAAAAAAAAAAMAAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-14T15:52:38.391Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-14T15:52:38.391Z"
             }
           ]
         }
