@@ -33,7 +33,21 @@
 
 
 
-				**v1.0.0-beta.3**
+				**v1.0.0-Release**
 
 				  **Changelog**
-1. Added selection for custom pistols in the plate carriewr holster slot.
+1. Added selection for custom pistols in the plate carrier holster slot.
+
+
+
+				  **BugFixes**
+1. Trimmed whitespace from MilitaryBelt .txt file, potentially was causing bugs with presets.
+2. Fixed U-70 name in .txt file.
+
+
+				   **Code**
+1. Presets now reference SelectedItem string instead of selected index, more reliable when adding items that 
+presets get selected. Also sorted all cmbs, expect mags because currently they are in a parrallel array with 
+code names.
+2. Changed combo boxes to reference SelectedItems instead of SelectedIndex, allows for more accurate targeting, 
+and the ability to sort cmbs alphabetically. 

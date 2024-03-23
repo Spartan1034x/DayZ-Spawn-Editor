@@ -725,6 +725,7 @@
             this.cmbRS4.Location = new System.Drawing.Point(246, 328);
             this.cmbRS4.Name = "cmbRS4";
             this.cmbRS4.Size = new System.Drawing.Size(175, 28);
+            this.cmbRS4.Sorted = true;
             this.cmbRS4.TabIndex = 14;
             // 
             // cmbRSLight
@@ -737,6 +738,7 @@
             this.cmbRSLight.Location = new System.Drawing.Point(246, 226);
             this.cmbRSLight.Name = "cmbRSLight";
             this.cmbRSLight.Size = new System.Drawing.Size(175, 28);
+            this.cmbRSLight.Sorted = true;
             this.cmbRSLight.TabIndex = 12;
             this.cmbRSLight.SelectedIndexChanged += new System.EventHandler(this.cmbRSLight_SelectedIndexChanged);
             // 
@@ -764,6 +766,7 @@
             this.cmbRS5.Location = new System.Drawing.Point(246, 373);
             this.cmbRS5.Name = "cmbRS5";
             this.cmbRS5.Size = new System.Drawing.Size(175, 28);
+            this.cmbRS5.Sorted = true;
             this.cmbRS5.TabIndex = 15;
             // 
             // cmbRS6
@@ -779,6 +782,7 @@
             this.cmbRS6.Location = new System.Drawing.Point(246, 418);
             this.cmbRS6.Name = "cmbRS6";
             this.cmbRS6.Size = new System.Drawing.Size(175, 28);
+            this.cmbRS6.Sorted = true;
             this.cmbRS6.TabIndex = 16;
             // 
             // cmbRS7
@@ -794,6 +798,7 @@
             this.cmbRS7.Location = new System.Drawing.Point(246, 463);
             this.cmbRS7.Name = "cmbRS7";
             this.cmbRS7.Size = new System.Drawing.Size(175, 28);
+            this.cmbRS7.Sorted = true;
             this.cmbRS7.TabIndex = 17;
             // 
             // cmbRSSight
@@ -806,6 +811,7 @@
             this.cmbRSSight.Location = new System.Drawing.Point(246, 168);
             this.cmbRSSight.Name = "cmbRSSight";
             this.cmbRSSight.Size = new System.Drawing.Size(175, 28);
+            this.cmbRSSight.Sorted = true;
             this.cmbRSSight.TabIndex = 11;
             this.cmbRSSight.SelectedIndexChanged += new System.EventHandler(this.cmbRSSight_SelectedIndexChanged);
             // 
@@ -829,6 +835,7 @@
             this.cmbRSMain.Location = new System.Drawing.Point(246, 57);
             this.cmbRSMain.Name = "cmbRSMain";
             this.cmbRSMain.Size = new System.Drawing.Size(175, 28);
+            this.cmbRSMain.Sorted = true;
             this.cmbRSMain.TabIndex = 9;
             this.cmbRSMain.SelectedIndexChanged += new System.EventHandler(this.cmbRSMain_SelectedIndexChanged);
             // 
@@ -903,6 +910,7 @@
             this.cmbHand4.Location = new System.Drawing.Point(467, 328);
             this.cmbHand4.Name = "cmbHand4";
             this.cmbHand4.Size = new System.Drawing.Size(175, 28);
+            this.cmbHand4.Sorted = true;
             this.cmbHand4.TabIndex = 23;
             // 
             // cmbHandLight
@@ -915,6 +923,7 @@
             this.cmbHandLight.Location = new System.Drawing.Point(467, 223);
             this.cmbHandLight.Name = "cmbHandLight";
             this.cmbHandLight.Size = new System.Drawing.Size(175, 28);
+            this.cmbHandLight.Sorted = true;
             this.cmbHandLight.TabIndex = 21;
             this.cmbHandLight.SelectedIndexChanged += new System.EventHandler(this.cmbHandLight_SelectedIndexChanged);
             // 
@@ -942,6 +951,7 @@
             this.cmbHand5.Location = new System.Drawing.Point(467, 373);
             this.cmbHand5.Name = "cmbHand5";
             this.cmbHand5.Size = new System.Drawing.Size(175, 28);
+            this.cmbHand5.Sorted = true;
             this.cmbHand5.TabIndex = 24;
             // 
             // cmbHand6
@@ -957,6 +967,7 @@
             this.cmbHand6.Location = new System.Drawing.Point(467, 418);
             this.cmbHand6.Name = "cmbHand6";
             this.cmbHand6.Size = new System.Drawing.Size(175, 28);
+            this.cmbHand6.Sorted = true;
             this.cmbHand6.TabIndex = 25;
             // 
             // cmbHand7
@@ -972,6 +983,7 @@
             this.cmbHand7.Location = new System.Drawing.Point(467, 463);
             this.cmbHand7.Name = "cmbHand7";
             this.cmbHand7.Size = new System.Drawing.Size(175, 28);
+            this.cmbHand7.Sorted = true;
             this.cmbHand7.TabIndex = 26;
             // 
             // cmbHandSight
@@ -984,6 +996,7 @@
             this.cmbHandSight.Location = new System.Drawing.Point(467, 168);
             this.cmbHandSight.Name = "cmbHandSight";
             this.cmbHandSight.Size = new System.Drawing.Size(175, 28);
+            this.cmbHandSight.Sorted = true;
             this.cmbHandSight.TabIndex = 20;
             this.cmbHandSight.SelectedIndexChanged += new System.EventHandler(this.cmbHandSight_SelectedIndexChanged);
             // 
@@ -1007,6 +1020,7 @@
             this.cmbHandMain.Location = new System.Drawing.Point(467, 57);
             this.cmbHandMain.Name = "cmbHandMain";
             this.cmbHandMain.Size = new System.Drawing.Size(175, 28);
+            this.cmbHandMain.Sorted = true;
             this.cmbHandMain.TabIndex = 18;
             this.cmbHandMain.SelectedIndexChanged += new System.EventHandler(this.cmbHandMain_SelectedIndexChanged);
             // 
@@ -1021,6 +1035,7 @@
             this.cmbVest2.Location = new System.Drawing.Point(688, 133);
             this.cmbVest2.Name = "cmbVest2";
             this.cmbVest2.Size = new System.Drawing.Size(175, 28);
+            this.cmbVest2.Sorted = true;
             this.cmbVest2.TabIndex = 28;
             // 
             // label25
@@ -1043,6 +1058,7 @@
             this.cmbVestMain.Location = new System.Drawing.Point(688, 57);
             this.cmbVestMain.Name = "cmbVestMain";
             this.cmbVestMain.Size = new System.Drawing.Size(175, 28);
+            this.cmbVestMain.Sorted = true;
             this.cmbVestMain.TabIndex = 27;
             this.cmbVestMain.SelectedIndexChanged += new System.EventHandler(this.cmbVestMain_SelectedIndexChanged);
             // 
@@ -1057,6 +1073,7 @@
             this.cmbVest3.Location = new System.Drawing.Point(688, 212);
             this.cmbVest3.Name = "cmbVest3";
             this.cmbVest3.Size = new System.Drawing.Size(175, 28);
+            this.cmbVest3.Sorted = true;
             this.cmbVest3.TabIndex = 29;
             this.cmbVest3.SelectedIndexChanged += new System.EventHandler(this.cmbVest3_SelectedIndexChanged);
             // 
@@ -1070,6 +1087,7 @@
             this.cmbShirtMain.Location = new System.Drawing.Point(909, 57);
             this.cmbShirtMain.Name = "cmbShirtMain";
             this.cmbShirtMain.Size = new System.Drawing.Size(175, 28);
+            this.cmbShirtMain.Sorted = true;
             this.cmbShirtMain.TabIndex = 30;
             // 
             // cmbBeltHolster
@@ -1083,6 +1101,7 @@
             this.cmbBeltHolster.Location = new System.Drawing.Point(1130, 267);
             this.cmbBeltHolster.Name = "cmbBeltHolster";
             this.cmbBeltHolster.Size = new System.Drawing.Size(175, 28);
+            this.cmbBeltHolster.Sorted = true;
             this.cmbBeltHolster.TabIndex = 34;
             this.cmbBeltHolster.SelectedIndexChanged += new System.EventHandler(this.cmbBeltHolster_SelectedIndexChanged);
             // 
@@ -1095,6 +1114,7 @@
             this.cmbBeltMain.Location = new System.Drawing.Point(1130, 57);
             this.cmbBeltMain.Name = "cmbBeltMain";
             this.cmbBeltMain.Size = new System.Drawing.Size(175, 28);
+            this.cmbBeltMain.Sorted = true;
             this.cmbBeltMain.TabIndex = 31;
             this.cmbBeltMain.SelectedIndexChanged += new System.EventHandler(this.cmbBeltMain_SelectedIndexChanged);
             // 
@@ -1108,6 +1128,7 @@
             this.cmbBeltKnife.Location = new System.Drawing.Point(1130, 133);
             this.cmbBeltKnife.Name = "cmbBeltKnife";
             this.cmbBeltKnife.Size = new System.Drawing.Size(175, 28);
+            this.cmbBeltKnife.Sorted = true;
             this.cmbBeltKnife.TabIndex = 32;
             this.cmbBeltKnife.SelectedIndexChanged += new System.EventHandler(this.cmbBeltKnife_SelectedIndexChanged);
             // 
@@ -1141,6 +1162,7 @@
             this.cmbBeltPistol.Location = new System.Drawing.Point(1130, 333);
             this.cmbBeltPistol.Name = "cmbBeltPistol";
             this.cmbBeltPistol.Size = new System.Drawing.Size(175, 28);
+            this.cmbBeltPistol.Sorted = true;
             this.cmbBeltPistol.TabIndex = 35;
             this.cmbBeltPistol.SelectedIndexChanged += new System.EventHandler(this.cmbBeltPistol_SelectedIndexChanged);
             // 
@@ -1266,6 +1288,7 @@
             this.cmbPantsMain.Location = new System.Drawing.Point(1351, 57);
             this.cmbPantsMain.Name = "cmbPantsMain";
             this.cmbPantsMain.Size = new System.Drawing.Size(175, 28);
+            this.cmbPantsMain.Sorted = true;
             this.cmbPantsMain.TabIndex = 41;
             // 
             // cmbBackMain
@@ -1276,6 +1299,7 @@
             this.cmbBackMain.Location = new System.Drawing.Point(1572, 57);
             this.cmbBackMain.Name = "cmbBackMain";
             this.cmbBackMain.Size = new System.Drawing.Size(175, 28);
+            this.cmbBackMain.Sorted = true;
             this.cmbBackMain.TabIndex = 42;
             this.cmbBackMain.SelectedIndexChanged += new System.EventHandler(this.cmbBackMain_SelectedIndexChanged);
             // 
@@ -1287,6 +1311,7 @@
             this.cmbFaceMain.Location = new System.Drawing.Point(12, 632);
             this.cmbFaceMain.Name = "cmbFaceMain";
             this.cmbFaceMain.Size = new System.Drawing.Size(201, 28);
+            this.cmbFaceMain.Sorted = true;
             this.cmbFaceMain.TabIndex = 43;
             // 
             // cmbEyeWearMain
@@ -1297,6 +1322,7 @@
             this.cmbEyeWearMain.Location = new System.Drawing.Point(265, 632);
             this.cmbEyeWearMain.Name = "cmbEyeWearMain";
             this.cmbEyeWearMain.Size = new System.Drawing.Size(201, 28);
+            this.cmbEyeWearMain.Sorted = true;
             this.cmbEyeWearMain.TabIndex = 44;
             this.cmbEyeWearMain.SelectedIndexChanged += new System.EventHandler(this.cmbEyeWearMain_SelectedIndexChanged);
             // 
@@ -1308,6 +1334,7 @@
             this.cmbGlovesMain.Location = new System.Drawing.Point(518, 632);
             this.cmbGlovesMain.Name = "cmbGlovesMain";
             this.cmbGlovesMain.Size = new System.Drawing.Size(201, 28);
+            this.cmbGlovesMain.Sorted = true;
             this.cmbGlovesMain.TabIndex = 45;
             // 
             // cmbFeetMain
@@ -1318,6 +1345,7 @@
             this.cmbFeetMain.Location = new System.Drawing.Point(771, 632);
             this.cmbFeetMain.Name = "cmbFeetMain";
             this.cmbFeetMain.Size = new System.Drawing.Size(201, 28);
+            this.cmbFeetMain.Sorted = true;
             this.cmbFeetMain.TabIndex = 46;
             this.cmbFeetMain.SelectedIndexChanged += new System.EventHandler(this.cmbFeetMain_SelectedIndexChanged);
             // 
@@ -1384,6 +1412,7 @@
             this.cmbArmbandMain.Location = new System.Drawing.Point(1024, 632);
             this.cmbArmbandMain.Name = "cmbArmbandMain";
             this.cmbArmbandMain.Size = new System.Drawing.Size(201, 28);
+            this.cmbArmbandMain.Sorted = true;
             this.cmbArmbandMain.TabIndex = 49;
             // 
             // cmbHelmetMain
@@ -1394,6 +1423,7 @@
             this.cmbHelmetMain.Location = new System.Drawing.Point(1277, 632);
             this.cmbHelmetMain.Name = "cmbHelmetMain";
             this.cmbHelmetMain.Size = new System.Drawing.Size(201, 28);
+            this.cmbHelmetMain.Sorted = true;
             this.cmbHelmetMain.TabIndex = 50;
             this.cmbHelmetMain.SelectedIndexChanged += new System.EventHandler(this.cmbHelmetMain_SelectedIndexChanged);
             // 
@@ -1695,6 +1725,7 @@
             this.cmbPlatePistol.Location = new System.Drawing.Point(688, 285);
             this.cmbPlatePistol.Name = "cmbPlatePistol";
             this.cmbPlatePistol.Size = new System.Drawing.Size(175, 28);
+            this.cmbPlatePistol.Sorted = true;
             this.cmbPlatePistol.TabIndex = 125;
             this.cmbPlatePistol.SelectedIndexChanged += new System.EventHandler(this.cmbPlatePistol_SelectedIndexChanged);
             // 

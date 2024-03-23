@@ -3,5 +3,5 @@ LeatherBelt_Beige
 LeatherBelt_Black
 LeatherBelt_Brown
 LeatherBelt_Natural
-MilitaryBelt 
+MilitaryBelt
 RopeBelt
