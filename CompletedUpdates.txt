@@ -29,3 +29,26 @@
 7. Main form calls ftn to read from txt file to populate arrays instead of hard coding arrays.
 8. Weapon combo boxes set to unsorted (sorting rearranges items in cmb boxes can cause errors when referencing
    selected index for validation purposes).
+
+
+
+
+				**v1.0.0-Release**
+
+				  **Changelog**
+1. Added selection for custom pistols in the plate carrier holster slot.
+2. Combo boxes are now in alphabetical order.
+3. 
+
+
+				  **BugFixes**
+1. Trimmed whitespace from MilitaryBelt .txt file, potentially was causing bugs with presets.
+2. Fixed U-70 name in .txt file.
+
+
+				   **Code**
+1. Presets now reference SelectedItem string instead of selected index, more reliable when adding items that 
+presets get selected. Also sorted all cmbs, expect mags because currently they are in a parrallel array with 
+code names.
+2. Changed combo boxes to reference SelectedItems instead of SelectedIndex, allows for more accurate targeting, 
+and the ability to sort cmbs alphabetically. 

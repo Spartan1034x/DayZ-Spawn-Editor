@@ -1,11 +1,7 @@
 **Higher Priority**
 
-1. Recode validation for comboboxes to restrict based on cmb.txt instead of selected index, provides
-   more reliable restrictions based on equipment.
+1. Save all data to external file in main and edit form so loadouts can be saved.
 
-2. Save all data to external file in main and edit form so loadouts can be saved.
-
-3. Add pistol selection to plate carrier so users can customize plate carrier holsters.
 
 
 *Lower Priority*

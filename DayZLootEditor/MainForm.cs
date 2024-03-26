@@ -127,6 +127,7 @@ namespace DayZLootEditor
             cmbVestMain.Items.AddRange(vests);
             cmbVest2.Items.AddRange(pouches);
             cmbVest3.Items.AddRange(holsters);
+            cmbPlatePistol.Items.AddRange(pistols);
 
             //sets cmb data for Hands cmbs
             cmbHandMain.Items.AddRange(weaponBack);
@@ -254,15 +255,108 @@ namespace DayZLootEditor
         //only allows placement of plate car attatchments on plat car
         private void cmbVestMain_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbVestMain.SelectedIndex == 1 || cmbVestMain.SelectedIndex == 2 || cmbVestMain.SelectedIndex == 3 || cmbVestMain.SelectedIndex == 4)
+            if (new[] { "PlateCarrierVest", "PlateCarrierVest_Black", "PlateCarrierVest_Camo", "PlateCarrierVest_Green" }.Contains(cmbVestMain.SelectedItem))
             { cmbVest2.Enabled = true;
                 cmbVest3.Enabled = true;
             }
             else 
             {
                 cmbVest2.SelectedIndex = 0; cmbVest3.SelectedIndex = 0;
-                cmbVest2.Enabled = false; cmbVest3.Enabled = false; }
+                cmbVest2.Enabled = false; cmbVest3.Enabled = false;
             }
+        }
+
+        //Enables plate carrier pistol when holster selected
+        private void cmbVest3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbVest3.SelectedIndex != 0)
+            {
+                cmbPlatePistol.Enabled = true;
+            }
+            else
+            { 
+                cmbPlatePistol.SelectedIndex = 0;
+                cmbPlatePistol.Enabled = false; 
+            }
+        }
+        //Enables pistol attachment selection based on pistol selection
+        private void cmbPlatePistol_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //cz75, fx45, glock
+            if (new[] { "CZ75", "FNX45", "Glock19" }.Contains(cmbPlatePistol.SelectedItem))
+            {
+                nudHSPlatePistol.Enabled = true;
+                chkPlateMag.Enabled = true;
+                chkPlateLight.Enabled = true;
+                chkPlateRDS.Enabled = true;
+                chkPlateSup.Enabled = true;
+            }
+            //1911
+            else if (new[] { "Colt1911", "Engraved1911" }.Contains(cmbPlatePistol.SelectedItem))
+            {
+                nudHSPlatePistol.Enabled = true;
+                chkPlateSup.Enabled = true;
+                chkPlateMag.Enabled = true;
+                chkPlateLight.Enabled = true;
+                chkPlateRDS.Enabled = false;
+            }
+            //deagle
+            else if (new[] { "Deagle", "Deagle_Gold" }.Contains(cmbPlatePistol.SelectedItem))
+            {
+                nudHSPlatePistol.Enabled = true;
+                chkPlateRDS.Enabled = true;
+                chkPlateSup.Enabled = true;
+                chkPlateMag.Enabled = true;
+                chkPlateLight.Checked = false;
+                chkPlateLight.Enabled = false;
+            }
+            //u-70
+            else if (cmbPlatePistol.Text == "MakarovIJ70")
+            {
+                nudHSPlatePistol.Enabled = true;
+                chkPlateSup.Enabled = true;
+                chkPlateMag.Enabled = true;
+                chkPlateLight.Enabled = false;
+                chkPlateRDS.Enabled = false;
+
+            }
+            //mk11
+            else if (new[] { "MKII", "P1" }.Contains(cmbPlatePistol.SelectedItem))
+            {
+                nudHSPlatePistol.Enabled = true;
+                chkPlateSup.Enabled = false;
+                chkPlateMag.Enabled = true;
+                chkPlateLight.Enabled = false;
+                chkPlateRDS.Enabled = false;
+            }
+            //if nothing selected HS -1 and disabled chk
+            else if (cmbPlatePistol.SelectedIndex == 0)
+            {
+                nudHSPlatePistol.Value = -1;
+                nudHSPlatePistol.Enabled = false;
+                chkPlateLight.Checked = false;
+                chkPlateRDS.Checked = false;
+                chkPlateMag.Checked = false;
+                chkPlateSup.Checked = false;
+                chkPlateMag.Enabled = false;
+                chkPlateLight.Enabled = false;
+                chkPlateRDS.Enabled = false;
+                chkPlateSup.Enabled = false;
+            }
+            //all others
+            else
+            {
+                nudHSPlatePistol.Enabled = true;
+                chkPlateRDS.Checked = false;
+                chkPlateSup.Checked = false;
+                chkPlateMag.Checked = false;
+                chkPlateLight.Checked = false;
+                chkPlateRDS.Enabled = false;
+                chkPlateSup.Enabled = false;
+                chkPlateMag.Enabled = false;
+                chkPlateLight.Enabled = false;
+            }
+        }
 
         //Allows batterries to only be placed in sights that accept
         private void cmbLSSight_SelectedIndexChanged(object sender, EventArgs e)
@@ -272,9 +366,6 @@ namespace DayZLootEditor
             { 
                 chkBatLSSight.Checked = true;
                 chkBatLSSight.Enabled = true;
-            }
-            else if (new[] { 6, 7, 9, 10, 11, 12, 14, 15 }.Contains(cmbLSSight.SelectedIndex))
-            {
             }
             else 
             {
@@ -291,9 +382,6 @@ namespace DayZLootEditor
                 chkRSSight.Checked = true;
                 chkRSSight.Enabled = true;
             }
-            else if (new[] { 6, 7, 9, 10, 11, 12, 14, 15 }.Contains(cmbRSSight.SelectedIndex))
-            {
-            }
             else
             {
                 chkRSSight.Checked = false;
@@ -308,9 +396,6 @@ namespace DayZLootEditor
             {
                 chkHandsSight.Checked = true;
                 chkHandsSight.Enabled = true;
-            }
-            else if (new[] { 6, 7, 9, 10, 11, 12, 14, 15 }.Contains(cmbHandSight.SelectedIndex))
-            {
             }
             else
             {
@@ -367,7 +452,7 @@ namespace DayZLootEditor
         //checks eyewearnods box is user selects nvg headstrap
         private void cmbEyeWearMain_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbEyeWearMain.SelectedIndex == 3)
+            if (cmbEyeWearMain.Text == "NVGHeadstrap")
             {
                 chkEyeWearNods.Enabled = true;
                 chkEyeWearNods.Checked = true;
@@ -382,7 +467,7 @@ namespace DayZLootEditor
         //checks nods and tac light if user selects tac helm
         private void cmbHelmetMain_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbHelmetMain.SelectedIndex == 34)
+            if (cmbHelmetMain.Text == "Mich2001Helmet")
             {
                 chkHelmetNods.Enabled = true;
                 chkHelmetLight.Enabled = true;
@@ -402,7 +487,7 @@ namespace DayZLootEditor
         private void cmbBeltMain_SelectedIndexChanged(object sender, EventArgs e)
         {
             //if rope belt is selected knife cmb set to nothing and disabled, ropeknife chk visible and checked, if deselected selection reset
-            if ( cmbBeltMain.SelectedIndex == 6)
+            if (cmbBeltMain.Text == "RopeBelt")
             {
                 chkBeltRopeKnife.Visible = true;
                 chkBeltRopeKnife.Checked = true;
@@ -414,7 +499,7 @@ namespace DayZLootEditor
                 cmbBeltHolster.SelectedIndex = 0;
                 cmbBeltHolster.Enabled= false;
             }
-            else if ( cmbBeltMain.SelectedIndex != 0 && cmbBeltMain.SelectedIndex != 6)
+            else if ( cmbBeltMain.SelectedIndex != 0 && cmbBeltMain.Text != "RopeBelt")
             {
                 chkBeltRopeKnife.Checked= false;
                 chkBeltRopeKnife.Visible= false;
@@ -457,7 +542,7 @@ namespace DayZLootEditor
         private void cmbBeltPistol_SelectedIndexChanged(object sender, EventArgs e)
         {
             //cz75, fx45, glock
-            if (new[] { 1, 6, 7 }.Contains(cmbBeltPistol.SelectedIndex))
+            if (new[] { "CZ75", "FNX45", "Glock19" }.Contains(cmbBeltPistol.SelectedItem))
             {
                 nudHSBeltPistol.Enabled = true;
                 chkBeltMag.Enabled = true;
@@ -466,7 +551,7 @@ namespace DayZLootEditor
                 chkBeltSup.Enabled=true;
             }
             //1911
-            else if (new[] { 2, 5}.Contains(cmbBeltPistol.SelectedIndex))
+            else if (new[] { "Colt1911", "Engraved1911" }.Contains(cmbBeltPistol.SelectedItem))
             {
                 nudHSBeltPistol.Enabled = true;
                 chkBeltSup.Enabled = true;
@@ -475,16 +560,17 @@ namespace DayZLootEditor
                 chkBeltRDS.Enabled = false;
             }
             //deagle
-            else if (new[] {3, 4}.Contains(cmbBeltPistol.SelectedIndex))
+            else if (new[] { "Deagle", "Deagle_Gold" }.Contains(cmbBeltPistol.SelectedItem))
             {
                 nudHSBeltPistol.Enabled = true;
                 chkBeltRDS.Enabled = true;
                 chkBeltSup.Enabled = true;
                 chkBeltMag.Enabled = true;
+                chkBeltLight.Checked = false;
                 chkBeltLight.Enabled = false;
             }
             //u-70
-            else if (cmbBeltPistol.SelectedIndex == 9) 
+            else if (cmbBeltPistol.Text == "MakarovIJ70")
             {
                 nudHSBeltPistol.Enabled = true;
                 chkBeltSup.Enabled = true;
@@ -493,8 +579,8 @@ namespace DayZLootEditor
                 chkBeltRDS.Enabled = false;
 
             }
-            //mk11
-            else if (cmbBeltPistol.SelectedIndex == 11 || cmbBeltPistol.SelectedIndex == 10)
+            //mk11, P1
+            else if (new[] { "MKII", "P1" }.Contains(cmbBeltPistol.SelectedItem))
             {
                 nudHSBeltPistol.Enabled = true;
                 chkBeltSup.Enabled = false;
@@ -554,7 +640,7 @@ namespace DayZLootEditor
         //limits knife selection feet
         private void cmbFeetMain_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (new[] { 37, 38, 39, 40, 41 }.Contains(cmbFeetMain.SelectedIndex))
+            if (new[] { "MilitaryBoots_Beige", "MilitaryBoots_Black", "MilitaryBoots_Bluerock", "MilitaryBoots_Brown", "MilitaryBoots_Redpunk" }.Contains(cmbFeetMain.SelectedItem))
             {
                 cmbFeetKnife.Enabled=true;
             }
@@ -1182,22 +1268,103 @@ namespace DayZLootEditor
         //Return: AttachmentSlotItemSet for Vest
         //Description: Creates attachmentslotitemset for Vest based on user selection
         private AttachmentSlotItemSet CreateVest()
-        {
+        {   //string variable for vest main selection
             string vestItemType = cmbVestMain.Text;
+            //List for simple childrentype for pouch selection
             List<String> attachmentList = new List<String>();
 
+            //adds pouch selection to list
             if (cmbVest2.SelectedIndex != 0) 
             {
                 attachmentList.Add(cmbVest2.Text);
             }
 
+            //created pistolAttachmentSelection list
+            List<ComplexChildrenType> pistolAttachmentSelection = new List<ComplexChildrenType>();
+            if (chkPlateRDS.Checked)
+            {
+                ComplexChildrenType PistolRDS = new ComplexChildrenType("FNP45_MRDSOptic", bat9V);
+                pistolAttachmentSelection.Add(PistolRDS);
+
+            }
+            if (chkPlateSup.Checked)
+            {
+                ComplexChildrenType PistolSup = new ComplexChildrenType("PistolSuppressor");
+                pistolAttachmentSelection.Add(PistolSup);
+            }
+            if (chkPlateLight.Checked)
+            {
+                ComplexChildrenType PistolLight = new ComplexChildrenType("TLRLight", bat9V);
+                pistolAttachmentSelection.Add(PistolLight);
+            }
+            if (chkPlateMag.Checked)
+            {
+                if (cmbPlatePistol.Text == "CZ75") //CZ75
+                {
+                    ComplexChildrenType PistolMag = new ComplexChildrenType("Mag_CZ75_15Rnd");
+                    pistolAttachmentSelection.Add(PistolMag);
+
+                }
+                else if (new[] { "Colt1911", "Engraved1911" }.Contains(cmbPlatePistol.SelectedItem)) //1911
+                {
+                    ComplexChildrenType PistolMag = new ComplexChildrenType("Mag_1911_7Rnd");
+                    pistolAttachmentSelection.Add(PistolMag);
+                }
+                else if (new[] { "Deagle", "Deagle_Gold" }.Contains(cmbPlatePistol.SelectedItem))//deagle
+                {
+                    ComplexChildrenType PistolMag = new ComplexChildrenType("Mag_Deagle_9rnd");
+                    pistolAttachmentSelection.Add(PistolMag);
+                }
+                else if (cmbPlatePistol.Text == "FNX45")//fx45
+                {
+                    ComplexChildrenType PistolMag = new ComplexChildrenType("Mag_FNX45_15Rnd");
+                    pistolAttachmentSelection.Add(PistolMag);
+                }
+                else if (cmbPlatePistol.Text == "Glock19")//glock
+                {
+                    ComplexChildrenType PistolMag = new ComplexChildrenType("Mag_Glock_15Rnd");
+                    pistolAttachmentSelection.Add(PistolMag);
+                }
+                else if (cmbPlatePistol.Text == "MakarovIJ70")//u-70
+                {
+                    ComplexChildrenType PistolMag = new ComplexChildrenType("Mag_IJ70_8Rnd");
+                    pistolAttachmentSelection.Add(PistolMag);
+                }
+                else if (cmbPlatePistol.Text == "P1")//P1
+                {
+                    ComplexChildrenType PistolMag = new ComplexChildrenType("Mag_P1_8Rnd");
+                    pistolAttachmentSelection.Add(PistolMag);
+                }
+                else if (cmbPlatePistol.Text == "MKII")//mk11
+                {
+                    ComplexChildrenType PistolMag = new ComplexChildrenType("Mag_MKII_10Rnd");
+                    pistolAttachmentSelection.Add(PistolMag);
+                }
+            }
+
+
+            //Creates pistolSelection List
+            List<ComplexChildrenType> pistolSelection = new List<ComplexChildrenType>();
+            if (cmbPlatePistol.SelectedIndex != 0)
+            {
+                string PistolSelection = cmbPlatePistol.Text;
+                int pistolHS = Convert.ToInt32(nudHSPlatePistol.Value);
+                ComplexChildrenType newPistol = new ComplexChildrenType(PistolSelection, pistolHS, pistolAttachmentSelection);
+                pistolSelection.Add(newPistol);
+            }
+
+            //Creates holster list
+            List<ComplexChildrenType> holsterSelection = new List<ComplexChildrenType>();
             if (cmbVest3.SelectedIndex != 0)
             {
-                attachmentList.Add(cmbVest3.Text);
+                string holster = cmbVest3.Text;
+                ComplexChildrenType HolsterSlection = new ComplexChildrenType(holster, pistolSelection);
+                holsterSelection.Add(HolsterSlection);
+
             }
 
             //Creates discreteitemset list from user selection, then an attachmentslotitemset
-            DiscreteItemSet vest = new DiscreteItemSet(vestItemType, attachmentList);
+            DiscreteItemSet vest = new DiscreteItemSet(vestItemType, -1, holsterSelection, attachmentList);
             List<DiscreteItemSet> vestList = new List<DiscreteItemSet> { vest };
             AttachmentSlotItemSet vestAttachmentItem = new AttachmentSlotItemSet("Vest", vestList);
 
@@ -1328,52 +1495,42 @@ namespace DayZLootEditor
             }
             if (chkBeltMag.Checked)
             {
-                if (cmbBeltPistol.SelectedIndex == 1) //CZ75
+                if (cmbBeltPistol.Text == "CZ75") //CZ75
                 {
                     ComplexChildrenType PistolMag = new ComplexChildrenType("Mag_CZ75_15Rnd");
                     pistolAttachmentSelection.Add(PistolMag);
                 }
-                else if (cmbBeltPistol.SelectedIndex == 2) //1911
+                else if (new[] { "Colt1911", "Engraved1911" }.Contains(cmbBeltPistol.SelectedItem)) //1911
                 {
                     ComplexChildrenType PistolMag = new ComplexChildrenType("Mag_1911_7Rnd");
                     pistolAttachmentSelection.Add(PistolMag);
                 }
-                else if (cmbBeltPistol.SelectedIndex == 3)//deagle
+                else if (new[] { "Deagle", "Deagle_Gold" }.Contains(cmbBeltPistol.SelectedItem))//deagle
                 {
                     ComplexChildrenType PistolMag = new ComplexChildrenType("Mag_Deagle_9rnd");
                     pistolAttachmentSelection.Add(PistolMag);
                 }
-                else if (cmbBeltPistol.SelectedIndex == 4)//gold deagle
-                {
-                    ComplexChildrenType PistolMag = new ComplexChildrenType("Mag_Deagle_9rnd");
-                    pistolAttachmentSelection.Add(PistolMag);
-                }
-                else if (cmbBeltPistol.SelectedIndex == 5)//engraved 1911
-                {
-                    ComplexChildrenType PistolMag = new ComplexChildrenType("Mag_1911_7Rnd");
-                    pistolAttachmentSelection.Add(PistolMag);
-                }
-                else if (cmbBeltPistol.SelectedIndex == 6)//fx45
+                else if (cmbBeltPistol.Text == "FNX45")//fx45
                 {
                     ComplexChildrenType PistolMag = new ComplexChildrenType("Mag_FNX45_15Rnd");
                     pistolAttachmentSelection.Add(PistolMag);
                 }
-                else if (cmbBeltPistol.SelectedIndex == 7)//glock
+                else if (cmbBeltPistol.Text == "Glock19")//glock
                 {
                     ComplexChildrenType PistolMag = new ComplexChildrenType("Mag_Glock_15Rnd");
                     pistolAttachmentSelection.Add(PistolMag);
                 }
-                else if (cmbBeltPistol.SelectedIndex == 9)//u-70
+                else if (cmbBeltPistol.Text == "MakarovIJ70")//u-70
                 {
                     ComplexChildrenType PistolMag = new ComplexChildrenType("Mag_IJ70_8Rnd");
                     pistolAttachmentSelection.Add(PistolMag);
                 }
-                else if (cmbBeltPistol.SelectedIndex == 10)//P1
+                else if (cmbBeltPistol.Text == "P1")//P1
                 {
                     ComplexChildrenType PistolMag = new ComplexChildrenType("Mag_P1_8Rnd");
                     pistolAttachmentSelection.Add(PistolMag);
                 }
-                else if (cmbBeltPistol.SelectedIndex == 11)//mk11
+                else if (cmbBeltPistol.Text == "MKII")//mk11
                 {
                     ComplexChildrenType PistolMag = new ComplexChildrenType("Mag_MKII_10Rnd");
                     pistolAttachmentSelection.Add(PistolMag);
@@ -1459,11 +1616,6 @@ namespace DayZLootEditor
             if (chkBeltRopeKnife.Checked)
                 beltList.AddRange(ropeKnifeSelection);
             if (chkBeltCanteen.Checked) { beltList.Add(canteen); } //Adds Canteen if checked
-            //string testBelt = JsonConvert.SerializeObject(beltList, Formatting.Indented);
-            //string testRope = JsonConvert.SerializeObject(ropeKnifeSelection, Formatting.Indented);
-            //MessageBox.Show(testRope);
-            //MessageBox.Show(testBelt);
-
 
 
             //DiscreteItemSet List created for hips and belt object added if selected cmb is not 0,
@@ -1477,10 +1629,6 @@ namespace DayZLootEditor
                 // Add the DiscreteItemSet object to the list
                 hipList.Add(hips);
             }
-            //string testHips = hips != null ? JsonConvert.SerializeObject(hips, Formatting.Indented) : ""; //If hips is not null will serialize, if null will be empty string, ensures null is not entered 
-            //string testHips = JsonConvert.SerializeObject(hips, Formatting.Indented);
-            //MessageBox.Show(testHips);
-
 
             //Created AttachmentSlotItemSet object for Hips
             AttachmentSlotItemSet Hips = new AttachmentSlotItemSet("Hips", hipList);
@@ -1498,55 +1646,55 @@ namespace DayZLootEditor
             if (radEast.Checked)
             {
                 //LS 
-                cmbLSMain.SelectedIndex = 7;
+                cmbLSMain.SelectedItem = "AKM";
                 nudHSLeftShoulder.Value = 0;
-                cmbLSSight.SelectedIndex = 7;
-                cmbLSLight.SelectedIndex = 1;
-                cmbLS3.SelectedIndex = 6;
-                cmbLS4.SelectedIndex = 3;
-                cmbLS5.SelectedIndex = 7;
-                cmbLS6.SelectedIndex = 10;
+                cmbLSSight.SelectedItem = "KobraOptic";
+                cmbLSLight.SelectedItem = "UniversalLight";
+                cmbLS3.SelectedItem = " AKM_Drum75Rnd";
+                cmbLS4.SelectedItem = "AK_PlasticBttstck";
+                cmbLS5.SelectedItem = "AK_RailHndgrd";
+                cmbLS6.SelectedItem = "AK_Suppressor";
                 //RS
-                cmbRSMain.SelectedIndex = 50;
+                cmbRSMain.SelectedItem = "SVD";
                 nudHSRightShoulder.Value = 1;
-                cmbRSSight.SelectedIndex = 11;
-                cmbRSMag.SelectedIndex = 35;
-                cmbRS4.SelectedIndex = 10;
+                cmbRSSight.SelectedItem = "PSO1Optic";
+                cmbRSMag.SelectedItem = " SVD_10Rnd";
+                cmbRS4.SelectedItem = "AK_Suppressor";
                 //Hands
-                cmbHandMain.SelectedIndex = 24;
+                cmbHandMain.SelectedItem = "M79";
                 nudHSHands.Value = 2;
                 //Vest
-                cmbVestMain.SelectedIndex = 2;
-                cmbVest2.SelectedIndex = 2;
-                cmbVest3.SelectedIndex = 2;
+                cmbVestMain.SelectedItem = "PlateCarrierVest_Black";
+                cmbVest2.SelectedItem = "PlateCarrierPouches_Black";
+                cmbVest3.SelectedItem = "PlateCarrierHolster_Black";
                 //Shirt
-                cmbShirtMain.SelectedIndex = 36;
+                cmbShirtMain.SelectedItem = "M65Jacket_Black";
                 //Hips
-                cmbBeltMain.SelectedIndex = 5;
-                cmbBeltKnife.SelectedIndex = 2;
+                cmbBeltMain.SelectedItem = "MilitaryBelt";
+                cmbBeltKnife.SelectedItem = "CombatKnife";
                 nudHSBeltKnife.Value = 3;
-                cmbBeltHolster.SelectedIndex = 2;
-                cmbBeltPistol.SelectedIndex = 9;
+                cmbBeltHolster.SelectedItem = "PlateCarrierHolster_Black";
+                cmbBeltPistol.SelectedItem = "MakarovIJ70";
                 nudHSBeltPistol.Value = 4;
                 chkBeltMag.Checked = true;
                 chkBeltSup.Checked = true;
                 //Pants
-                cmbPantsMain.SelectedIndex = 13;
+                cmbPantsMain.SelectedItem = "CargoPants_Black";
                 //Back
-                cmbBackMain.SelectedIndex = 4;
+                cmbBackMain.SelectedItem = "AssaultBag_Black";
                 radRadio.Checked = true;
                 //Face
-                cmbFaceMain.SelectedIndex = 2;
+                cmbFaceMain.SelectedItem = "Balaclava3Holes_Black";
                 //Eyewear
-                cmbEyeWearMain.SelectedIndex = 3;
+                cmbEyeWearMain.SelectedItem = "NVGHeadstrap";
                 //Gloves
-                cmbGlovesMain.SelectedIndex = 17;
+                cmbGlovesMain.SelectedItem = "TacticalGloves_Black";
                 //Feet
-                cmbFeetMain.SelectedIndex = 7;
+                cmbFeetMain.SelectedItem = "CombatBoots_Black";
                 //Armband
-                cmbArmbandMain.SelectedIndex = 17;
+                cmbArmbandMain.SelectedItem = "Armband_Green";
                 //Helmet
-                cmbHelmetMain.SelectedIndex = 29;
+                cmbHelmetMain.SelectedItem = "GorkaHelmet";
                 //Loadout Name
                 txtLoadoutName.Text = "EasternLoadout";
             }
@@ -1561,56 +1709,56 @@ namespace DayZLootEditor
             if (radWest.Checked)
             {
                 //LS M4
-                cmbLSMain.SelectedIndex = 26;
+                cmbLSMain.SelectedItem = "M4A1";
                 nudHSLeftShoulder.Value = 0;
-                cmbLSSight.SelectedIndex = 9;
-                cmbLSLight.SelectedIndex = 1;
-                cmbLS3.SelectedIndex = 34;
-                cmbLS4.SelectedIndex = 27;
-                cmbLS5.SelectedIndex = 25;
-                cmbLS6.SelectedIndex = 30;
+                cmbLSSight.SelectedItem = "M4_T3NRDSOptic";
+                cmbLSLight.SelectedItem = "UniversalLight";
+                cmbLS3.SelectedItem = " STANAG_60Rnd";
+                cmbLS4.SelectedItem = "M4_MPBttstck";
+                cmbLS5.SelectedItem = "M4_Suppressor";
+                cmbLS6.SelectedItem = "M4_RISHndgrd";
                 //RS M14
-                cmbRSMain.SelectedIndex = 25;
+                cmbRSMain.SelectedItem = "M14";
                 nudHSRightShoulder.Value = 1;
-                cmbRSSight.SelectedIndex = 1;
-                cmbRSMag.SelectedIndex = 24;
+                cmbRSSight.SelectedItem = "ACOGOptic";
+                cmbRSMag.SelectedItem = " M14_20Rnd";
                 //Hands
-                cmbHandMain.SelectedIndex = 24;
+                cmbHandMain.SelectedItem = "M79";
                 nudHSHands.Value = 2;
                 //Vest
-                cmbVestMain.SelectedIndex = 4;
-                cmbVest2.SelectedIndex = 4;
-                cmbVest3.SelectedIndex = 4;
+                cmbVestMain.SelectedItem = "PlateCarrierVest_Green";
+                cmbVest2.SelectedItem = "PlateCarrierPouches_Green";
+                cmbVest3.SelectedItem = "PlateCarrierHolster_Green";
                 //Shirt
-                cmbShirtMain.SelectedIndex = 95;
+                cmbShirtMain.SelectedItem = "USMCJacket_Woodland";
                 //Hips
-                cmbBeltMain.SelectedIndex = 5;
-                cmbBeltKnife.SelectedIndex = 2;
+                cmbBeltMain.SelectedItem = "MilitaryBelt";
+                cmbBeltKnife.SelectedItem = "CombatKnife";
                 nudHSBeltKnife.Value = 3;
-                cmbBeltHolster.SelectedIndex = 4;
-                cmbBeltPistol.SelectedIndex = 4;
+                cmbBeltHolster.SelectedItem = "PlateCarrierHolster_Green";
+                cmbBeltPistol.SelectedItem = "Deagle_Gold";
                 nudHSBeltPistol.Value = 4;
                 chkBeltRDS.Checked = true;
                 chkBeltMag.Checked = true;
                 chkBeltSup.Checked = true;
                 //Pants
-                cmbPantsMain.SelectedIndex = 62;
+                cmbPantsMain.SelectedItem = "USMCPants_Woodland";
                 //Back
-                cmbBackMain.SelectedIndex = 5;
+                cmbBackMain.SelectedItem = "AssaultBag_Green";
                 radRadio.Checked = true;
                 //Face
-                cmbFaceMain.SelectedIndex = 9;
+                cmbFaceMain.SelectedItem = "BalaclavaMask_Green";
                 //Eyes
-                cmbEyeWearMain.SelectedIndex = 1;
+                cmbEyeWearMain.SelectedItem = "AviatorGlasses";
                 //Gloves
-                cmbGlovesMain.SelectedIndex = 18;
+                cmbGlovesMain.SelectedItem = "TacticalGloves_Green";
                 //Feet
-                cmbFeetMain.SelectedIndex = 38;
-                cmbFeetKnife.SelectedIndex = 3;
+                cmbFeetMain.SelectedItem = "MilitaryBoots_Black";
+                cmbFeetKnife.SelectedItem = "FangeKnife";
                 //Armband
-                cmbArmbandMain.SelectedIndex = 6;
+                cmbArmbandMain.SelectedItem = "Armband_Blue";
                 //Helmet
-                cmbHelmetMain.SelectedIndex = 34;
+                cmbHelmetMain.SelectedItem = "Mich2001Helmet";
                 //Names loadout
                 txtLoadoutName.Text = "WesternLoadout";
             }
@@ -1624,37 +1772,37 @@ namespace DayZLootEditor
             if (radBlack.Checked)
             {
                 //Vest
-                cmbVestMain.SelectedIndex = 2;
-                cmbVest2.SelectedIndex = 2;
-                cmbVest3.SelectedIndex = 2;
+                cmbVestMain.SelectedItem = "PlateCarrierVest_Black";
+                cmbVest2.SelectedItem = "PlateCarrierPouches_Black";
+                cmbVest3.SelectedItem = "PlateCarrierHolster_Black";
                 //Shirt
-                cmbShirtMain.SelectedIndex = 36;
+                cmbShirtMain.SelectedItem = "M65Jacket_Black";
                 //Hips
-                cmbBeltMain.SelectedIndex = 5;
-                cmbBeltKnife.SelectedIndex = 2;
+                cmbBeltMain.SelectedItem = "MilitaryBelt";
+                cmbBeltKnife.SelectedItem = "CombatKnife";
                 nudHSBeltKnife.Value = 3;
-                cmbBeltHolster.SelectedIndex = 2;
-                cmbBeltPistol.SelectedIndex = 1;
+                cmbBeltHolster.SelectedItem = "PlateCarrierHolster_Black";
+                cmbBeltPistol.SelectedItem = "CZ75";
                 nudHSBeltPistol.Value = 4;
                 chkBeltMag.Checked = true;
                 chkBeltSup.Checked = true;
                 chkBeltRDS.Checked = true;
                 chkBeltLight.Checked = true;
                 //Pants
-                cmbPantsMain.SelectedIndex = 13;
+                cmbPantsMain.SelectedItem = "CargoPants_Black";
                 //Back
-                cmbBackMain.SelectedIndex = 4;
+                cmbBackMain.SelectedItem = "AssaultBag_Black";
                 radRadio.Checked = true;
                 //Face
-                cmbFaceMain.SelectedIndex = 6;
+                cmbFaceMain.SelectedItem = "BalaclavaMask_Black";
                 //Gloves
-                cmbGlovesMain.SelectedIndex = 17;
+                cmbGlovesMain.SelectedItem = "TacticalGloves_Black";
                 //Feet
-                cmbFeetMain.SelectedIndex = 7;
+                cmbFeetMain.SelectedItem = "CombatBoots_Black";
                 //Armband
-                cmbArmbandMain.SelectedIndex = 5;
+                cmbArmbandMain.SelectedItem = "Armband_Black";
                 //Helmet
-                cmbHelmetMain.SelectedIndex = 34;
+                cmbHelmetMain.SelectedItem = "Mich2001Helmet";
                 //Name
                 txtLoadoutName.Text = "BlackOut";
             }
@@ -1668,37 +1816,37 @@ namespace DayZLootEditor
             if (radCamo.Checked ) 
             {
                 //Vest
-                cmbVestMain.SelectedIndex = 3;
-                cmbVest2.SelectedIndex = 3;
-                cmbVest3.SelectedIndex = 3;
+                cmbVestMain.SelectedItem = "PlateCarrierVest_Camo";
+                cmbVest2.SelectedItem = "PlateCarrierPouches_Camo";
+                cmbVest3.SelectedItem = "PlateCarrierHolster_Camo";
                 //Shirt
-                cmbShirtMain.SelectedIndex = 82;
+                cmbShirtMain.SelectedItem = "TTsKOJacket_Camo";
                 //Hips
-                cmbBeltMain.SelectedIndex = 5;
-                cmbBeltKnife.SelectedIndex = 2;
+                cmbBeltMain.SelectedItem = "MilitaryBelt";
+                cmbBeltKnife.SelectedItem = "CombatKnife";
                 nudHSBeltKnife.Value = 3;
-                cmbBeltHolster.SelectedIndex = 3;
-                cmbBeltPistol.SelectedIndex = 6;
+                cmbBeltHolster.SelectedItem = "PlateCarrierHolster_Camo";
+                cmbBeltPistol.SelectedItem = "FNX45";
                 nudHSBeltPistol.Value = 4;
                 chkBeltMag.Checked = true;
                 chkBeltSup.Checked = true;
                 chkBeltRDS.Checked = true;
                 chkBeltLight.Checked = true;
                 //Pants
-                cmbPantsMain.SelectedIndex = 55;
+                cmbPantsMain.SelectedItem = "TTSKOPants";
                 //Back
-                cmbBackMain.SelectedIndex = 6;
+                cmbBackMain.SelectedItem = "AssaultBag_Ttsko";
                 radRadio.Checked = true;
                 //Face
-                cmbFaceMain.SelectedIndex = 13;
+                cmbFaceMain.SelectedItem = "Bandana_Camopattern";
                 //Gloves
-                cmbGlovesMain.SelectedIndex = 18;
+                cmbGlovesMain.SelectedItem = "TacticalGloves_Green";
                 //Feet
-                cmbFeetMain.SelectedIndex = 7;
+                cmbFeetMain.SelectedItem = "JungleBoots_Green";
                 //Armband
-                cmbArmbandMain.SelectedIndex = 17;
+                cmbArmbandMain.SelectedItem = "Armband_Green";
                 //Helmet
-                cmbHelmetMain.SelectedIndex = 34;
+                cmbHelmetMain.SelectedItem = "Mich2001Helmet";
                 //Name
                 txtLoadoutName.Text = "Camo";
 
