@@ -1,5 +1,8 @@
 **Higher Priority**
 
+1. Delete parralell aray for mags, use string manipulation to add "Mag_" to each
+   mag that is selected. Will allow mag cbos to be sorted.
+
 1. Save all data to external file in main and edit form so loadouts can be saved.
 
 
