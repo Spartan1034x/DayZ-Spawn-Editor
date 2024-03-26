@@ -37,7 +37,8 @@
 
 				  **Changelog**
 1. Added selection for custom pistols in the plate carrier holster slot.
-
+2. Combo boxes are now in alphabetical order.
+3. 
 
 
 				  **BugFixes**
