@@ -1,10 +1,9 @@
 **Higher Priority**
 
-1. Delete parralell aray for mags, use string manipulation to add "Mag_" to each
-   mag that is selected. Will allow mag cbos to be sorted.
+1. Change setters of ComplexChild and SimpleChild Lists to be null if empty. Will hopefully
+   place nothing on .json if empty. 
 
 1. Save all data to external file in main and edit form so loadouts can be saved.
-
 
 
 *Lower Priority*

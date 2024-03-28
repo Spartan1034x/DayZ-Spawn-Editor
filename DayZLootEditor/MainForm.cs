@@ -25,9 +25,7 @@ namespace DayZLootEditor
         private static string[] weaponBack = PopulateArray("Weapons.txt");
         private static string[] weaponLight = { "", "UniversalLight" };
         private static string[] weaponAttachment = PopulateArray("Attachments.txt");
-        private static string[] magDisplay = PopulateArray("MagsDisplay.txt");//parrallel arrays index can be matched to give proper code names when creating object, and seperate ones to display
-        private static string[] magCode = PopulateArray("Mags.txt"); //Confirmed size is the same originally weaponMagsCode switched for testing
-
+        private static string[] mags = PopulateArray("Mags.txt");
         //Vest Arrays
         private static string[] vests = PopulateArray("Vests.txt");
         private static string[] pouches = PopulateArray("Pouches.txt");
@@ -67,15 +65,18 @@ namespace DayZLootEditor
 
         //Sent: String (file name)
         //Return: String Array of item names
-        //Description: Reads inventory item txt file from folder, then places into array
+        //Description: Reads inventory item txt file from folder, trims each line to remove whitespace, then places into array
         private static string[] PopulateArray(string filePath)
         {
-            //MessageBox.Show(Convert.ToString(helmets1.Length));
             string folderPath = "ItemSets/" + filePath;
             string[] lines;
             if (File.Exists(folderPath))
             {
                 lines = File.ReadAllLines(folderPath);
+                for (int i=0; i< lines.Length; i++)
+                {
+                    lines[i] = lines[i].Trim();
+                }
                 return lines;
             }
             else
@@ -132,7 +133,7 @@ namespace DayZLootEditor
             //sets cmb data for Hands cmbs
             cmbHandMain.Items.AddRange(weaponBack);
             cmbHandSight.Items.AddRange(sights);
-            cmbHandMag.Items.AddRange(magDisplay);
+            cmbHandMag.Items.AddRange(mags);
             cmbHandLight.Items.AddRange(weaponLight);
             cmbHand4.Items.AddRange(weaponAttachment);
             cmbHand5.Items.AddRange(weaponAttachment);
@@ -142,7 +143,7 @@ namespace DayZLootEditor
             //sets combo data for RS cmbs
             cmbRSMain.Items.AddRange(weaponBack);
             cmbRSSight.Items.AddRange(sights);
-            cmbRSMag.Items.AddRange(magDisplay);
+            cmbRSMag.Items.AddRange(mags);
             cmbRSLight.Items.AddRange(weaponLight);
             cmbRS4.Items.AddRange(weaponAttachment);
             cmbRS5.Items.AddRange(weaponAttachment);
@@ -153,7 +154,7 @@ namespace DayZLootEditor
             cmbLSMain.Items.AddRange(weaponBack);
             cmbLSSight.Items.AddRange(sights);
             cmbLSLight.Items.AddRange(weaponLight);
-            cmbLS3.Items.AddRange(magDisplay);
+            cmbLS3.Items.AddRange(mags);
             cmbLS4.Items.AddRange(weaponAttachment);
             cmbLS5.Items.AddRange(weaponAttachment);
             cmbLS6.Items.AddRange(weaponAttachment);
@@ -972,15 +973,12 @@ namespace DayZLootEditor
             // Magazine
             if (cmbRSMag.SelectedIndex != 0)
             {
-                //selects string from parralel array so proper mag name is entered into object
-                int arrayNum = cmbRSMag.SelectedIndex;
-                string item = magCode[arrayNum].ToString();
+                string magazine = "Mag_" + cmbRSMag.Text;
 
-                ComplexChildrenType mag = new ComplexChildrenType(item);
+                ComplexChildrenType mag = new ComplexChildrenType(magazine);
                 RSAttachmentComplexList.Add(mag);
+
             }
-
-
 
             //Creates legs obj then places into list
             string shoulderRItemType = cmbRSMain.Text;
@@ -1041,9 +1039,7 @@ namespace DayZLootEditor
             // Magazine
             if (cmbLS3.SelectedIndex != 0)
             {
-                //selects string from parralel array so proper mag name is entered into object
-                int arrayNum = cmbLS3.SelectedIndex;
-                string item = magCode[arrayNum].ToString();
+                string item = "Mag_" + cmbLS3.Text;
 
                 ComplexChildrenType mag = new ComplexChildrenType(item);
                 LSAttachmentComplexList.Add(mag);
@@ -1110,9 +1106,7 @@ namespace DayZLootEditor
             // Magazine
             if (cmbHandMag.SelectedIndex != 0)
             {
-                //selects string from parralel array so proper mag name is entered into object
-                int arrayNum = cmbHandMag.SelectedIndex;
-                string item = magCode[arrayNum].ToString();
+                string item = "Mag_" + cmbHandMag.Text;
 
                 ComplexChildrenType mag = new ComplexChildrenType(item);
                 handAttachmentComplexList.Add(mag);
@@ -1547,9 +1541,6 @@ namespace DayZLootEditor
                 ComplexChildrenType newPistol = new ComplexChildrenType(PistolSelection, pistolHS, pistolAttachmentSelection);
                 pistolSelection.Add(newPistol);
             }
-            //string testPistol = JsonConvert.SerializeObject(pistolSelection, Formatting.Indented);
-            //MessageBox.Show(testPistol);
-
 
             //Creates holster list
             List<ComplexChildrenType> holsterSelection = new List<ComplexChildrenType>();
@@ -1560,9 +1551,6 @@ namespace DayZLootEditor
                 holsterSelection.Add(HolsterSlection);
 
             }
-            //string testHolster = JsonConvert.SerializeObject(holsterSelection, Formatting.Indented);
-            //MessageBox.Show(testHolster);
-
 
             //creates knifeSelection object
             List<ComplexChildrenType> knifeSelection = new List<ComplexChildrenType>();
@@ -1574,9 +1562,6 @@ namespace DayZLootEditor
                 ComplexChildrenType knifeSelectionObj = new ComplexChildrenType(KnifeSelection, knifeHSSelection);
                 knifeSelection.Add(knifeSelectionObj);
             }
-            //string testKnife = JsonConvert.SerializeObject(knife, Formatting.Indented);
-            //MessageBox.Show(testKnife);
-
 
             //creates sheathSelection and ropeKnifeSelection lists
             List<ComplexChildrenType> sheathSelection = new List<ComplexChildrenType>();
@@ -1596,15 +1581,9 @@ namespace DayZLootEditor
                 ropeKnifeSelection.Add(ropeKnife);
 
             }
-            //string testSheath = JsonConvert.SerializeObject(sheathSelection, Formatting.Indented);
-            //MessageBox.Show(testSheath);
-
 
             //Create canteen ComplexChild Object
             ComplexChildrenType canteen = new ComplexChildrenType("Canteen");
-            //string testCanteen = JsonConvert.SerializeObject(canteen, Formatting.Indented);
-            //MessageBox.Show(testCanteen);
-
 
             //Created beltList Complex Child List
             List<ComplexChildrenType> beltList = new List<ComplexChildrenType>();
@@ -1650,7 +1629,7 @@ namespace DayZLootEditor
                 nudHSLeftShoulder.Value = 0;
                 cmbLSSight.SelectedItem = "KobraOptic";
                 cmbLSLight.SelectedItem = "UniversalLight";
-                cmbLS3.SelectedItem = " AKM_Drum75Rnd";
+                cmbLS3.SelectedItem = "AKM_Drum75Rnd";
                 cmbLS4.SelectedItem = "AK_PlasticBttstck";
                 cmbLS5.SelectedItem = "AK_RailHndgrd";
                 cmbLS6.SelectedItem = "AK_Suppressor";
@@ -1658,7 +1637,7 @@ namespace DayZLootEditor
                 cmbRSMain.SelectedItem = "SVD";
                 nudHSRightShoulder.Value = 1;
                 cmbRSSight.SelectedItem = "PSO1Optic";
-                cmbRSMag.SelectedItem = " SVD_10Rnd";
+                cmbRSMag.SelectedItem = "SVD_10Rnd";
                 cmbRS4.SelectedItem = "AK_Suppressor";
                 //Hands
                 cmbHandMain.SelectedItem = "M79";
@@ -1713,7 +1692,7 @@ namespace DayZLootEditor
                 nudHSLeftShoulder.Value = 0;
                 cmbLSSight.SelectedItem = "M4_T3NRDSOptic";
                 cmbLSLight.SelectedItem = "UniversalLight";
-                cmbLS3.SelectedItem = " STANAG_60Rnd";
+                cmbLS3.SelectedItem = "STANAG_60Rnd";
                 cmbLS4.SelectedItem = "M4_MPBttstck";
                 cmbLS5.SelectedItem = "M4_Suppressor";
                 cmbLS6.SelectedItem = "M4_RISHndgrd";
@@ -1721,7 +1700,7 @@ namespace DayZLootEditor
                 cmbRSMain.SelectedItem = "M14";
                 nudHSRightShoulder.Value = 1;
                 cmbRSSight.SelectedItem = "ACOGOptic";
-                cmbRSMag.SelectedItem = " M14_20Rnd";
+                cmbRSMag.SelectedItem = "M14_20Rnd";
                 //Hands
                 cmbHandMain.SelectedItem = "M79";
                 nudHSHands.Value = 2;
