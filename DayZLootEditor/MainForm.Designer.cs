@@ -1857,6 +1857,7 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dayz Spawn Loot Editor";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.grpBottom.ResumeLayout(false);
             this.grpBottom.PerformLayout();

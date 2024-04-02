@@ -38,11 +38,13 @@
 				  **Changelog**
 1. Added selection for custom pistols in the plate carrier holster slot.
 2. Combo boxes are now in alphabetical order.
+3. Form set to full screen on opening.
 
 
 				  **BugFixes**
 1. Trimmed whitespace from MilitaryBelt .txt file, potentially was causing bugs with presets.
 2. Fixed U-70 name in .txt file.
+3. Form sizing bug fixed that caused a small form when opening program.
 
 
 				   **Code**
