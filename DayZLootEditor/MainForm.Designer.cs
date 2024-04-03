@@ -618,6 +618,7 @@
             this.cmbLS3.Location = new System.Drawing.Point(25, 283);
             this.cmbLS3.Name = "cmbLS3";
             this.cmbLS3.Size = new System.Drawing.Size(175, 28);
+            this.cmbLS3.Sorted = true;
             this.cmbLS3.TabIndex = 4;
             // 
             // label20
@@ -699,6 +700,7 @@
             this.cmbRSMag.Location = new System.Drawing.Point(246, 283);
             this.cmbRSMag.Name = "cmbRSMag";
             this.cmbRSMag.Size = new System.Drawing.Size(175, 28);
+            this.cmbRSMag.Sorted = true;
             this.cmbRSMag.TabIndex = 13;
             // 
             // chkRSLight
@@ -884,6 +886,7 @@
             this.cmbHandMag.Location = new System.Drawing.Point(467, 283);
             this.cmbHandMag.Name = "cmbHandMag";
             this.cmbHandMag.Size = new System.Drawing.Size(175, 28);
+            this.cmbHandMag.Sorted = true;
             this.cmbHandMag.TabIndex = 22;
             // 
             // chkHandsLight
@@ -1854,6 +1857,7 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dayz Spawn Loot Editor";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.grpBottom.ResumeLayout(false);
             this.grpBottom.PerformLayout();

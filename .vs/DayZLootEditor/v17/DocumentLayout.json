@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Spart\\Desktop\\Dayz\\DayZ-Spawn-Editor-Git-Repo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{903600AA-6EBA-40F3-A0B7-C7B98493D85E}|DayZLootEditor\\DayZLootEditor.csproj|c:\\users\\spart\\desktop\\dayz\\dayz-spawn-editor-git-repo\\dayzlooteditor\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{903600AA-6EBA-40F3-A0B7-C7B98493D85E}|DayZLootEditor\\DayZLootEditor.csproj|solutionrelative:dayzlooteditor\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{903600AA-6EBA-40F3-A0B7-C7B98493D85E}|DayZLootEditor\\DayZLootEditor.csproj|C:\\Users\\Spart\\Desktop\\Dayz\\DayZ-Spawn-Editor-Git-Repo\\dayzlooteditor\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{903600AA-6EBA-40F3-A0B7-C7B98493D85E}|DayZLootEditor\\DayZLootEditor.csproj|solutionrelative:dayzlooteditor\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{903600AA-6EBA-40F3-A0B7-C7B98493D85E}|DayZLootEditor\\DayZLootEditor.csproj|c:\\users\\spart\\desktop\\dayz\\dayz-spawn-editor-git-repo\\dayzlooteditor\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{903600AA-6EBA-40F3-A0B7-C7B98493D85E}|DayZLootEditor\\DayZLootEditor.csproj|solutionrelative:dayzlooteditor\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{903600AA-6EBA-40F3-A0B7-C7B98493D85E}|DayZLootEditor\\DayZLootEditor.csproj|C:\\Users\\Spart\\Desktop\\Dayz\\DayZ-Spawn-Editor-Git-Repo\\dayzlooteditor\\frmedit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,7 +34,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Spart\\Desktop\\Dayz\\DayZ-Spawn-Editor-Git-Repo\\DayZLootEditor\\MainForm.cs",
               "RelativeDocumentMoniker": "DayZLootEditor\\MainForm.cs",
@@ -46,13 +46,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainForm.cs",
               "DocumentMoniker": "C:\\Users\\Spart\\Desktop\\Dayz\\DayZ-Spawn-Editor-Git-Repo\\DayZLootEditor\\MainForm.cs",
               "RelativeDocumentMoniker": "DayZLootEditor\\MainForm.cs",
               "ToolTip": "C:\\Users\\Spart\\Desktop\\Dayz\\DayZ-Spawn-Editor-Git-Repo\\DayZLootEditor\\MainForm.cs",
               "RelativeToolTip": "DayZLootEditor\\MainForm.cs",
-              "ViewState": "AQIAAOkBAAAAAAAAAAAowPUBAABIAAAA",
+              "ViewState": "AQIAAPAFAAAAAAAAAAAAANIDAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-01T11:55:55.427Z",
               "EditorCaption": ""

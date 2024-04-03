@@ -38,12 +38,13 @@
 				  **Changelog**
 1. Added selection for custom pistols in the plate carrier holster slot.
 2. Combo boxes are now in alphabetical order.
-3. 
+3. Form set to full screen on opening.
 
 
 				  **BugFixes**
 1. Trimmed whitespace from MilitaryBelt .txt file, potentially was causing bugs with presets.
 2. Fixed U-70 name in .txt file.
+3. Form sizing bug fixed that caused a small form when opening program.
 
 
 				   **Code**
@@ -52,3 +53,8 @@ presets get selected. Also sorted all cmbs, expect mags because currently they a
 code names.
 2. Changed combo boxes to reference SelectedItems instead of SelectedIndex, allows for more accurate targeting, 
 and the ability to sort cmbs alphabetically. 
+3. When external .txt files are read in Trim() function was added to remove any possible whitespace.
+4. Parrallel arrays for mags deleted, now one array holds mags in format of "M14_20Rnd" and during 
+   Object creation string "Mag_" is added.
+5. Preset loadout selection changed to reference selected item instead of selected index.
+6. Mag cbos Sorted in alphabetical order. 
