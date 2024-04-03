@@ -1,6 +1,6 @@
-				*****Version 1.0.0-beta.2 is now live!*****
+				*****Official release is now live!*****
 		     Download: https://mega.nz/folder/9vN2QALQ#0ljH2OFadfKoM4K85g9btw
-			 Official Release Video:
+		     Official Release Video:
 		     beta.2 Release Video: https://youtu.be/3-0FiokXyoM 
 		     beta.1 Release Video: https://www.youtube.com/watch?v=GtSBoUnGSvM
 
