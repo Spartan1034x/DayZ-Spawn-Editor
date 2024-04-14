@@ -1,6 +1,6 @@
 				*****Official release is now live!*****
-		     Download: https://mega.nz/folder/9vN2QALQ#0ljH2OFadfKoM4K85g9btw
-		     Official Release Video:
+		     Download: https://mega.nz/folder/AvsX3abR#Nekd_rpkiC7JcGftRoq6AQ
+		     Official Release Video: https://www.youtube.com/watch?v=X18tUYOYSE4&t=165s
 		     beta.2 Release Video: https://youtu.be/3-0FiokXyoM 
 		     beta.1 Release Video: https://www.youtube.com/watch?v=GtSBoUnGSvM
 
