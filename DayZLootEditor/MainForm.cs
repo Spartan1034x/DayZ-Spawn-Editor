@@ -15,8 +15,10 @@ namespace DayZLootEditor
 {
     public partial class frmMain : Form
     {
+        //Creates new instance of edit form so edit form ftns can be called throughout
+        frmEdit frmEdit = new frmEdit();
 
-        //creates an update list based on user selection from the edit form
+        //Creates a list based on user selection from the edit form
         private static List<ComplexChildrenType> userInventoryListComplexChildren = new List<ComplexChildrenType>();
         private static List<String> userInventoryListSimpleChildren = new List<String>();
 
@@ -26,6 +28,7 @@ namespace DayZLootEditor
         private static string[] weaponLight = { "", "UniversalLight" };
         private static string[] weaponAttachment = PopulateArray("Attachments.txt");
         private static string[] mags = PopulateArray("Mags.txt");
+
         //Vest Arrays
         private static string[] vests = PopulateArray("Vests.txt");
         private static string[] pouches = PopulateArray("Pouches.txt");
@@ -77,7 +80,7 @@ namespace DayZLootEditor
                 {
                     lines[i] = lines[i].Trim();
                 }
-                return lines;
+                return lines; //Returned array of each line, whitespace trimmed
             }
             else
             {
@@ -119,7 +122,6 @@ namespace DayZLootEditor
             cmbBeltKnife.Items.AddRange(knives);
             cmbBeltHolster.Items.AddRange(holsters);
             cmbBeltPistol.Items.AddRange(pistols);
-
 
             //sets cmb data for shirts
             cmbShirtMain.Items.AddRange(shirts);
@@ -169,8 +171,6 @@ namespace DayZLootEditor
 
         }
 
-        //Creates new instance of edit form so edit form ftns can be called throughout
-        frmEdit frmEdit = new frmEdit();
 
         private void frmMain_Load(object sender, EventArgs e)
         {
@@ -1569,7 +1569,7 @@ namespace DayZLootEditor
             //creates sheath list, or knife obj for rope belt
             if (cmbBeltKnife.SelectedIndex != 0 && cmbBeltKnife.SelectedIndex != 6)
             {
-                string sheath = "LeatherKnifeSheath";
+                string sheath = "NylonKnifeSheath";
                 ComplexChildrenType SheathSelection = new ComplexChildrenType(sheath, knifeSelection);
                 sheathSelection.Add(SheathSelection);
             }

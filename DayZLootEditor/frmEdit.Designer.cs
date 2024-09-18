@@ -86,7 +86,7 @@
             this.ItemCol,
             this.QuantityCol,
             this.HSCol});
-            this.dgvItems.Location = new System.Drawing.Point(58, 12);
+            this.dgvItems.Location = new System.Drawing.Point(35, 12);
             this.dgvItems.MinimumSize = new System.Drawing.Size(250, 300);
             this.dgvItems.Name = "dgvItems";
             this.dgvItems.RowHeadersVisible = false;

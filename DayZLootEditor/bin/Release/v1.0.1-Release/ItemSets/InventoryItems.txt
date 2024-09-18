@@ -1,14 +1,3 @@
-Banana
-Kiwi
-Orange
-Plant_Cannabis
-Cannabis
-Defibrillator
-Sword
-PoliceBaton 
-Chainsaw
-CattleProd
-StunBaton
 ACOGOptic
 ACOGOptic_6x
 AK101
@@ -51,8 +40,6 @@ AlarmClock_Red
 AliceBag_Black
 AliceBag_Camo
 AliceBag_Green
-Ammo_12gaBeanbag
-AmmoBox_12gaBeanbag_10Rnd
 AmmoBox
 AmmoBox_00buck_10rnd
 AmmoBox_12gaRubberSlug_10Rnd
@@ -849,7 +836,6 @@ Mag_SSG82_5rnd
 Mag_STANAG_30Rnd
 Mag_STANAG_60Rnd
 Mag_SVD_10Rnd
-Mag_SV98_10Rnd
 Mag_Saiga_5Rnd
 Mag_Saiga_8Rnd
 Mag_Saiga_Drum20Rnd
@@ -857,7 +843,6 @@ Mag_Scout_5Rnd
 Mag_UMP_25Rnd
 Mag_VAL_20Rnd
 Mag_VSS_10Rnd
-Mag_Vikhr_30Rnd
 Magnum
 MakarovIJ70
 ManSuit_Beige
@@ -1211,7 +1196,6 @@ SurgicalGloves_Green
 SurgicalGloves_LightBlue
 SurgicalGloves_White
 SurgicalMask
-SV98
 Sweater_Blue
 Sweater_Gray
 Sweater_Green

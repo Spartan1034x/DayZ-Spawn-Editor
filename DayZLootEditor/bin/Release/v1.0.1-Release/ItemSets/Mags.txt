@@ -1,6 +1,4 @@
 
- SV98_10Rnd
- Vikhr_30Rnd
  1911_7Rnd
  AK101_30Rnd
  AK74_30Rnd
@@ -43,20 +41,3 @@
  UMP_25Rnd
  VAL_20Rnd
  VSS_10Rnd
-AKM_Drum_TEST
-AK101_30Rnd_Black
-AK101_30Rnd_Green
-AK74_30Rnd_Black
-AK74_30Rnd_Green
-AKM_Drum75Rnd_Black
-AKM_Drum75Rnd_Green
-AKM_Palm30Rnd_Black
-AKM_Palm30Rnd_Green
-C10Rnd_Black
-C10Rnd_Green
-C20Rnd_Black
-C20Rnd_Green
-C30Rnd_Black
-C30Rnd_Green
-C40Rnd_Black
-C40Rnd_Green

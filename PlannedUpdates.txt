@@ -1,9 +1,10 @@
 **Higher Priority**
+1. Create array of numbers of chosen hotslots so if one is chosen then user will be notified.
 
-1. Change setters of ComplexChild and SimpleChild Lists to be null if empty. Will hopefully
+2. Change setters of ComplexChild and SimpleChild Lists to be null if empty. Will hopefully
    place nothing on .json if empty. 
 
-1. Save all data to external file in main and edit form so loadouts can be saved.
+3. Save all data to external file in main and edit form so loadouts can be saved.
 
 
 *Lower Priority*

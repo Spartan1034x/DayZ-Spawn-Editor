@@ -13,12 +13,7 @@ ASVAL
 Aug
 AugShort
 B95
-B95_Black
-B95_Green
 CZ527
-CZ527_Black
-CZ527_Camo
-CZ527_Green 
 CZ550
 CZ61
 FAL
@@ -30,7 +25,6 @@ Longhorn
 M79
 M14
 M16A2
-M249
 M4A1
 M4A1_Black
 M4A1_Green
@@ -54,14 +48,10 @@ SawedoffMosin9130_Green
 SaigaIJ70
 Scout
 SKS
-SKS_Black
-SKS_Green
 SVD
-SV98
 UMP45
 Val
 VSS
-Vikhr
 SSG82
 Ruger1022
 Winchestor70

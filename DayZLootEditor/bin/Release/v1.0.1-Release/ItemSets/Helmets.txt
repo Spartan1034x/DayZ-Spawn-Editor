@@ -1,6 +1,4 @@
 
-BallisticHelmet_BDU
-BallisticHelmet_Woodland
 BallisticHelmet_Black
 BallisticHelmet_Green
 BallisticHelmet_UN
@@ -30,8 +28,6 @@ FirefightersHelmet_Red
 FirefightersHelmet_White
 FirefightersHelmet_Yellow
 GorkaHelmet
-GorkaHelmet_Black
-GreatHelm
 HockeyHelmet_Black
 HockeyHelmet_Blue
 HockeyHelmet_Red
