@@ -1,0 +1,62 @@
+
+ SV98_10Rnd
+ Vikhr_30Rnd
+ 1911_7Rnd
+ AK101_30Rnd
+ AK74_30Rnd
+ AK74_45Rnd
+ AKM_30Rnd
+ AKM_Drum75Rnd
+ AKM_Palm30Rnd
+ Aug_30Rnd
+ CMAG_10Rnd
+ CMAG_20Rnd
+ CMAG_30Rnd
+ CMAG_40Rnd
+ CZ527_5rnd
+ CZ550_10Rnd
+ CZ61_20Rnd
+ CZ75_15Rnd
+ Deagle_9rnd
+ FAL_20Rnd
+ FAMAS_25Rnd
+ FNX45_15Rnd
+ Glock_15Rnd
+ IJ70_8Rnd
+ M14_10Rnd
+ M14_20Rnd
+ MKII_10Rnd
+ MP5_15Rnd
+ MP5_30Rnd
+ P1_8Rnd
+ PP19_64Rnd
+ Ruger1022_15Rnd
+ Ruger1022_30Rnd
+ SSG82_5rnd
+ STANAG_30Rnd
+ STANAG_60Rnd
+ SVD_10Rnd
+ Saiga_5Rnd
+ Saiga_8Rnd
+ Saiga_Drum20Rnd
+ Scout_5Rnd
+ UMP_25Rnd
+ VAL_20Rnd
+ VSS_10Rnd
+AKM_Drum_TEST
+AK101_30Rnd_Black
+AK101_30Rnd_Green
+AK74_30Rnd_Black
+AK74_30Rnd_Green
+AKM_Drum75Rnd_Black
+AKM_Drum75Rnd_Green
+AKM_Palm30Rnd_Black
+AKM_Palm30Rnd_Green
+C10Rnd_Black
+C10Rnd_Green
+C20Rnd_Black
+C20Rnd_Green
+C30Rnd_Black
+C30Rnd_Green
+C40Rnd_Black
+C40Rnd_Green

@@ -1,3 +1,16 @@
+				**v1.0.2-Release**
+
+				  **Changelog**
+1. Updated .txt files to reflect items added in 1.26.
+
+				  **BugFixes**
+				  
+
+				   **Code**			
+				
+				
+				
+				
 				**v1.0.1-Release**
 
 				  **Changelog**
