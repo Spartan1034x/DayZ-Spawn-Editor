@@ -1,6 +1,6 @@
 				****** MERGED INTO DAYZ TOOL *******
 This project has been merged into DayZTool, download that app to use updated features of this tool
-https://github.com/Spartan1034x/DayZ_Tool
+			   https://github.com/Spartan1034x/DayZ_Tool
 
 				*****Official release is now live!*****
 		     Download: https://mega.nz/folder/1u9nmZqK#YRvixwmVQPy4eeRgZlASUg
